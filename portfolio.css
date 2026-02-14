@@ -95,6 +95,32 @@ a {
   padding: 20px;
 }
 
+.project-preview {
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  overflow: hidden;
+  background: #11151f;
+  min-height: 170px;
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.project-preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  background: linear-gradient(135deg, #11151f, #1b2233);
+}
+
 .tags {
   margin: 12px 0;
   display: flex;
