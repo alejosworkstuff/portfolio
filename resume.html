@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alejo Castillo - Resume</title>
+    <style>
+      :root {
+        --text: #111827;
+        --muted: #4b5563;
+        --line: #d1d5db;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: #f3f4f6;
+        line-height: 1.45;
+      }
+
+      .page {
+        width: 8.27in;
+        min-height: 11.69in;
+        margin: 24px auto;
+        background: #fff;
+        padding: 36px 42px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: 28px;
+      }
+
+      .header-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .profile-photo {
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+      }
+
+      .meta {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+
+      .meta a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .section {
+        margin-top: 18px;
+      }
+
+      .section h2 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 5px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      ul {
+        margin: 6px 0 0 18px;
+        padding: 0;
+      }
+
+      li {
+        margin: 4px 0;
+        font-size: 14px;
+      }
+
+      .project {
+        margin-top: 10px;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 15px;
+      }
+
+      .links {
+        margin: 2px 0 0;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .links a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+
+        .page {
+          width: auto;
+          min-height: auto;
+          margin: 0;
+          box-shadow: none;
+          padding: 0;
+        }
+
+        .profile-photo {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="header-row">
+          <div class="header-text">
+            <h1>Alejo Castillo</h1>
+            <p class="meta">
+              Email:
+              <a href="mailto:alejoworkstuff@gmail.com">alejoworkstuff@gmail.com</a>
+              | LinkedIn:
+              <a href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/">linkedin.com/in/alejo-castillo-0b02b73b0</a>
+              | GitHub:
+              <a href="https://github.com/alejosworkstuff">github.com/alejosworkstuff</a>
+            </p>
+            <p class="meta">
+              Portfolio:
+              <a href="https://github.com/alejosworkstuff">github.com/alejosworkstuff</a>
+              | Location: La Plata, Buenos Aires, Argentina
+            </p>
+          </div>
+          <img class="profile-photo" src="./assets/me.png" alt="Alejo Castillo profile photo" />
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p>
+          Entry-level Full-stack Developer focused on building clean, user-first web applications with strong fundamentals
+          in frontend and backend development. Experienced shipping end-to-end projects using Next.js, React, TypeScript,
+          Node.js, and serverless APIs, with emphasis on clear architecture, resilient flows, and practical UX.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
+          <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, Vanilla JavaScript</li>
+          <li><strong>Backend:</strong> Node.js, REST APIs, Serverless Functions</li>
+          <li><strong>Data and State:</strong> JSON, Context API</li>
+          <li><strong>Tools:</strong> Git, GitHub, Vercel</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Projects</h2>
+
+        <article class="project">
+          <h3>Mini Ecommerce</h3>
+          <p class="links">
+            Live: <a href="https://mini-ecommerce-nextjs-psi.vercel.app/">mini-ecommerce-nextjs-psi.vercel.app</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs">github.com/alejosworkstuff/mini-ecommerce-nextjs</a>
+          </p>
+          <ul>
+            <li>Built a demo ecommerce app with product listing, product detail, cart management, and fake checkout flow.</li>
+            <li>Implemented global cart and order state with React Context.</li>
+            <li>Added Open Graph and Twitter metadata structure to improve link sharing readiness.</li>
+            <li>Improved project documentation with features, tech stack, screenshots checklist, and run instructions.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>AI Story Generator</h3>
+          <p class="links">
+            Live: <a href="https://ai-stories-ashy.vercel.app/">ai-stories-ashy.vercel.app</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
+          </p>
+          <ul>
+            <li>Developed a prompt-based story generator using Node.js and serverless API routes.</li>
+            <li>Integrated external AI generation service and handled API credit and limit failure states gracefully.</li>
+            <li>Improved reliability with explicit error handling and fallback user messaging.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Mini Job Board</h3>
+          <p class="links">
+            Live: <a href="https://alejosworkstuff.github.io/mini-job-board/">alejosworkstuff.github.io/mini-job-board</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/mini-job-board">github.com/alejosworkstuff/mini-job-board</a>
+          </p>
+          <ul>
+            <li>Built a responsive job board using HTML, CSS, JavaScript, and JSON as a local data source.</li>
+            <li>Implemented search and multi-filter functionality for faster job discovery.</li>
+            <li>Added dark mode with persistence and improved empty-state behavior.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <ul>
+          <li>FreeCodeCamp - Web Development Curriculum (Responsive Web Design, JavaScript, Frontend Libraries)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Certifications</h2>
+        <ul>
+          <li>None yet</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

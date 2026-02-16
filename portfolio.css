@@ -34,6 +34,12 @@ a {
   margin-bottom: 60px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .logo {
   font-weight: 700;
   font-size: 1.2rem;
@@ -157,16 +163,43 @@ a {
   font-size: 0.85rem;
 }
 
+.lang-toggle {
+  border: 1px solid var(--stroke);
+  background: transparent;
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-toggle:hover {
+  background: var(--panel);
+}
+
 .contact-links {
   display: flex;
   gap: 16px;
   margin-top: 10px;
 }
 
+.contact-links a {
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--text);
+}
+
 @media (max-width: 700px) {
   .site-header {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-cta {
