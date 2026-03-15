@@ -6,12 +6,18 @@
     <title>Alejo Castillo | Full-stack Developer</title>
     <link rel="stylesheet" href="portfolio.css" />
     <script src="i18n.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   </head>
+
+
 
   <body>
     <header class="site-header">
       <div class="logo">Alejo Castillo</div>
-      <nav class="site-nav">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="siteNav">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
         <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#skills" data-i18n="navSkills">Skills</a>
         <a href="#about" data-i18n="navAbout">About</a>
@@ -32,6 +38,7 @@
     <main>
       <section id="hero" class="hero">
         <p class="eyebrow" data-i18n="heroEyebrow">Full-stack Developer</p>
+        <p class="hero-value">Front-end focused, fast shipping, clean UX.</p>
         <h1 data-i18n="heroTitle">I build bold, user-first products that ship fast and scale clean.</h1>
         <p class="lede">
           <span data-i18n="heroLede1">I design and build full-stack apps with strong UX, clear architecture,
@@ -49,7 +56,7 @@
       <section id="projects" class="projects">
         <h2 data-i18n="projectsTitle">Projects</h2>
         <div class="project-grid">
-          <article class="card">
+          <article class="card" id="ai-story">
             <div class="project-preview">
               <img src="assets/projects/ia-stories-main.png" alt="IA Story Generator main page" loading="lazy" data-i18n-attr="alt:aiStoryAlt" />
             </div>
@@ -57,16 +64,21 @@
             <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Generate coherent short stories from minimal user input without breaking when API credits run out.</span></p>
             <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Node.js, Vercel Serverless Functions, Replicate API, Vanilla JavaScript.</span></p>
             <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Built a resilient generation flow with explicit 402 handling and clear fallback messaging.</span></p>
+            <p class="impact">Impact: Fallback keeps the demo usable even when credits are exhausted.</p>
             <div class="tags">
               <span>Node</span><span>Serverless</span><span>API Resilience</span>
             </div>
+            <details class="card-details">
+              <summary class="card-link">Read more</summary>
+              <p class="card-more">Designed a reliable failover path so users always get a story, even with API limits.</p>
+            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://ai-stories-ashy.vercel.app/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/ai-stories" data-i18n="projectRepo">Repo</a>
             </div>
           </article>
 
-          <article class="card"> 
+          <article class="card" id="mini-ecommerce"> 
             <div class="project-preview">
               <img src="assets/projects/mini-ecommerce-main.png" alt="Mini Ecommerce main page" loading="lazy" data-i18n-attr="alt:miniEcommerceAlt" />
             </div>
@@ -74,16 +86,21 @@
             <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniEcomProblem">Build a realistic storefront flow with browsing, cart updates, and checkout states.</span></p>
             <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniEcomStack">Next.js App Router, React, TypeScript, Context API, Tailwind CSS.</span></p>
             <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniEcomOutcome">Delivered a complete fake checkout journey with reliable cart behavior and success/error pages.</span></p>
+            <p class="impact">Impact: End-to-end shopping flow from browse to checkout.</p>
             <div class="tags">
               <span>Next.js</span><span>React</span><span>TypeScript</span>
             </div>
+            <details class="card-details">
+              <summary class="card-link">Read more</summary>
+              <p class="card-more">Built a complete cart and checkout journey with clear states and user feedback.</p>
+            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://mini-ecommerce-nextjs-psi.vercel.app/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs" data-i18n="projectRepo">Repo</a>
             </div>
           </article>
 
-          <article class="card">
+          <article class="card" id="mini-job-board">
             <div class="project-preview">
               <img src="assets/projects/mini-job-board-main.png" alt="Mini Job Board main page" loading="lazy" data-i18n-attr="alt:miniJobBoardAlt" />
             </div>
@@ -91,9 +108,14 @@
             <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniJobProblem">Help users find relevant jobs quickly from a JSON dataset with multiple filters.</span></p>
             <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniJobStack">HTML, CSS, Vanilla JavaScript, JSON data source.</span></p>
             <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniJobOutcome">Shipped client-side search/filter logic with empty-state handling and persisted dark mode.</span></p>
+            <p class="impact">Impact: Fast filtering across multiple job types and levels.</p>
             <div class="tags">
               <span>JavaScript</span><span>UI Filtering</span><span>Dark Mode</span>
             </div>
+            <details class="card-details">
+              <summary class="card-link">Read more</summary>
+              <p class="card-more">Optimized client-side filtering and empty states for quick job discovery.</p>
+            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/mini-job-board/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-job-board" data-i18n="projectRepo">Repo</a>
@@ -125,11 +147,18 @@
       </section>
 
       <section id="about" class="about">
+        <div class="about-grid">
+        <div>
         <h2 data-i18n="aboutTitle">About</h2>
         <p>
           <span data-i18n="aboutBody">I build end-to-end web products with clean, maintainable code and strong UX.
           I care about speed, clarity, and shipping things people actually want to use.</span>
         </p>
+        </div>
+        <div class="about-highlight">
+          <p>Focus: clean UI, fast iteration, and user-first flows.</p>
+        </div>
+      </div>
       </section>
 
       <section id="contact" class="contact">
@@ -145,5 +174,17 @@
     <footer class="site-footer">
       <p><span data-i18n="footerPortfolio">Portfolio:</span> <a href="https://alejosworkstuff.github.io/portfolio/">https://alejosworkstuff.github.io/portfolio/</a></p>
     </footer>
+    
+    <script>
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.getElementById("site-nav");
+
+  toggle.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+</script>
+
+
   </body>
 </html>
