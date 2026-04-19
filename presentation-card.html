@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alejo Castillo — Presentation card</title>
+    <style>
+      :root {
+        --ink: #14161a;
+        --muted: #5c6470;
+        --line: #e2e5eb;
+        --surface: #fafbfc;
+        --accent: #1e3a5f;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+        font-size: 15px;
+        line-height: 1.45;
+        color: var(--ink);
+        background: #eef1f5;
+      }
+      .wrap {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 2.5rem;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1.75rem 1.75rem 1.5rem;
+        box-shadow: 0 8px 28px rgba(20, 22, 26, 0.06);
+      }
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.2rem;
+        color: var(--accent);
+      }
+      .role {
+        margin: 0 0 1rem;
+        font-weight: 600;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .pitch {
+        margin: 0 0 1.25rem;
+        font-size: 0.98rem;
+      }
+      h2 {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin: 1.25rem 0 0.5rem;
+        font-weight: 700;
+      }
+      ul.skills {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+      ul.skills li {
+        font-size: 0.82rem;
+        padding: 0.28rem 0.55rem;
+        border-radius: 6px;
+        background: #e8ecf2;
+        color: var(--ink);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.55rem 0.4rem;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      .proj-name {
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .contact {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.86rem;
+        color: var(--muted);
+      }
+      .contact a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .contact a:hover {
+        text-decoration: underline;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+        .wrap {
+          padding: 0;
+        }
+        .card {
+          box-shadow: none;
+          border-radius: 0;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <article class="card">
+        <h1>Alejo Castillo</h1>
+        <p class="role">Full-stack developer · La Plata, Buenos Aires, Argentina</p>
+        <p class="pitch">
+          I ship end-to-end web apps with clear UX, predictable architecture, and resilient flows—mainly
+          Next.js/React/TypeScript on the front, plus Node and serverless APIs where it matters.
+        </p>
+
+        <h2>Core stack</h2>
+        <ul class="skills">
+          <li>JavaScript / TypeScript</li>
+          <li>React &amp; Next.js (App Router)</li>
+          <li>HTML &amp; CSS</li>
+          <li>Tailwind CSS</li>
+          <li>Node.js &amp; REST</li>
+          <li>Serverless (Vercel)</li>
+          <li>Git &amp; GitHub</li>
+          <li>Vercel deploy</li>
+        </ul>
+
+        <h2>Projects in this workspace (what each shows)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Stack &amp; notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="proj-name">Mini Ecommerce</td>
+              <td>
+                Next.js, React, TypeScript, Tailwind — product catalog, cart with Context API, fake checkout, OG
+                metadata. Demonstrates structured routing and global client state.
+              </td>
+            </tr>
+            <tr>
+              <td class="proj-name">IA Stories</td>
+              <td>
+                Vercel serverless API, Replicate (Llama), vanilla JS + ES modules in <code>public</code> —
+                validation, graceful handling when API credits return HTTP 402, and clear fallback UX.
+              </td>
+            </tr>
+            <tr>
+              <td class="proj-name">Mini Job Board</td>
+              <td>
+                Static HTML/CSS/JS, JSON job data — filters, search, dark mode with persistence,
+                multi-page flow (list, details, saved jobs) without a framework build step.
+              </td>
+            </tr>
+            <tr>
+              <td class="proj-name">Portfolio site</td>
+              <td>
+                Hand-coded HTML/CSS, lightweight i18n (EN/ES), project cards with live/repo links — focus on clarity
+                and fast loads.
+              </td>
+            </tr>
+            <tr>
+              <td class="proj-name">Sarava (cultural site)</td>
+              <td>
+                Next.js + Tailwind — landing with hero/banner patterns and shared shell components for a content-led
+                experience.
+              </td>
+            </tr>
+            <tr>
+              <td class="proj-name">Práctica / CV</td>
+              <td>
+                HTML exercises (<code>practica</code>); print-ready CV/cover pages (<code>CV/</code>) for applications.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="contact">
+          <strong>Contact:</strong>
+          alejoworkstuff@gmail.com ·
+          <a href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/">LinkedIn</a>
+          ·
+          <a href="https://github.com/alejosworkstuff">GitHub</a>
+          ·
+          <a href="https://alejosworkstuff.github.io/portfolio/">Portfolio</a>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
