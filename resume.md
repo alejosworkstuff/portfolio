@@ -1,6 +1,6 @@
 # Alejo Castillo
 
-Email: alejoworkstuff@gmail.com | LinkedIn: [linkedin.com/in/alejo-castillo-0b02b73b0](https://www.linkedin.com/in/alejo-castillo-0b02b73b0/) | GitHub: [github.com/alejosworkstuff](https://github.com/alejosworkstuff)
+Email: [alejoworkstuff@gmail.com](mailto:alejoworkstuff@gmail.com) | LinkedIn: [linkedin.com/in/alejo-castillo-0b02b73b0](https://www.linkedin.com/in/alejo-castillo-0b02b73b0/) | GitHub: [github.com/alejosworkstuff](https://github.com/alejosworkstuff)
 Portfolio: [alejosworkstuff.github.io/portfolio](https://alejosworkstuff.github.io/portfolio/) | Location: La Plata, Buenos Aires, Argentina
 
 ## Professional Summary
@@ -11,9 +11,9 @@ Entry-level Full-stack Developer focused on building clean, user-first web appli
 
 - Languages: JavaScript, TypeScript, HTML, CSS
 - Frontend: React, Next.js (App Router), Tailwind CSS, Vanilla JavaScript
-- Backend: Node.js, REST APIs, Serverless Functions
-- Data and State: JSON, Context API
-- Tools: Git, GitHub, Vercel
+- Backend: Node.js, REST APIs, GraphQL, Serverless Functions, WebSockets
+- Data and State: JSON, Context API, Redis cache/session patterns
+- Delivery and Cloud: Git, GitHub Actions, Docker, Kubernetes, AWS, Vercel
 
 ## Projects
 
@@ -22,9 +22,17 @@ Entry-level Full-stack Developer focused on building clean, user-first web appli
 Live: [mini-ecommerce-nextjs-psi.vercel.app](https://mini-ecommerce-nextjs-psi.vercel.app/) | Repo: [github.com/alejosworkstuff/mini-ecommerce-nextjs](https://github.com/alejosworkstuff/mini-ecommerce-nextjs)
 
 - Built a demo ecommerce app with product listing, product detail, cart management, and fake checkout flow.
-- Implemented global cart and order state with React Context.
-- Added Open Graph and Twitter metadata structure to improve link sharing readiness.
-- Improved project documentation with features, tech stack, screenshots checklist, and run instructions.
+- Added REST route handlers and a GraphQL endpoint to compare API approaches in the same app.
+- Integrated Redis-based product caching and cart session sync patterns with local fallback.
+- Added realtime order-status updates via a WebSocket gateway plus Docker, AWS ECS, and CI workflow scaffolding.
+
+### K8s Realtime Lab
+
+Repo: Local project (`k8s-realtime-lab`) with Docker and Kubernetes manifests
+
+- Built a small Node.js WebSocket service with health endpoints and broadcast events.
+- Containerized the service and created Kubernetes manifests (Deployment, Service, Ingress).
+- Added CI/CD automation for image build, manifest validation, and cluster deploy steps.
 
 ### AI Story Generator
 
