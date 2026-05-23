@@ -163,18 +163,59 @@ a {
 }
 
 .card:has(.project-preview) {
-  height: 480px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
 }
 
-.card:has(.project-preview):hover {
-  transform: translateY(-12px) scale(1.05);
-  height: 680px;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
-  padding: 28px;
+.card:has(.project-preview) .card__extended {
+  opacity: 1;
+  max-height: none;
+  transform: none;
+  overflow: visible;
+}
+
+.card:has(.project-preview) .card-details {
+  opacity: 1;
+  max-height: 120px;
+}
+
+.card:has(.project-preview) .project-links {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:has(.project-preview) {
+    height: 480px;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .card:has(.project-preview):hover {
+    transform: translateY(-12px) scale(1.05);
+    height: 680px;
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
+    padding: 28px;
+  }
+
+  .card:has(.project-preview):not(:hover) .card__extended {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+  }
+
+  .card:has(.project-preview):not(:hover) .card-details {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .card:has(.project-preview):not(:hover) .project-links {
+    opacity: 0;
+    transform: translateY(15px);
+  }
 }
 
 /* Use a column layout; line-clamp on this wrapper breaks with multiple <p>
@@ -193,39 +234,31 @@ a {
   margin: 0;
 }
 
-.card:has(.project-preview):not(:hover) .card__text > p:first-of-type {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-.card:has(.project-preview):not(:hover) .card__text > p:last-of-type {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.card:has(.project-preview):hover .card__text > p {
-  display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
-}
-
 .card__extended {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transform: translateY(-10px);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
   margin: 12px 0 16px;
 }
 
-.card:has(.project-preview):hover .card__extended {
-  opacity: 1;
-  max-height: 200px;
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .card:has(.project-preview):not(:hover) .card__text > p:first-of-type {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .card:has(.project-preview):not(:hover) .card__text > p:last-of-type {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .card:has(.project-preview):hover .card__text > p {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
 }
 
 .project-preview {
@@ -239,8 +272,10 @@ a {
   transition: transform 0.3s ease;
 }
 
-.card:has(.project-preview):hover .project-preview {
-  transform: scale(1.03);
+@media (hover: hover) and (pointer: fine) {
+  .card:has(.project-preview):hover .project-preview {
+    transform: scale(1.03);
+  }
 }
 
 .project-preview img {
@@ -250,8 +285,10 @@ a {
   transition: transform 0.3s ease;
 }
 
-.card:has(.project-preview):hover .project-preview img {
-  transform: scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .card:has(.project-preview):hover .project-preview img {
+    transform: scale(1.08);
+  }
 }
 
 .tags {
@@ -272,14 +309,7 @@ a {
 }
 
 .card-details {
-  opacity: 0;
-  max-height: 0;
   transition: all 0.3s ease 0.2s;
-}
-
-.card:has(.project-preview):hover .card-details {
-  opacity: 1;
-  max-height: 120px;
 }
 
 .card-details summary {
@@ -300,17 +330,11 @@ a {
 }
 
 .project-links {
-  opacity: 0;
-  transform: translateY(15px);
   transition: all 0.3s ease 0.3s;
   margin-top: auto;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-}
-
-.card:has(.project-preview):hover .project-links {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .btn, .lang-toggle {
@@ -442,12 +466,19 @@ a {
   .about-grid {
     grid-template-columns: 1fr;
   }
-  .card:has(.project-preview) {
-    height: 460px;
+  body {
+    padding: 24px 5vw;
   }
-  .card:has(.project-preview):hover {
-    height: 640px;
-    transform: translateY(-8px) scale(1.02);
+
+  @media (hover: hover) and (pointer: fine) {
+    .card:has(.project-preview) {
+      height: 460px;
+    }
+
+    .card:has(.project-preview):hover {
+      height: 640px;
+      transform: translateY(-8px) scale(1.02);
+    }
   }
 }
 
