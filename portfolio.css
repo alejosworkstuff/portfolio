@@ -8,6 +8,10 @@
   --radius: 18px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,6 +25,92 @@ body {
   line-height: 1.6;
   padding: 40px 8vw;
   animation: fadeIn 0.5s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+}
+
+body::before {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 0 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(255, 106, 61, 0.7) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 105, 180, 0.65) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(0, 123, 255, 0.7) 0 1px, transparent 1.5px);
+
+  background-size:
+    220px 220px,
+    340px 340px,
+    420px 420px,
+    520px 520px;
+
+  background-position:
+    20px 40px,
+    120px 180px,
+    260px 90px,
+    60px 300px;
+
+  opacity: 0.35;
+  animation: starTwinkle 5s ease-in-out infinite alternate;
+}
+
+body::after {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.7px),
+    radial-gradient(circle, rgba(255, 106, 61, 0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(0, 123, 255, 0.75) 0 1px, transparent 1.5px);
+
+  background-size:
+    380px 390px,
+    460px 460px,
+    620px 620px;
+
+  background-position:
+    180px 80px,
+    40px 260px,
+    300px 160px;
+
+  opacity: 0.18;
+  animation: starFlash 8s steps(4, end) infinite;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes starTwinkle {
+  from {
+    opacity: 0.22;
+  }
+
+  to {
+    opacity: 0.45;
+  }
+}
+
+@keyframes starFlash {
+  0%, 70%, 100% {
+    opacity: 0.12;
+  }
+
+  75% {
+    opacity: 0.45;
+  }
+
+  82% {
+    opacity: 0.18;
+  }
 }
 
 @keyframes fadeIn {
@@ -31,6 +121,20 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .social-bubble,
+  .social-icon,
+  .social-bubble::before,
+  .social-bubble::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -83,7 +187,7 @@ a {
   right: 0;
   bottom: 0;
   background: 
-    linear-gradient(135deg,
+    linear-gradient(135deg,f
       rgba(255, 106, 61, 0.5) 0%,
       rgba(255, 105, 180, 0.5) 33%,
       rgba(0, 123, 255, 0.5) 66%,
@@ -140,6 +244,10 @@ a {
 .about,
 .contact {
   margin-bottom: 100px;
+}
+
+.projects h2 {
+  margin-bottom: 24px;
 }
 
 .project-grid,
@@ -383,8 +491,8 @@ a {
   margin-bottom: 16px;
 }
 
-.contact p {
-  margin-bottom: 32px;
+.contact-intro {
+  margin-bottom: 14px;
   font-size: 1.1rem;
   color: var(--muted);
   max-width: 500px;
@@ -392,33 +500,131 @@ a {
   margin-right: auto;
 }
 
+.contact-email {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--text);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
 .contact-links {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.contact-links a {
-  border: 2px solid var(--accent);
-  border-radius: 999px;
-  padding: 10px 20px;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  background: transparent;
+.contact-copy {
+  font-family: inherit;
 }
 
-.contact-links a:hover {
-  background: var(--accent);
-  color: var(--bg);
+.social-bubble {
+  --bubble-ring: var(--stroke);
+  --lava-a: #5d95ff;
+  --lava-b: #2dd4bf;
+  --lava-c: #a78bfa;
+  --lava-d: #f472b6;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--bubble-ring);
+  background: var(--panel);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+  transition: transform 260ms ease, box-shadow 320ms ease;
+}
+
+.social-bubble:hover,
+.social-bubble:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(255, 106, 61, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+.social-bubble::before,
+.social-bubble::after {
+  content: "";
+  position: absolute;
+  border-radius: 42%;
+  opacity: 0;
+  transform: translateY(35%) scale(0.84);
+  transition: transform 520ms ease, opacity 360ms ease;
+  pointer-events: none;
+}
+
+.social-bubble::before {
+  inset: -24%;
+  background:
+    radial-gradient(circle at 22% 30%, var(--lava-a), transparent 58%),
+    radial-gradient(circle at 78% 28%, var(--lava-b), transparent 58%),
+    radial-gradient(circle at 24% 78%, var(--lava-c), transparent 60%),
+    radial-gradient(circle at 76% 76%, var(--lava-d), transparent 58%);
+  filter: blur(2px) saturate(130%);
+}
+
+.social-bubble::after {
+  inset: -12%;
+  background: conic-gradient(from 40deg, var(--lava-a), var(--lava-b), var(--lava-c), var(--lava-d), var(--lava-a));
+  mix-blend-mode: screen;
+  filter: blur(8px) saturate(130%);
+}
+
+.social-bubble:hover::before,
+.social-bubble:hover::after,
+.social-bubble:focus-visible::before,
+.social-bubble:focus-visible::after {
+  opacity: 0.98;
+  transform: translateY(0) scale(1.06);
+  animation: lava-swirl 2.9s linear infinite;
+}
+
+.social-github {
+  --lava-a: #161b22;
+  --lava-b: #21262d;
+  --lava-c: #30363d;
+  --lava-d: #238636;
+}
+
+.social-linkedin {
+  --lava-a: #0a66c2;
+  --lava-b: #004182;
+  --lava-c: #1d8bf1;
+  --lava-d: #7dbfff;
+}
+
+.social-icon {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 2;
+  filter: brightness(0) invert(1);
+  transition: transform 520ms cubic-bezier(0.2, 0.86, 0.38, 0.99), filter 240ms ease;
+}
+
+.social-bubble:hover .social-icon,
+.social-bubble:focus-visible .social-icon {
+  transform: rotate(360deg) scale(1.07);
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+}
+
+@keyframes lava-swirl {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1.06);
+  }
+
+  50% {
+    transform: translateY(-2px) rotate(180deg) scale(1.12);
+  }
+
+  100% {
+    transform: translateY(0) rotate(360deg) scale(1.06);
+  }
 }
 
 .nav-toggle {
