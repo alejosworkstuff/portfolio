@@ -63,15 +63,15 @@
               <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Node.js, Vercel Serverless Functions, Replicate API, Vanilla JavaScript.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Built a resilient generation flow with explicit 402 handling and clear fallback messaging.</span></p>
-              <p class="impact" data-i18n="aiStoryImpact">Impact: Fallback keeps the demo usable even when credits are exhausted.</p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Built a resilient generation flow with client HTTP timeout/retry, explicit 402 handling, and deterministic local fallback stories.</span></p>
+              <p class="impact" data-i18n="aiStoryImpact">Impact: Users always get a story—even when API credits run out or the provider returns transient errors.</p>
               <div class="tags">
-                <span>Node</span><span>Serverless</span><span>API Resilience</span>
+                <span>Node</span><span>Serverless</span><span>HTTP Resilience</span>
               </div>
             </div>
             <details class="card-details">
               <summary class="card-link"></summary>
-              <p class="card-more">Designed a reliable failover path so users always get a story, even with API limits.</p>
+              <p class="card-more">Resilient client and server layers so generation keeps working when AI credits or provider uptime fail.</p>
             </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://ai-stories-ashy.vercel.app/" data-i18n="projectLive">Live</a>
@@ -135,21 +135,21 @@
             <div class="project-preview">
               <img src="assets/projects/savara-project.png" alt="Saravá Radio Streaming mockup" loading="lazy" data-i18n-attr="alt:saravaAlt" />
             </div>
-            <h3 data-i18n="saravaTitle">Saravá Radio Streaming</h3>
+            <h3 data-i18n="saravaTitle">Saravá — Espacio Cultural</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="saravaProblem">Create a commission-ready community hub mockup with clear sections and navigation.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="saravaStack">Next.js App Router, React, TypeScript, CSS.</span></p>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="saravaProblem">Give a cultural community a multi-section web presence (radio, podcast, book club, events) with editable content and static hosting.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="saravaStack">Next.js App Router, React, TypeScript, Tailwind CSS, static export, GitHub Pages.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="saravaOutcome">Shipped a polished static mockup with multiple pages and a feed-style homepage.</span></p>
-              <p class="impact" data-i18n="saravaImpact">Impact: Clear presentation for client review and future WordPress build.</p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="saravaOutcome">Shipped a live community site with type-safe JSON content, dynamic hero carousel, and reusable section components.</span></p>
+              <p class="impact" data-i18n="saravaImpact">Impact: Client-ready cultural hub deployed on GitHub Pages with CI-backed builds.</p>
               <div class="tags">
-                <span>Next.js</span><span>UX</span><span>Client Work</span>
+                <span>Next.js</span><span>Static Export</span><span>Client Work</span>
               </div>
             </div>
             <details class="card-details">
               <summary class="card-link"></summary>
-              <p class="card-more">Designed a clean hub layout that highlights radio, podcast, and cultural spaces.</p>
+              <p class="card-more">Live cultural hub with JSON-driven content, hero carousel, and section components—no server required in production.</p>
             </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/sarava-radio-streaming/" data-i18n="projectLive">Live</a>
@@ -164,11 +164,11 @@
         <div class="skill-grid">
           <div class="card">
             <h4 data-i18n="skillsFrontendTitle">Frontend</h4>
-            <p data-i18n="skillsFrontendList">React, Next.js App Router, TypeScript, Tailwind CSS, SSG/ISR, Context API, Error Boundaries</p>
+            <p data-i18n="skillsFrontendList">React, Next.js App Router, TypeScript, Tailwind CSS, SSG/ISR, Context API, Custom hooks, Error Boundaries, Vanilla JavaScript</p>
           </div>
           <div class="card">
             <h4 data-i18n="skillsBackendTitle">Backend & Auth</h4>
-            <p data-i18n="skillsBackendList">Node.js, REST & GraphQL, Clerk auth, Serverless, Redis, WebSockets</p>
+            <p data-i18n="skillsBackendList">Node.js, REST & GraphQL, Clerk auth, Serverless, Redis, WebSockets, Replicate AI integration</p>
           </div>
           <div class="card">
             <h4 data-i18n="skillsDataTitle">Reliability & State</h4>
@@ -176,7 +176,7 @@
           </div>
           <div class="card">
             <h4 data-i18n="skillsDeliveryTitle">Testing & Delivery</h4>
-            <p data-i18n="skillsDeliveryList">Vitest, Playwright E2E, GitHub Actions CI, Vercel deploy, Engineering docs (DoD, PR templates)</p>
+            <p data-i18n="skillsDeliveryList">Vitest, Testing Library, Playwright E2E, GitHub Actions CI, Vercel & GitHub Pages deploy, Engineering docs (DoD, PR templates)</p>
           </div>
         </div>
       </section>
