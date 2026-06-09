@@ -241,9 +241,42 @@ a {
 
 .projects,
 .skills,
+.ai-dev,
 .about,
 .contact {
   margin-bottom: 100px;
+}
+
+.ai-dev h2 {
+  margin-bottom: 20px;
+}
+
+.ai-dev-panel {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 720px;
+}
+
+.ai-dev-panel > p {
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.ai-dev-bullets {
+  padding-left: 1.15em;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ai-dev-bullets li {
+  margin-bottom: 8px;
+}
+
+.ai-dev-bullets li:last-child {
+  margin-bottom: 0;
 }
 
 .projects h2 {
