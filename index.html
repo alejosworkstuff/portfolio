@@ -79,7 +79,7 @@
             </div>
           </article>
 
-          <article class="card" id="mini-ecommerce"> 
+          <article class="card card--case-study" id="mini-ecommerce"> 
             <div class="project-preview">
               <img src="assets/projects/mini-ecommerce-main.png" alt="Mini Ecommerce main page" loading="lazy" data-i18n-attr="alt:miniEcommerceAlt" />
             </div>
@@ -89,15 +89,21 @@
               <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniEcomStack">Next.js App Router, React 19, TypeScript, Clerk, Tailwind CSS, Sentry, Playwright, GitHub Actions.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniEcomOutcome">Shipped Clerk auth with protected routes, a typed HTTP client with timeout/retry, SSG/ISR catalog, and Playwright checkout E2E in CI.</span></p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniEcomOutcome">Production-grade storefront with auth-aware flows, resilient APIs, and CI-backed checkout.</span></p>
+              <ul class="case-study-bullets">
+                <li data-i18n="miniEcomBulletAuth">Auth — Clerk sign-in, protected routes, per-user orders, and admin role demo.</li>
+                <li data-i18n="miniEcomBulletHttp">HTTP resilience — Typed client with timeout/retry and AppError for user-facing failures.</li>
+                <li data-i18n="miniEcomBulletRendering">Rendering — SSG/ISR catalog and PDP for fast loads with fresh product data.</li>
+                <li data-i18n="miniEcomBulletCi">CI — GitHub Actions (lint, type-check, tests, build) plus Playwright checkout E2E.</li>
+              </ul>
               <p class="impact" data-i18n="miniEcomImpact">Impact: Recruiters can sign in, browse, and complete a tested checkout—not just click through a mock UI.</p>
               <div class="tags">
-                <span>Clerk</span><span>Playwright</span><span>HTTP Resilience</span>
+                <span>Clerk</span><span>SSG/ISR</span><span>HTTP Resilience</span><span>Playwright</span>
               </div>
             </div>
             <details class="card-details">
               <summary class="card-link"></summary>
-              <p class="card-more">Auth, resilient API layer, and E2E-tested checkout—the depth most junior portfolios skip.</p>
+              <p class="card-more" data-i18n="miniEcomMore">Engineering decisions spelled out on the card—auth, resilience, rendering, and CI—not just a screenshot and stack list.</p>
             </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://mini-ecommerce-nextjs-psi.vercel.app/" data-i18n="projectLive">Live</a>
