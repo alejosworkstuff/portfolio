@@ -336,13 +336,14 @@ a {
 
   .card:has(.project-preview):hover {
     transform: translateY(-12px) scale(1.05);
-    height: 680px;
+    height: auto;
+    min-height: 680px;
     box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4);
     padding: 28px;
   }
 
   .card--case-study:has(.project-preview):hover {
-    height: 760px;
+    min-height: 760px;
   }
 
   .card:has(.project-preview):not(:hover) .card__extended {
@@ -350,16 +351,12 @@ a {
     max-height: 0;
     overflow: hidden;
     transform: translateY(-10px);
+    margin: 0;
   }
 
   .card:has(.project-preview):not(:hover) .card-details {
     opacity: 0;
     max-height: 0;
-  }
-
-  .card:has(.project-preview):not(:hover) .project-links {
-    opacity: 0;
-    transform: translateY(15px);
   }
 }
 
@@ -493,6 +490,8 @@ a {
 .project-links {
   transition: all 0.3s ease 0.3s;
   margin-top: auto;
+  flex-shrink: 0;
+  padding-top: 12px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -735,8 +734,13 @@ a {
     }
 
     .card:has(.project-preview):hover {
-      height: 640px;
+      height: auto;
+      min-height: 640px;
       transform: translateY(-8px) scale(1.02);
+    }
+
+    .card--case-study:has(.project-preview):hover {
+      min-height: 720px;
     }
   }
 }
