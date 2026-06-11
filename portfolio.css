@@ -241,10 +241,43 @@ a {
 
 .projects,
 .skills,
+.engineering,
 .ai-dev,
 .about,
 .contact {
   margin-bottom: 100px;
+}
+
+.engineering h2 {
+  margin-bottom: 16px;
+}
+
+.eng-intro {
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+
+.eng-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.eng-list {
+  padding-left: 1.15em;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.eng-list li {
+  margin-bottom: 6px;
+}
+
+.eng-list li:last-child {
+  margin-bottom: 0;
 }
 
 .ai-dev h2 {

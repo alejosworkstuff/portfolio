@@ -18,6 +18,7 @@
       <nav id="site-nav" class="site-nav">
         <a href="#projects" data-i18n="navProjects">Projects</a>
         <a href="#skills" data-i18n="navSkills">Skills</a>
+        <a href="#engineering" data-i18n="navEngineering">Engineering</a>
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
@@ -53,25 +54,31 @@
       <section id="projects" class="projects">
         <h2 data-i18n="projectsTitle">Projects</h2>
         <div class="project-grid">
-          <article class="card" id="ai-story">
+          <article class="card card--case-study" id="ai-story">
             <div class="project-preview">
               <img src="assets/projects/ia-stories-main.png" alt="IA Story Generator main page" loading="lazy" data-i18n-attr="alt:aiStoryAlt" />
             </div>
             <h3 data-i18n="aiStoryTitle">AI Story Generator</h3>
             <div class="card__text">
               <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Generate coherent short stories from minimal user input without breaking when API credits run out.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Node.js, Vercel Serverless Functions, Replicate API, Vanilla JavaScript.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Vercel Serverless Functions, Replicate API (Llama 3), Vanilla JavaScript, Playwright, GitHub Actions.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Built a resilient generation flow with client HTTP timeout/retry, explicit 402 handling, and deterministic local fallback stories.</span></p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Production-minded AI feature with explicit API contracts, resilient client HTTP, and deterministic fallbacks.</span></p>
+              <ul class="case-study-bullets">
+                <li data-i18n="aiStoryBulletApi">AI API — Serverless Replicate integration with tone/length controls and explicit HTTP contracts (402 when credits fail).</li>
+                <li data-i18n="aiStoryBulletHttp">HTTP resilience — fetchWithResilience: AbortController timeout, retry on 429/502/503, typed HttpError.</li>
+                <li data-i18n="aiStoryBulletFallback">Fallback — Deterministic local story generator plus transparent session notice when AI is unavailable.</li>
+                <li data-i18n="aiStoryBulletCi">CI + E2E — GitHub Actions (syntax, API/fallback tests) and Playwright generate flow with mocked API.</li>
+              </ul>
               <p class="impact" data-i18n="aiStoryImpact">Impact: Users always get a story—even when API credits run out or the provider returns transient errors.</p>
               <div class="tags">
-                <span>Node</span><span>Serverless</span><span>HTTP Resilience</span>
+                <span>Replicate</span><span>HTTP Resilience</span><span>Fallback</span><span>Playwright</span>
               </div>
             </div>
             <details class="card-details">
               <summary class="card-link"></summary>
-              <p class="card-more">Resilient client and server layers so generation keeps working when AI credits or provider uptime fail.</p>
+              <p class="card-more" data-i18n="aiStoryMore">Engineering decisions on the card—AI contracts, client resilience, fallbacks, and CI—not just a demo that works on a good day.</p>
             </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://ai-stories-ashy.vercel.app/" data-i18n="projectLive">Live</a>
@@ -111,25 +118,31 @@
             </div>
           </article>
 
-          <article class="card" id="mini-job-board">
+          <article class="card card--case-study" id="mini-job-board">
             <div class="project-preview">
               <img src="assets/projects/mini-job-board-main.png" alt="Mini Job Board main page" loading="lazy" data-i18n-attr="alt:miniJobBoardAlt" />
             </div>
             <h3 data-i18n="miniJobTitle">Mini Job Board</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniJobProblem">Help users find relevant jobs quickly from a JSON dataset with multiple filters.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniJobStack">HTML, CSS, Vanilla JavaScript, JSON data source.</span></p>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniJobProblem">Simulate hiring-platform workflows—search, filters, saved jobs, detail views—without a framework or build step.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniJobStack">HTML, CSS, Vanilla JavaScript, JSON data source, Playwright, GitHub Actions.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniJobOutcome">Shipped client-side search/filter logic with empty-state handling and persisted dark mode.</span></p>
-              <p class="impact" data-i18n="miniJobImpact">Impact: Fast filtering across multiple job types and levels.</p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniJobOutcome">Interaction-heavy job board with tested filter logic, multi-page flows, and CI-backed quality gates.</span></p>
+              <ul class="case-study-bullets">
+                <li data-i18n="miniJobBulletFilter">Filter logic — Pure filter/sort module decoupled from the DOM; unit-tested in Node.</li>
+                <li data-i18n="miniJobBulletFlows">Product flows — Search, filters, saved jobs, detail modals/pages; theme and grid/list prefs in localStorage.</li>
+                <li data-i18n="miniJobBulletCi">CI — GitHub Actions: JS syntax checks, JSON schema validation, and filter unit tests.</li>
+                <li data-i18n="miniJobBulletE2e">E2E — Playwright happy path: search → save job → saved jobs modal.</li>
+              </ul>
+              <p class="impact" data-i18n="miniJobImpact">Impact: Recruiters can search, filter, save jobs, and verify the flow via Playwright—not just scroll a static list.</p>
               <div class="tags">
-                <span>JavaScript</span><span>UI Filtering</span><span>Dark Mode</span>
+                <span>Vanilla JS</span><span>Unit Tests</span><span>Playwright</span><span>CI</span>
               </div>
             </div>
             <details class="card-details">
               <summary class="card-link"></summary>
-              <p class="card-more">Optimized client-side filtering and empty states for quick job discovery.</p>
+              <p class="card-more" data-i18n="miniJobMore">Engineering decisions on the card—testable filter architecture, product flows, CI, and E2E—not just a styled job list.</p>
             </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/mini-job-board/" data-i18n="projectLive">Live</a>
@@ -183,6 +196,43 @@
           <div class="card">
             <h4 data-i18n="skillsDeliveryTitle">Testing & Delivery</h4>
             <p data-i18n="skillsDeliveryList">Vitest, Testing Library, Playwright E2E, GitHub Actions CI, Vercel & GitHub Pages deploy, Engineering docs (DoD, PR templates)</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="engineering" class="engineering">
+        <h2 data-i18n="engineeringTitle">Engineering Practices</h2>
+        <p class="eng-intro" data-i18n="engIntro">How I ship: tests at every layer, CI on every push, auth and secrets treated seriously, and observability plus docs so the next person (or future me) isn't guessing.</p>
+        <div class="skill-grid">
+          <div class="card">
+            <h4 data-i18n="engTestingTitle">Testing</h4>
+            <ul class="eng-list">
+              <li data-i18n="engTestingBullet1">Vitest unit tests on pure logic and React components</li>
+              <li data-i18n="engTestingBullet2">CartContext integration tests on checkout flows</li>
+              <li data-i18n="engTestingBullet3">Playwright E2E across all three featured repos</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 data-i18n="engCiTitle">CI / Delivery</h4>
+            <ul class="eng-list">
+              <li data-i18n="engCiBullet1">GitHub Actions: lint, type-check, test, build on every PR</li>
+              <li data-i18n="engCiBullet2">Vercel previews + production; GitHub Pages for static sites</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 data-i18n="engAuthTitle">Auth &amp; Security</h4>
+            <ul class="eng-list">
+              <li data-i18n="engAuthBullet1">Clerk OIDC sign-in with session-aware middleware</li>
+              <li data-i18n="engAuthBullet2">Protected routes and per-user order scoping</li>
+              <li data-i18n="engAuthBullet3">Secrets hygiene: .env.example, gitignored keys, no creds in client bundles</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4 data-i18n="engObsTitle">Observability &amp; Docs</h4>
+            <ul class="eng-list">
+              <li data-i18n="engObsBullet1">Sentry, structured logger.ts, and React error boundaries</li>
+              <li data-i18n="engObsBullet2">Definition of Done and PR templates in repo docs</li>
+            </ul>
           </div>
         </div>
       </section>
