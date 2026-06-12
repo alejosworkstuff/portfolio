@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alejo Castillo - Resume</title>
+    <style>
+      :root {
+        --text: #f3f4f6;
+        --muted: #9ca3af;
+        --line: #374151;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background: #0b0f17;
+        line-height: 1.3;
+      }
+
+      .page {
+        width: 210mm;
+        margin: 24px auto;
+        background: #111827;
+        padding: 16px 20px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      h1 {
+        margin: 0 0 3px;
+        font-size: 22px;
+      }
+
+      .header-row {
+        display: grid;
+        grid-template-columns: 1fr 80px;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .header-text {
+        min-width: 0;
+      }
+
+      .profile-photo {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid var(--line);
+      }
+
+      .meta {
+        font-size: 11px;
+        color: var(--muted);
+        margin: 0 0 2px;
+        overflow-wrap: anywhere;
+        line-height: 1.3;
+      }
+
+      .meta a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .meta a:hover,
+      .links a:hover {
+        color: #f59e0b;
+      }
+
+      .section {
+        margin-top: 12px;
+      }
+
+      .section h2 {
+        margin: 0 0 5px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 3px;
+      }
+
+      p {
+        margin: 0;
+        font-size: 11.5px;
+      }
+
+      ul {
+        margin: 3px 0 0 16px;
+        padding: 0;
+      }
+
+      li {
+        margin: 2px 0;
+        font-size: 11.5px;
+      }
+
+      .project {
+        margin-top: 7px;
+      }
+
+      .project h3 {
+        margin: 0;
+        font-size: 12.5px;
+      }
+
+      .links {
+        margin: 1px 0 0;
+        font-size: 10.5px;
+        color: var(--muted);
+      }
+
+      .links a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        html,
+        body {
+          background: #ffffff !important;
+          color: #111827 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .page {
+          display: block;
+          width: 210mm;
+          max-height: 297mm;
+          margin: 0;
+          background: #ffffff !important;
+          box-shadow: none;
+          padding: 14px 18px;
+          overflow: hidden;
+        }
+
+        .meta,
+        .links {
+          color: #4b5563 !important;
+        }
+
+        .section h2 {
+          border-bottom-color: #d1d5db !important;
+        }
+
+        .profile-photo {
+          border-color: #d1d5db !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="header-row">
+          <div class="header-text">
+            <h1>Alejo Castillo</h1>
+            <p class="meta">
+              Email:
+              <a href="mailto:alejoworkstuff@gmail.com">alejoworkstuff@gmail.com</a>
+              | LinkedIn:
+              <a href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/">linkedin.com/in/alejo-castillo-0b02b73b0</a>
+              | GitHub:
+              <a href="https://github.com/alejosworkstuff">github.com/alejosworkstuff</a>
+            </p>
+            <p class="meta">
+              Portfolio:
+              <a href="https://alejosworkstuff.github.io/portfolio/">alejosworkstuff.github.io/portfolio</a>
+              | Location: La Plata, Buenos Aires, Argentina
+            </p>
+          </div>
+          <img class="profile-photo" src="./me.png" alt="Alejo Castillo profile photo" />
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p>
+          Entry-level Full-stack Developer focused on building clean, user-first web applications with strong fundamentals
+          in frontend and backend development. Experienced shipping end-to-end projects using Next.js, React, TypeScript,
+          Node.js, and serverless APIs—with Clerk auth, resilient HTTP layers, Sentry observability, and Playwright E2E in CI.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
+          <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, SSG/ISR, Context API, Error Boundaries</li>
+          <li><strong>Backend and Auth:</strong> Node.js, REST APIs, GraphQL, Clerk auth, Serverless Functions, Redis, WebSockets</li>
+          <li><strong>Reliability:</strong> HTTP resilience (timeout, retry, typed errors), Sentry, structured logging</li>
+          <li><strong>Testing:</strong> Vitest, Testing Library, Playwright E2E, Node.js test runner</li>
+          <li><strong>Delivery:</strong> Git, GitHub Actions CI, Vercel, GitHub Pages, Docker (learning)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Projects</h2>
+
+        <article class="project">
+          <h3>Mini Ecommerce</h3>
+          <p class="links">
+            Live: <a href="https://mini-ecommerce-nextjs-psi.vercel.app/">mini-ecommerce-nextjs-psi.vercel.app</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs">github.com/alejosworkstuff/mini-ecommerce-nextjs</a>
+          </p>
+          <ul>
+            <li>Built a full ecommerce app with catalog, cart, checkout stepper, and order history on Next.js 16 App Router with Clerk auth and protected routes.</li>
+            <li>Shipped a typed HTTP client with timeout/retry, SSG/ISR product catalog, Redis cart sync, REST and GraphQL APIs, and WebSocket order-status updates.</li>
+            <li>Added Sentry error boundaries, structured logging, Vitest/Testing Library tests, and Playwright checkout E2E in GitHub Actions CI.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>AI Story Generator</h3>
+          <p class="links">
+            Live: <a href="https://ai-stories-ashy.vercel.app/">ai-stories-ashy.vercel.app</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
+          </p>
+          <ul>
+            <li>Developed a prompt-based story generator using Node.js serverless API routes and Replicate (Llama 3).</li>
+            <li>Built resilient client HTTP layer with timeout/retry and typed errors; explicit 402 handling with deterministic local fallback stories.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Mini Job Board</h3>
+          <p class="links">
+            Live: <a href="https://alejosworkstuff.github.io/mini-job-board/">alejosworkstuff.github.io/mini-job-board</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/mini-job-board">github.com/alejosworkstuff/mini-job-board</a>
+          </p>
+          <ul>
+            <li>Built a responsive job board with vanilla JavaScript: search, multi-filter, sorting, saved jobs, and detail pages with localStorage persistence.</li>
+            <li>Added CI pipeline with syntax checks, JSON schema validation, and automated tests via Node.js test runner.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>Saravá Radio Streaming</h3>
+          <p class="links">
+            Live: <a href="https://alejosworkstuff.github.io/sarava-radio-streaming/">alejosworkstuff.github.io/sarava-radio-streaming</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/sarava-radio-streaming">github.com/alejosworkstuff/sarava-radio-streaming</a>
+          </p>
+          <ul>
+            <li>Built a multi-page cultural community site as a client commission using Next.js App Router, TypeScript, and Tailwind CSS.</li>
+            <li>Implemented type-safe JSON content loaders, dynamic hero carousel, reusable section components, and static export to GitHub Pages with CI.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <ul>
+          <li>FreeCodeCamp - Web Development Curriculum (Responsive Web Design, JavaScript, Frontend Libraries)</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Certifications</h2>
+        <ul>
+          <li>None yet</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

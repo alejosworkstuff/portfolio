@@ -235,6 +235,50 @@
             </ul>
           </div>
         </div>
+        <div class="eng-local-ci">
+          <h3 data-i18n="engLocalCiTitle">Verify CI locally</h3>
+          <p data-i18n="engLocalCiIntro">Every featured repo ships a GitHub Actions workflow (lint, tests, build, and Playwright E2E). GitHub Actions may be temporarily blocked on my account due to billing—pipelines are defined in each repo and pass locally.</p>
+          <ol class="eng-local-ci-steps">
+            <li>
+              <span data-i18n="engLocalCiStep1a">Clone a featured repo, then</span>
+              <code>npm ci</code>.
+            </li>
+            <li>
+              <span data-i18n="engLocalCiStep2a">Run</span>
+              <code>npm run ci</code>
+              <span data-i18n="engLocalCiStep2b">for the core pipeline (same steps as CI minus E2E).</span>
+            </li>
+            <li>
+              <span data-i18n="engLocalCiStep3a">Run</span>
+              <code>npx playwright install chromium</code>
+              <span data-i18n="engLocalCiStep3b">once, then</span>
+              <code>npm run ci:full</code>
+              <span data-i18n="engLocalCiStep3c">to include E2E—or</span>
+              <code>npm run test:e2e</code>
+              <span data-i18n="engLocalCiStep3d">after</span>
+              <code>npm run ci</code>.
+            </li>
+          </ol>
+          <ul class="eng-local-ci-repos">
+            <li>
+              <strong>mini-ecommerce</strong> —
+              <span data-i18n="engLocalCiEcom">lint, type-check, Vitest, production build</span>
+            </li>
+            <li>
+              <strong>mini-job-board</strong> —
+              <span data-i18n="engLocalCiJob">JS syntax, JSON schema validation, filter unit tests</span>
+            </li>
+            <li>
+              <strong>ia-stories</strong> —
+              <span data-i18n="engLocalCiAi">syntax checks, API/fallback tests, .env.example validation</span>
+            </li>
+          </ul>
+          <p class="eng-local-ci-note">
+            <span data-i18n="engLocalCiNoteA">Workflow files live in</span>
+            <code>.github/workflows/ci.yml</code>
+            <span data-i18n="engLocalCiNoteB">in each repo; READMEs repeat these commands for reviewers.</span>
+          </p>
+        </div>
       </section>
 
       <section id="ai-dev" class="ai-dev">
@@ -251,17 +295,38 @@
       </section>
 
       <section id="about" class="about">
+        <h2 data-i18n="aboutTitle">About Me</h2>
         <div class="about-grid">
-        <div>
-        <h2 data-i18n="aboutTitle">About</h2>
-        <p>
-          <span data-i18n="aboutBody">I build end-to-end web products with the depth junior portfolios usually skip: authentication, resilient API layers, observability hooks, and automated tests in CI. I ship fast, but I also ship things that survive real usage.</span>
-        </p>
+          <div class="about-profile">
+            <img
+              class="about-photo"
+              src="assets/me.png"
+              alt="Alejo Castillo"
+              width="160"
+              height="160"
+              loading="lazy"
+              data-i18n-attr="alt:aboutPhotoAlt"
+            />
+            <p class="about-location" data-i18n="aboutLocation">La Plata, Buenos Aires, Argentina</p>
+          </div>
+          <div class="about-copy">
+            <p data-i18n="aboutBody">I build end-to-end web products with the depth junior portfolios usually skip: authentication, resilient API layers, observability hooks, and automated tests in CI. I ship fast, but I also ship things that survive real usage.</p>
+            <ul class="about-bullets">
+              <li data-i18n="aboutBullet1">Full-stack focus — Next.js, React, TypeScript, Node.js, and serverless APIs with real auth and checkout flows.</li>
+              <li data-i18n="aboutBullet2">Production habits — HTTP resilience, Sentry, Playwright E2E, and GitHub Actions CI on featured projects.</li>
+              <li data-i18n="aboutBullet3">Open to full-time roles, contract work, and collaborations — remote-friendly across time zones.</li>
+            </ul>
+            <div class="about-highlight">
+              <p data-i18n="aboutHighlight">Focus: product UI, auth-aware flows, and CI-backed quality—not tutorial-level demos.</p>
+            </div>
+            <div class="about-cta">
+              <a class="btn" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeView" data-resume-lang="en">View resume (EN)</a>
+              <a class="btn btn-ghost" href="resume/es.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeViewEs" data-resume-lang="es">Ver CV (ES)</a>
+              <a class="btn btn-ghost about-resume-print" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumePrint">Print / save PDF</a>
+            </div>
+            <p class="about-resume-note" data-i18n="aboutResumeNote">Resume opens in a new tab — use your browser’s print dialog to save as PDF.</p>
+          </div>
         </div>
-        <div class="about-highlight">
-          <p data-i18n="aboutHighlight">Focus: product UI, auth-aware flows, and CI-backed quality—not tutorial-level demos.</p>
-        </div>
-      </div>
       </section>
 
       <section id="contact" class="contact">
