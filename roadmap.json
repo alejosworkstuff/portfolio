@@ -1,0 +1,464 @@
+{
+  "phases": [
+    {
+      "id": "v1.1",
+      "label": "Phase v1.1 — Portfolio Hardening",
+      "labelEs": "Fase v1.1 — Consolidación del portfolio",
+      "status": "done",
+      "completedDate": "2026-06-19",
+      "collapsed": true,
+      "groups": [
+        {
+          "label": "Phase 1 — Portfolio narrative + CI baseline",
+          "labelEs": "Fase 1 — Narrativa del portfolio + baseline de CI",
+          "tasks": [
+            {
+              "label": "mini-job-board — README case study + CI + validation checks",
+              "labelEs": "mini-job-board — README case study + CI + chequeos de validación",
+              "status": "done",
+              "repo": "mini-job-board"
+            },
+            {
+              "label": "mini-ecommerce — README case study + CI (lint, type-check, test, build)",
+              "labelEs": "mini-ecommerce — README case study + CI (lint, type-check, test, build)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs"
+            },
+            {
+              "label": "ia-stories — README case study + CI + env/syntax/test checks",
+              "labelEs": "ia-stories — README case study + CI + chequeos env/syntax/test",
+              "status": "done",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 2 — Tests and reliability",
+          "labelEs": "Fase 2 — Tests y confiabilidad",
+          "tasks": [
+            {
+              "label": "mini-job-board — filter/sort unit tests + CI test stage",
+              "labelEs": "mini-job-board — unit tests de filtros/orden + etapa de tests en CI",
+              "status": "done",
+              "repo": "mini-job-board"
+            },
+            {
+              "label": "mini-ecommerce — cart unit tests + CartContext integration + CI",
+              "labelEs": "mini-ecommerce — unit tests del carrito + integración CartContext + CI",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs"
+            },
+            {
+              "label": "ia-stories — API helper + handler tests",
+              "labelEs": "ia-stories — tests de helpers y handlers de API",
+              "status": "done",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "E2E happy path on all 3 featured projects",
+              "labelEs": "E2E happy path en los 3 proyectos destacados",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "mini-job-board — Playwright E2E",
+              "labelEs": "mini-job-board — Playwright E2E",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/2d1aa2a"
+            },
+            {
+              "label": "ia-stories — Playwright E2E generate flow",
+              "labelEs": "ia-stories — Playwright E2E flujo de generación",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/be37ce0"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 — Recruiter gaps (mini-ecommerce)",
+          "labelEs": "Fase 3 — Gaps para recruiters (mini-ecommerce)",
+          "tasks": [
+            {
+              "label": "Resilient HTTP client (http-client, AppError, ApiState, tests)",
+              "labelEs": "Cliente HTTP resiliente (http-client, AppError, ApiState, tests)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Clerk auth — protected routes, per-user orders, admin demo",
+              "labelEs": "Auth Clerk — rutas protegidas, pedidos por usuario, demo admin",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Next.js rendering — SSG/ISR catalog + PDP",
+              "labelEs": "Rendering Next.js — catálogo SSG/ISR + PDP",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Custom hooks — useDebouncedValue, useAsyncResource, useApiMutation",
+              "labelEs": "Custom hooks — useDebouncedValue, useAsyncResource, useApiMutation",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Observability — Sentry, error boundaries, structured logging",
+              "labelEs": "Observabilidad — Sentry, error boundaries, logging estructurado",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Engineering docs — DoD, testing strategy, PR template",
+              "labelEs": "Docs de ingeniería — DoD, estrategia de testing, plantilla de PR",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/5a9a8c0"
+            },
+            {
+              "label": "Playwright checkout E2E in GitHub Actions",
+              "labelEs": "Playwright checkout E2E en GitHub Actions",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/882651a"
+            },
+            {
+              "label": "Auth E2E — middleware redirect + public sign-in/up pages",
+              "labelEs": "Auth E2E — redirect de middleware + páginas públicas sign-in/up",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/37a4aec"
+            },
+            {
+              "label": "Input validation hardening on all public API routes",
+              "labelEs": "Endurecimiento de validación en todas las rutas API públicas",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/e3eb1c2"
+            },
+            {
+              "label": "Lighthouse + accessibility pass (a11y 100 on key pages)",
+              "labelEs": "Pase Lighthouse + accesibilidad (a11y 100 en páginas clave)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/c72494f"
+            },
+            {
+              "label": "Vercel — Clerk env vars on Preview + Production",
+              "labelEs": "Vercel — variables Clerk en Preview + Production",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/929f827"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 — ia-stories HTTP resilience",
+          "labelEs": "Fase 3 — Resiliencia HTTP en ia-stories",
+          "tasks": [
+            {
+              "label": "Client HTTP resilience (http.js) + tests + README troubleshooting",
+              "labelEs": "Resiliencia HTTP en cliente (http.js) + tests + troubleshooting en README",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/c97a309"
+            }
+          ]
+        },
+        {
+          "label": "Phase 4 — Cross-project polish",
+          "labelEs": "Fase 4 — Pulido cross-project",
+          "tasks": [
+            {
+              "label": "GitHub Actions billing — substitute local CI + README badges",
+              "labelEs": "Billing de GitHub Actions — sustituto CI local + badges en README",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/302b073"
+            },
+            {
+              "label": "CI badges in all featured repo READMEs",
+              "labelEs": "Badges de CI en READMEs de todos los repos destacados",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/3167777"
+            },
+            {
+              "label": "mini-job-board — local CI + Pages badges + billing note",
+              "labelEs": "mini-job-board — CI local + badges Pages + nota de billing",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/76bc6e5"
+            },
+            {
+              "label": "sarava — local CI + Pages badges + CI commands in README",
+              "labelEs": "sarava — CI local + badges Pages + comandos CI en README",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/699baf8"
+            },
+            {
+              "label": "Repo hygiene — MIT LICENSE + homepage + topics (all 5 repos)",
+              "labelEs": "Higiene de repos — MIT LICENSE + homepage + topics (5 repos)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/0824338"
+            },
+            {
+              "label": "Screenshot compression — WebP <100KB across featured repos",
+              "labelEs": "Compresión de capturas — WebP <100KB en repos destacados",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/35e33a4"
+            },
+            {
+              "label": "Legacy PNG cleanup after WebP conversion",
+              "labelEs": "Limpieza de PNG legacy tras conversión WebP",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/c5980b8"
+            },
+            {
+              "label": "ia-stories — API rate limiting + input validation + safe 500s",
+              "labelEs": "ia-stories — rate limiting API + validación + 500s seguros",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/2415a10"
+            }
+          ]
+        },
+        {
+          "label": "Phase 4 — Week A (fix what's broken)",
+          "labelEs": "Fase 4 — Semana A (arreglar lo roto)",
+          "tasks": [
+            {
+              "label": "portfolio — hero CSS fix + Space Grotesk + basic SEO + favicon",
+              "labelEs": "portfolio — fix CSS hero + Space Grotesk + SEO básico + favicon",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/bb384e9"
+            },
+            {
+              "label": "mini-job-board — wire filter-logic.mjs + URL race fix + escapeHtml",
+              "labelEs": "mini-job-board — integrar filter-logic.mjs + fix race URL + escapeHtml",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/4159c55"
+            },
+            {
+              "label": "mini-job-board — MIT LICENSE + package.json metadata",
+              "labelEs": "mini-job-board — MIT LICENSE + metadata en package.json",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/ad30350"
+            },
+            {
+              "label": "sarava — missing image assets + automated docs/ deploy",
+              "labelEs": "sarava — assets de imágenes faltantes + deploy automatizado a docs/",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/6dfbd93"
+            },
+            {
+              "label": "sarava — MIT LICENSE + package.json metadata",
+              "labelEs": "sarava — MIT LICENSE + metadata en package.json",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/2c100a9"
+            }
+          ]
+        },
+        {
+          "label": "Phase 4 — Week B (strengthen best stories)",
+          "labelEs": "Fase 4 — Semana B (fortalecer mejores historias)",
+          "tasks": [
+            {
+              "label": "mini-ecommerce — server-side order totals + Redis persistence",
+              "labelEs": "mini-ecommerce — totales de pedido server-side + persistencia Redis",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/8ed2272"
+            },
+            {
+              "label": "mini-ecommerce — protect /favorites + static assets (og-image, products)",
+              "labelEs": "mini-ecommerce — proteger /favorites + assets estáticos (og-image, products)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/8ed2272"
+            },
+            {
+              "label": "portfolio — Saravá case-study card parity (i18n + bullets)",
+              "labelEs": "portfolio — paridad tarjeta case study Saravá (i18n + bullets)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/dc3a4dc"
+            },
+            {
+              "label": "portfolio — profile image me.webp (~24 KB)",
+              "labelEs": "portfolio — imagen de perfil me.webp (~24 KB)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/9d15f43"
+            }
+          ]
+        },
+        {
+          "label": "Phase 4 — Week C (optional depth)",
+          "labelEs": "Fase 4 — Semana C (profundidad opcional)",
+          "tasks": [
+            {
+              "label": "mini-ecommerce — delete dead code (cart.ts, products.ts, navbar.tsx)",
+              "labelEs": "mini-ecommerce — eliminar código muerto (cart.ts, products.ts, navbar.tsx)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/96c18a4"
+            },
+            {
+              "label": "ia-stories — multi-turn story continuation in UI",
+              "labelEs": "ia-stories — continuación multi-turno de historias en UI",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/502f856"
+            },
+            {
+              "label": "ia-stories — E2E fallback path (mock 402)",
+              "labelEs": "ia-stories — E2E camino fallback (mock 402)",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/f2fa53c"
+            },
+            {
+              "label": "ia-stories — expand check:syntax to all frontend modules",
+              "labelEs": "ia-stories — expandir check:syntax a todos los módulos frontend",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/0f1fd16"
+            },
+            {
+              "label": "sarava — per-page SEO (generateMetadata)",
+              "labelEs": "sarava — SEO por página (generateMetadata)",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/28d41ff"
+            },
+            {
+              "label": "sarava — README Decap CMS / public/admin cleanup",
+              "labelEs": "sarava — limpieza README Decap CMS / public/admin",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/b9db20d"
+            },
+            {
+              "label": "sarava — UI refactor (dynamic hero, archive components)",
+              "labelEs": "sarava — refactor UI (hero dinámico, componentes archive)",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/8949b07"
+            },
+            {
+              "label": "mini-job-board — saved-jobs apply flow parity",
+              "labelEs": "mini-job-board — paridad flujo apply en saved-jobs",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/bbbd758"
+            },
+            {
+              "label": "mini-job-board — document Playwright E2E in README",
+              "labelEs": "mini-job-board — documentar Playwright E2E en README",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/ad26292"
+            }
+          ]
+        },
+        {
+          "label": "Portfolio site — narrative + sections",
+          "labelEs": "Sitio portfolio — narrativa + secciones",
+          "tasks": [
+            {
+              "label": "Ecommerce case-study bullets on project card",
+              "labelEs": "Bullets case study ecommerce en tarjeta de proyecto",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/090e77f"
+            },
+            {
+              "label": "How I use AI in development section",
+              "labelEs": "Sección Cómo uso IA en el desarrollo",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/091def5"
+            },
+            {
+              "label": "Job-board + ia-stories case-study bullets + Engineering Practices",
+              "labelEs": "Bullets job-board + ia-stories + Prácticas de ingeniería",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/29030b7"
+            },
+            {
+              "label": "About Me + resume CTA (EN/ES) + Verify CI locally panel",
+              "labelEs": "Sobre mí + CTA de CV (EN/ES) + panel Verificar CI localmente",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/91edbb1"
+            },
+            {
+              "label": "Fresh project card screenshots",
+              "labelEs": "Capturas actualizadas en tarjetas de proyecto",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/fa64d9c"
+            },
+            {
+              "label": "Project card WebP compression",
+              "labelEs": "Compresión WebP en tarjetas de proyecto",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/35e33a4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2",
+      "label": "Phase v2 — Pages, Depth & Full-Stack Signals",
+      "labelEs": "Fase v2 — Páginas, profundidad y señales full-stack",
+      "status": "in-progress",
+      "tasks": [
+        {
+          "label": "Case study page (mini-ecommerce)",
+          "labelEs": "Página de case study (mini-ecommerce)",
+          "status": "pending",
+          "repo": "portfolio"
+        },
+        {
+          "label": "PostgreSQL via Prisma",
+          "labelEs": "PostgreSQL vía Prisma",
+          "status": "pending",
+          "repo": "mini-ecommerce-nextjs"
+        },
+        {
+          "label": "Saravá individual post pages",
+          "labelEs": "Páginas individuales de posts en Saravá",
+          "status": "pending",
+          "repo": "sarava-radio-streaming"
+        },
+        {
+          "label": "Open-source contribution",
+          "labelEs": "Contribución open source",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}

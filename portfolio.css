@@ -242,6 +242,7 @@ a {
 .projects,
 .skills,
 .engineering,
+.roadmap,
 .ai-dev,
 .about,
 .contact {
@@ -257,6 +258,18 @@ a {
   max-width: 720px;
   margin-bottom: 24px;
   line-height: 1.55;
+}
+
+/* Narrow narrative blocks — centered column below full-width grids */
+.eng-local-ci,
+.roadmap > h2,
+.roadmap-intro,
+.roadmap-content,
+.ai-dev > h2,
+.ai-dev-panel,
+.about > h2 {
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 .eng-desc {
@@ -278,6 +291,191 @@ a {
 
 .eng-list li:last-child {
   margin-bottom: 0;
+}
+
+.roadmap h2 {
+  margin-bottom: 16px;
+}
+
+.roadmap-intro {
+  color: var(--muted);
+  max-width: 720px;
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+
+.roadmap-content {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.roadmap-phase {
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+}
+
+.roadmap-phase--collapsible {
+  padding: 0;
+}
+
+.roadmap-phase__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.roadmap-phase__summary::-webkit-details-marker {
+  display: none;
+}
+
+.roadmap-phase__summary::after {
+  content: "+";
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.roadmap-phase--collapsible[open] .roadmap-phase__summary::after {
+  content: "−";
+}
+
+.roadmap-phase--collapsible[open] .roadmap-tasks,
+.roadmap-phase--collapsible[open] .roadmap-groups {
+  padding: 0 24px 20px;
+}
+
+.roadmap-groups {
+  display: grid;
+  gap: 20px;
+}
+
+.roadmap-group__title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.roadmap-phase__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.roadmap-phase__title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.roadmap-phase__status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  color: var(--muted);
+}
+
+.roadmap-phase__status--done {
+  color: #8fd4a8;
+  border-color: rgba(143, 212, 168, 0.35);
+}
+
+.roadmap-phase__status--active {
+  color: var(--accent);
+  border-color: rgba(255, 106, 61, 0.35);
+}
+
+.roadmap-tasks {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.roadmap-task {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.roadmap-task__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.roadmap-task__label {
+  color: var(--muted);
+}
+
+.roadmap-task::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.45em;
+  flex-shrink: 0;
+}
+
+.roadmap-task--done::before {
+  background: #8fd4a8;
+  box-shadow: 0 0 0 3px rgba(143, 212, 168, 0.18);
+}
+
+.roadmap-task--pending::before {
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  background: transparent;
+}
+
+.roadmap-task a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 106, 61, 0.55);
+  text-underline-offset: 3px;
+}
+
+.roadmap-task a:hover {
+  color: var(--accent);
+}
+
+.roadmap-repo {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--stroke);
+  border-radius: 6px;
+  padding: 2px 7px;
+  margin-right: 8px;
+  line-height: 1.35;
+}
+
+.roadmap-fallback {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .ai-dev h2 {
@@ -856,6 +1054,8 @@ a {
   grid-template-columns: auto 1fr;
   gap: 32px;
   align-items: start;
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 .about-profile {

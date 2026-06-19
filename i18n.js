@@ -4,6 +4,7 @@ const translations = {
     navProjects: "Projects",
     navSkills: "Skills",
     navEngineering: "Engineering",
+    navRoadmap: "Roadmap",
     navAbout: "About",
     navContact: "Contact",
     navToggleText: "Menu",
@@ -101,6 +102,8 @@ const translations = {
     engObsTitle: "Observability & Docs",
     engObsBullet1: "Sentry, structured logger.ts, and React error boundaries",
     engObsBullet2: "Definition of Done and PR templates in repo docs",
+    roadmapTitle: "Roadmap",
+    roadmapIntro: "What I'm building next — completed items link to the proof on GitHub.",
     aiDevTitle: "How I use AI in development",
     aiDevIntro: "I use AI tools to accelerate scaffolding, ideation, and refactoring—not to skip thinking. Every change still goes through the same bar I'd use on any team: tests, type-checks, and manual review before it ships.",
     aiDevBulletWorkflow: "Development workflow — Draft boilerplate, explore refactors, and speed up docs; I review and edit everything before merge.",
@@ -135,6 +138,7 @@ const translations = {
     navProjects: "Proyectos",
     navSkills: "Habilidades",
     navEngineering: "Ingeniería",
+    navRoadmap: "Hoja de ruta",
     navAbout: "Sobre mí",
     navContact: "Contacto",
     navToggleText: "Menú",
@@ -232,6 +236,8 @@ const translations = {
     engObsTitle: "Observabilidad y Docs",
     engObsBullet1: "Sentry, logger.ts estructurado y error boundaries en React",
     engObsBullet2: "Definition of Done y plantillas de PR en docs del repo",
+    roadmapTitle: "Hoja de ruta",
+    roadmapIntro: "En qué estoy trabajando — los ítems completados enlazan a la prueba en GitHub.",
     aiDevTitle: "Cómo uso IA en el desarrollo",
     aiDevIntro: "Uso herramientas de IA para acelerar scaffolding, ideación y refactors—no para evitar pensar. Cada cambio pasa por el mismo estándar que usaría en cualquier equipo: tests, type-checks y revisión manual antes de publicar.",
     aiDevBulletWorkflow: "Flujo de desarrollo — Borradores de boilerplate, exploración de refactors y docs más rápidos; reviso y edito todo antes del merge.",
@@ -260,6 +266,21 @@ const translations = {
     footerUrl: "https://alejosworkstuff.github.io/portfolio/",
     toggleAria: "Switch language to English",
     toggleText: "EN",
+  },
+};
+
+window.__roadmapStrings = {
+  en: {
+    statusDone: "Completed",
+    statusInProgress: "In progress",
+    proofAria: "View proof on GitHub",
+    loadError: "Roadmap could not be loaded.",
+  },
+  es: {
+    statusDone: "Completado",
+    statusInProgress: "En curso",
+    proofAria: "Ver prueba en GitHub",
+    loadError: "No se pudo cargar la hoja de ruta.",
   },
 };
 
@@ -300,6 +321,10 @@ function applyLanguage(lang) {
   const resumePrint = document.querySelector(".about-resume-print");
   if (resumePrint) {
     resumePrint.setAttribute("href", lang === "es" ? "resume/es.html" : "resume/en.html");
+  }
+
+  if (typeof window.renderRoadmap === "function") {
+    window.renderRoadmap();
   }
 }
 
