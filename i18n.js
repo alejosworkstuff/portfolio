@@ -116,17 +116,21 @@ const translations = {
     aboutBody: "I build end-to-end web products with the depth junior portfolios usually skip: authentication, resilient API layers, observability hooks, and automated tests in CI. I ship fast, but I also ship things that survive real usage.",
     aboutBullet1: "Full-stack focus — Next.js, React, TypeScript, Node.js, and serverless APIs with real auth and checkout flows.",
     aboutBullet2: "Production habits — HTTP resilience, Sentry, Playwright E2E, and GitHub Actions CI on featured projects.",
-    aboutBullet3: "Open to full-time roles, contract work, and collaborations — remote-friendly across time zones.",
+    aboutBullet3: "UX that holds up — loading states, error boundaries, and flows that work when APIs fail—not just on the happy path.",
     aboutHighlight: "Focus: product UI, auth-aware flows, and CI-backed quality—not tutorial-level demos.",
     aboutResumeView: "View resume (EN)",
     aboutResumeViewEs: "Ver CV (ES)",
-    aboutResumePrint: "Print / save PDF",
-    aboutResumeNote: "Resume opens in a new tab — use your browser’s print dialog to save as PDF.",
+    aboutResumePrint: "Print resume PDF",
     contactTitle: "Contact",
-    contactBody: "Open to full-time roles, contract work, and collaborations.",
+    contactBody: "Open to full-time roles, contract work, and collaborations. Email is the fastest way to reach me.",
     contactEmail: "alejoworkstuff@gmail.com",
     contactCopyEmail: "Copy email",
     contactUseEmailApp: "Use email app",
+    contactDocsLabel: "Application materials",
+    contactCoverLetterView: "Cover letter (EN)",
+    contactCoverLetterViewEs: "Cover letter (ES)",
+    contactCoverLetterPrint: "Print cover letter PDF",
+    contactDocsNote: "Documents open in a new tab — use your browser’s print dialog to save as PDF.",
     contactGithub: "GitHub",
     footerPortfolio: "Portfolio:",
     footerUrl: "https://alejosworkstuff.github.io/portfolio/",
@@ -250,17 +254,21 @@ const translations = {
     aboutBody: "Construyo productos web end-to-end con la profundidad que suelen omitir los portfolios junior: autenticación, capas de API resilientes, observabilidad y tests automatizados en CI. Entrego rápido, pero también cosas que sobreviven al uso real.",
     aboutBullet1: "Enfoque full-stack — Next.js, React, TypeScript, Node.js y APIs serverless con auth y checkout reales.",
     aboutBullet2: "Hábitos de producción — resiliencia HTTP, Sentry, Playwright E2E y GitHub Actions CI en proyectos destacados.",
-    aboutBullet3: "Disponible para full-time, contrato y colaboraciones — remoto y flexible con zonas horarias.",
+    aboutBullet3: "UX que aguanta — estados de carga, error boundaries y flujos que funcionan cuando fallan las APIs—no solo en el camino feliz.",
     aboutHighlight: "Foco: UI de producto, flujos con auth y calidad respaldada por CI—no demos de tutorial.",
     aboutResumeView: "Ver CV (EN)",
     aboutResumeViewEs: "Ver CV (ES)",
-    aboutResumePrint: "Imprimir / guardar PDF",
-    aboutResumeNote: "El CV se abre en una pestaña nueva — usá la impresión del navegador para guardar como PDF.",
+    aboutResumePrint: "Imprimir CV PDF",
     contactTitle: "Contacto",
-    contactBody: "Disponible para trabajos full-time, contrato y colaboraciones.",
+    contactBody: "Disponible para trabajos full-time, contrato y colaboraciones. El email es la forma más rápida de contactarme.",
     contactEmail: "alejoworkstuff@gmail.com",
     contactCopyEmail: "Copiar email",
     contactUseEmailApp: "Usar app de email",
+    contactDocsLabel: "Material de postulación",
+    contactCoverLetterView: "Carta de presentación (EN)",
+    contactCoverLetterViewEs: "Carta de presentación (ES)",
+    contactCoverLetterPrint: "Imprimir carta PDF",
+    contactDocsNote: "Los documentos se abren en una pestaña nueva — usá la impresión del navegador para guardar como PDF.",
     contactGithub: "GitHub",
     footerPortfolio: "Portfolio:",
     footerUrl: "https://alejosworkstuff.github.io/portfolio/",
@@ -318,9 +326,14 @@ function applyLanguage(lang) {
     toggle.setAttribute("aria-label", dict.toggleAria);
   }
 
-  const resumePrint = document.querySelector(".about-resume-print");
+  const resumePrint = document.querySelector(".closing-resume-print");
   if (resumePrint) {
     resumePrint.setAttribute("href", lang === "es" ? "resume/es.html" : "resume/en.html");
+  }
+
+  const coverPrint = document.querySelector(".closing-cover-print");
+  if (coverPrint) {
+    coverPrint.setAttribute("href", lang === "es" ? "resume/cover-letter-es.html" : "resume/cover-letter-en.html");
   }
 
   if (typeof window.renderRoadmap === "function") {

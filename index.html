@@ -326,68 +326,81 @@
         </div>
       </section>
 
-      <section id="about" class="about">
-        <h2 data-i18n="aboutTitle">About Me</h2>
-        <div class="about-grid">
-          <div class="about-profile">
-            <img
-              class="about-photo"
-              src="assets/me.webp"
-              alt="Alejo Castillo"
-              width="160"
-              height="160"
-              loading="lazy"
-              data-i18n-attr="alt:aboutPhotoAlt"
-            />
-            <p class="about-location" data-i18n="aboutLocation">La Plata, Buenos Aires, Argentina</p>
-          </div>
-          <div class="about-copy">
-            <p data-i18n="aboutBody">I build end-to-end web products with the depth junior portfolios usually skip: authentication, resilient API layers, observability hooks, and automated tests in CI. I ship fast, but I also ship things that survive real usage.</p>
-            <ul class="about-bullets">
-              <li data-i18n="aboutBullet1">Full-stack focus — Next.js, React, TypeScript, Node.js, and serverless APIs with real auth and checkout flows.</li>
-              <li data-i18n="aboutBullet2">Production habits — HTTP resilience, Sentry, Playwright E2E, and GitHub Actions CI on featured projects.</li>
-              <li data-i18n="aboutBullet3">Open to full-time roles, contract work, and collaborations — remote-friendly across time zones.</li>
-            </ul>
-            <div class="about-highlight">
-              <p data-i18n="aboutHighlight">Focus: product UI, auth-aware flows, and CI-backed quality—not tutorial-level demos.</p>
+      <section class="closing">
+        <div class="closing-panel">
+          <div id="about" class="closing-about">
+            <h2 data-i18n="aboutTitle">About Me</h2>
+            <div class="about-grid">
+              <div class="about-profile">
+                <img
+                  class="about-photo"
+                  src="assets/me.webp"
+                  alt="Alejo Castillo"
+                  width="160"
+                  height="160"
+                  loading="lazy"
+                  data-i18n-attr="alt:aboutPhotoAlt"
+                />
+                <p class="about-location" data-i18n="aboutLocation">La Plata, Buenos Aires, Argentina</p>
+              </div>
+              <div class="about-copy">
+                <p data-i18n="aboutBody">I build end-to-end web products with the depth junior portfolios usually skip: authentication, resilient API layers, observability hooks, and automated tests in CI. I ship fast, but I also ship things that survive real usage.</p>
+                <ul class="about-bullets">
+                  <li data-i18n="aboutBullet1">Full-stack focus — Next.js, React, TypeScript, Node.js, and serverless APIs with real auth and checkout flows.</li>
+                  <li data-i18n="aboutBullet2">Production habits — HTTP resilience, Sentry, Playwright E2E, and GitHub Actions CI on featured projects.</li>
+                  <li data-i18n="aboutBullet3">UX that holds up — loading states, error boundaries, and flows that work when APIs fail—not just on the happy path.</li>
+                </ul>
+                <div class="about-highlight">
+                  <p data-i18n="aboutHighlight">Focus: product UI, auth-aware flows, and CI-backed quality—not tutorial-level demos.</p>
+                </div>
+              </div>
             </div>
-            <div class="about-cta">
-              <a class="btn" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeView" data-resume-lang="en">View resume (EN)</a>
-              <a class="btn btn-ghost" href="resume/es.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeViewEs" data-resume-lang="es">Ver CV (ES)</a>
-              <a class="btn btn-ghost about-resume-print" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumePrint">Print / save PDF</a>
-            </div>
-            <p class="about-resume-note" data-i18n="aboutResumeNote">Resume opens in a new tab — use your browser’s print dialog to save as PDF.</p>
           </div>
-        </div>
-      </section>
 
-      <section id="contact" class="contact">
-        <h2 data-i18n="contactTitle">Contact</h2>
-        <p class="contact-intro" data-i18n="contactBody">Open to full-time roles, contract work, and collaborations.</p>
-        <p class="contact-email" data-i18n="contactEmail">alejoworkstuff@gmail.com</p>
-        <div class="contact-links">
-          <button class="btn btn-small contact-copy" type="button" data-email="alejoworkstuff@gmail.com" data-i18n="contactCopyEmail">Copy email</button>
-          <a class="btn btn-ghost btn-small" href="mailto:alejoworkstuff@gmail.com" data-i18n="contactUseEmailApp">Use email app</a>
-          <a
-            class="social-bubble social-linkedin"
-            href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-            title="LinkedIn"
-          >
-            <img src="assets/icons/linkedin.svg" alt="" class="social-icon" />
-          </a>
-          <a
-            class="social-bubble social-github"
-            href="https://github.com/alejosworkstuff"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-            title="GitHub"
-          >
-            <img src="assets/icons/github.svg" alt="" class="social-icon" />
-          </a>
+          <div id="contact" class="closing-contact">
+            <h3 data-i18n="contactTitle">Contact</h3>
+            <p class="contact-intro" data-i18n="contactBody">Open to full-time roles, contract work, and collaborations. Email is the fastest way to reach me.</p>
+            <p class="contact-email" data-i18n="contactEmail">alejoworkstuff@gmail.com</p>
+            <div class="contact-links">
+              <button class="btn btn-small contact-copy" type="button" data-email="alejoworkstuff@gmail.com" data-i18n="contactCopyEmail">Copy email</button>
+              <a class="btn btn-ghost btn-small" href="mailto:alejoworkstuff@gmail.com" data-i18n="contactUseEmailApp">Use email app</a>
+            </div>
+            <div class="contact-social">
+              <a
+                class="social-bubble social-linkedin"
+                href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                title="LinkedIn"
+              >
+                <img src="assets/icons/linkedin.svg" alt="" class="social-icon" />
+              </a>
+              <a
+                class="social-bubble social-github"
+                href="https://github.com/alejosworkstuff"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                title="GitHub"
+              >
+                <img src="assets/icons/github.svg" alt="" class="social-icon" />
+              </a>
+            </div>
+          </div>
+
+          <div class="closing-docs">
+            <p class="closing-docs-label" data-i18n="contactDocsLabel">Application materials</p>
+            <div class="closing-docs-row">
+              <a class="btn btn-small" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeView" data-resume-lang="en">View resume (EN)</a>
+              <a class="btn btn-ghost btn-small" href="resume/es.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumeViewEs" data-resume-lang="es">Ver CV (ES)</a>
+              <a class="btn btn-small" href="resume/cover-letter-en.html" target="_blank" rel="noopener noreferrer" data-i18n="contactCoverLetterView">Cover letter (EN)</a>
+              <a class="btn btn-ghost btn-small" href="resume/cover-letter-es.html" target="_blank" rel="noopener noreferrer" data-i18n="contactCoverLetterViewEs">Carta de presentación (ES)</a>
+              <a class="btn btn-ghost btn-small closing-resume-print" href="resume/en.html" target="_blank" rel="noopener noreferrer" data-i18n="aboutResumePrint">Print / save PDF</a>
+              <a class="btn btn-ghost btn-small closing-cover-print" href="resume/cover-letter-en.html" target="_blank" rel="noopener noreferrer" data-i18n="contactCoverLetterPrint">Print / save PDF</a>
+            </div>
+            <p class="closing-docs-note" data-i18n="contactDocsNote">Documents open in a new tab — use your browser’s print dialog to save as PDF.</p>
+          </div>
         </div>
       </section>
     </main>

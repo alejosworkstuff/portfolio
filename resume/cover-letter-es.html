@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta de Presentaci&oacute;n | Alejo Castillo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+    :root {
+      --bg-1: #f7f2ea;
+      --bg-2: #e8efe4;
+      --ink: #1a1a1a;
+      --muted: #4b4b4b;
+      --accent: #c75b39;
+      --accent-2: #2f7b6b;
+      --card: #ffffff;
+      --line: #e0d7cc;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, #fff8f0 0%, var(--bg-1) 40%, var(--bg-2) 100%);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .wrap {
+      width: 210mm;
+      margin: 24px auto;
+      padding: 14px 18px;
+      background: #fff;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #ffffff 0%, #fff6ee 55%, #f1f7f3 100%);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -20% -10% auto auto;
+      width: 200px;
+      height: 200px;
+      background: conic-gradient(from 180deg, #ffd9c8, #ffe9b8, #cce8e0, #ffd9c8);
+      opacity: 0.2;
+      filter: blur(6px);
+      border-radius: 50%;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: "Fraunces", serif;
+      font-size: 24px;
+      margin: 4px 0 6px;
+    }
+
+    .headline {
+      font-size: 12.5px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.45;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 9px;
+      background: #fff;
+    }
+    .pill a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pill-cta {
+      background: linear-gradient(180deg, #ffffff 0%, #fff4ec 100%);
+      border-color: #f0c9b9;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .card h3 {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .letter {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-top: 12px;
+      line-height: 1.5;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .letter p {
+      margin: 0 0 8px;
+    }
+
+    .letter p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter strong {
+      color: var(--ink);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 8px 0;
+    }
+
+    .projects.row-2 {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 66%;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff9f4 100%);
+    }
+
+    .project h4 {
+      margin: 0 0 3px;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    .project p {
+      margin: 0;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .wrap {
+        margin: 0;
+        padding: 14px 18px;
+        max-width: 210mm;
+      }
+
+      .hero,
+      .card,
+      .letter,
+      .project {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Carta de Presentaci&oacute;n</div>
+      <h1>Alejo Castillo Gonz&aacute;lez</h1>
+      <div class="headline">
+        Desarrollador Full-Stack enfocado en experiencia de usuario, arquitectura clara y ejecuci&oacute;n confiable. Mi objetivo es generar impacto desde el primer sprint con comunicaci&oacute;n directa y entregas consistentes.
+      </div>
+      <div class="contact">
+        <span class="pill">Desarrollo full-stack</span>
+        <span class="pill">La Plata, Argentina</span>
+        <span class="pill"><a href="mailto:alejoworkstuff@gmail.com">alejoworkstuff@gmail.com</a></span>
+        <span class="pill"><a href="tel:+542216133317">+54 221 6133317</a></span>
+        <span class="pill pill-cta"><a href="https://alejosworkstuff.github.io/portfolio/" target="_blank" rel="noopener">Portafolio</a></span>
+        <span class="pill pill-cta"><a href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/" target="_blank" rel="noopener">LinkedIn</a></span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h3>Qu&eacute; aporto</h3>
+        <div>Mentalidad de producto con profundidad full-stack: auth Clerk, clientes HTTP resilientes, renderizado SSG/ISR, observabilidad con Sentry, E2E con Playwright y pipelines CI/CD.</div>
+      </article>
+      <article class="card">
+        <h3>C&oacute;mo trabajo</h3>
+        <div>Planificaci&oacute;n clara, entregas incrementales y feedback temprano. Colaboro con dise&ntilde;o y negocio para construir soluciones &uacute;tiles, no solo bonitas.</div>
+      </article>
+      <article class="card">
+        <h3>IA como soporte</h3>
+        <div>Uso IA como copiloto para acelerar investigaci&oacute;n, validar enfoques y mejorar calidad, siempre con revisi&oacute;n cr&iacute;tica y responsabilidad t&eacute;cnica.</div>
+      </article>
+    </section>
+
+    <section class="letter">
+      <p><strong>Estimado equipo de contrataci&oacute;n:</strong></p>
+      <p>
+        Me postulo porque disfruto construir productos digitales que resuelven necesidades reales. Aporto criterio visual, enfoque t&eacute;cnico y compromiso con los resultados. Soy organizado, me comunico bien y me mantengo enfocado en entregar valor en cada iteraci&oacute;n.
+      </p>
+      <p>
+        En mis proyectos recientes constru&iacute; soluciones completas en distintos dominios: e-commerce con auth Clerk y checkout probado con E2E, un sitio comunitario cultural en vivo entregado como trabajo por encargo, y un portal de empleos interactivo. Estas experiencias fortalecieron mi capacidad de entregar c&oacute;digo testeado y respaldado por CI con arquitectura clara y flujos confiables.
+      </p>
+
+      <div class="projects">
+        <div class="project">
+          <h4>Mini Ecommerce</h4>
+          <p>Auth Clerk, cliente HTTP tipado, cat&aacute;logo SSG/ISR, error boundaries con Sentry, E2E de checkout con Playwright en CI.</p>
+        </div>
+        <div class="project">
+          <h4>Sarav&aacute; Espacio Cultural</h4>
+          <p>Trabajo por encargo: sitio Next.js en vivo con contenido JSON, carrusel hero y export est&aacute;tico a GitHub Pages.</p>
+        </div>
+        <div class="project">
+          <h4>Mini Job Board</h4>
+          <p>JS vanilla con b&uacute;squeda, filtros m&uacute;ltiples, guardado de empleos y CI con validaci&oacute;n de esquema.</p>
+        </div>
+      </div>
+      <div class="projects row-2">
+        <div class="project">
+          <h4>AI Stories</h4>
+          <p>Generador serverless con resiliencia HTTP en cliente, manejo de 402 e historias fallback locales.</p>
+        </div>
+        <div class="project">
+          <h4>Portafolio</h4>
+          <p>Sitio biling&uuml;e con i18n, dise&ntilde;o responsive y casos de estudio de proyectos.</p>
+        </div>
+      </div>
+
+      <p>
+        Estoy listo para aportar valor desde el d&iacute;a uno con mentalidad de mejora continua. Mi flujo de trabajo incluye testing automatizado (Vitest, Testing Library, Playwright), CI/CD con GitHub Actions y deploys en Vercel y GitHub Pages.
+      </p>
+      <p><strong>Atentamente,</strong><br>Alejo Castillo Gonz&aacute;lez</p>
+    </section>
+  </main>
+</body>
+</html>
