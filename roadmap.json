@@ -434,29 +434,99 @@
       "label": "Phase v2 — Pages, Depth & Full-Stack Signals",
       "labelEs": "Fase v2 — Páginas, profundidad y señales full-stack",
       "status": "in-progress",
-      "tasks": [
+      "groups": [
         {
-          "label": "Case study page (mini-ecommerce)",
-          "labelEs": "Página de case study (mini-ecommerce)",
-          "status": "pending",
-          "repo": "portfolio"
+          "label": "Phase 6 — PostgreSQL & persistence (mini-ecommerce)",
+          "labelEs": "Fase 6 — PostgreSQL y persistencia (mini-ecommerce)",
+          "tasks": [
+            {
+              "label": "Prisma schema + order-store adapter",
+              "labelEs": "Schema Prisma + adapter order-store",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/50fd84b"
+            },
+            {
+              "label": "Neon Postgres on Vercel + live checkout verified",
+              "labelEs": "Neon Postgres en Vercel + checkout live verificado",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/4575a38"
+            },
+            {
+              "label": "Fix duplicate order creation on checkout success",
+              "labelEs": "Fix creación duplicada de pedidos en checkout success",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/385f4a4"
+            },
+            {
+              "label": "README — Redis cart vs Postgres orders persistence",
+              "labelEs": "README — persistencia carrito Redis vs pedidos Postgres",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/4575a38"
+            }
+          ]
         },
         {
-          "label": "PostgreSQL via Prisma",
-          "labelEs": "PostgreSQL vía Prisma",
-          "status": "pending",
-          "repo": "mini-ecommerce-nextjs"
+          "label": "Phase 1 — Portfolio case-study pages",
+          "labelEs": "Fase 1 — Páginas case study del portfolio",
+          "tasks": [
+            {
+              "label": "Case study page (mini-ecommerce) with Postgres migration story",
+              "labelEs": "Página case study (mini-ecommerce) con narrativa migración Postgres",
+              "status": "pending",
+              "repo": "portfolio"
+            },
+            {
+              "label": "Card “Read more” links to dedicated pages",
+              "labelEs": "Enlaces “Leer más” en tarjetas a páginas dedicadas",
+              "status": "pending",
+              "repo": "portfolio"
+            },
+            {
+              "label": "Portfolio link checker in CI",
+              "labelEs": "Link checker del portfolio en CI",
+              "status": "pending",
+              "repo": "portfolio"
+            }
+          ]
         },
         {
-          "label": "Saravá individual post pages",
-          "labelEs": "Páginas individuales de posts en Saravá",
-          "status": "pending",
-          "repo": "sarava-radio-streaming"
+          "label": "Phase 2 — Saravá routable content",
+          "labelEs": "Fase 2 — Contenido enrutable en Saravá",
+          "tasks": [
+            {
+              "label": "Individual post pages (`/espacio-cultural/[slug]`)",
+              "labelEs": "Páginas individuales de posts (`/espacio-cultural/[slug]`)",
+              "status": "pending",
+              "repo": "sarava-radio-streaming"
+            },
+            {
+              "label": "Content validation script in CI",
+              "labelEs": "Script de validación de contenido en CI",
+              "status": "pending",
+              "repo": "sarava-radio-streaming"
+            }
+          ]
         },
         {
-          "label": "Open-source contribution",
-          "labelEs": "Contribución open source",
-          "status": "pending"
+          "label": "Phase 6.2 — Open source",
+          "labelEs": "Fase 6.2 — Open source",
+          "tasks": [
+            {
+              "label": "1 merged PR in a public JS/TS repo",
+              "labelEs": "1 PR mergeado en repo JS/TS público",
+              "status": "pending"
+            },
+            {
+              "label": "Open Source section on portfolio",
+              "labelEs": "Sección Open Source en el portfolio",
+              "status": "pending",
+              "repo": "portfolio"
+            }
+          ]
         }
       ]
     }
