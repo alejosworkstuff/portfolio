@@ -166,10 +166,12 @@
       <header>
         <div class="header-row">
           <div class="header-text">
-            <h1>Alejo Castillo</h1>
+            <h1>Alejo Castillo Gonz&aacute;lez</h1>
             <p class="meta">
               Email:
               <a href="mailto:alejoworkstuff@gmail.com">alejoworkstuff@gmail.com</a>
+              | Phone:
+              <a href="tel:+5492216133317">+54 9 221 613-3317</a>
               | LinkedIn:
               <a href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/">linkedin.com/in/alejo-castillo-0b02b73b0</a>
               | GitHub:
@@ -181,7 +183,7 @@
               | Location: La Plata, Buenos Aires, Argentina
             </p>
           </div>
-          <img class="profile-photo" src="./me.webp" alt="Alejo Castillo profile photo" />
+          <img class="profile-photo" src="../assets/me.webp" alt="Alejo Castillo profile photo" />
         </div>
       </header>
 
@@ -199,7 +201,7 @@
         <ul>
           <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
           <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, SSG/ISR, Context API, Error Boundaries</li>
-          <li><strong>Backend and Auth:</strong> Node.js, REST APIs, GraphQL, Clerk auth, Serverless Functions, Redis, WebSockets</li>
+          <li><strong>Backend and Auth:</strong> Node.js, REST APIs, GraphQL, Clerk auth, Serverless Functions, PostgreSQL, Prisma, Redis, WebSockets</li>
           <li><strong>Reliability:</strong> HTTP resilience (timeout, retry, typed errors), Sentry, structured logging</li>
           <li><strong>Testing:</strong> Vitest, Testing Library, Playwright E2E, Node.js test runner</li>
           <li><strong>Delivery:</strong> Git, GitHub Actions CI, Vercel, GitHub Pages, Docker (learning)</li>
@@ -217,7 +219,7 @@
           </p>
           <ul>
             <li>Built a full ecommerce app with catalog, cart, checkout stepper, and order history on Next.js 16 App Router with Clerk auth and protected routes.</li>
-            <li>Shipped a typed HTTP client with timeout/retry, SSG/ISR product catalog, Redis cart sync, REST and GraphQL APIs, and WebSocket order-status updates.</li>
+            <li>Shipped a typed HTTP client with timeout/retry, SSG/ISR product catalog, Redis cart sync, Prisma + Postgres order persistence, REST and GraphQL APIs, and WebSocket order-status updates.</li>
             <li>Added Sentry error boundaries, structured logging, Vitest/Testing Library tests, and Playwright checkout E2E in GitHub Actions CI.</li>
           </ul>
         </article>
@@ -231,6 +233,7 @@
           <ul>
             <li>Developed a prompt-based story generator using Node.js serverless API routes and Replicate (Llama 3).</li>
             <li>Built resilient client HTTP layer with timeout/retry and typed errors; explicit 402 handling with deterministic local fallback stories.</li>
+            <li>Added GitHub Actions CI (syntax, API/fallback tests) and Playwright E2E for the generate flow with mocked API.</li>
           </ul>
         </article>
 
@@ -242,7 +245,7 @@
           </p>
           <ul>
             <li>Built a responsive job board with vanilla JavaScript: search, multi-filter, sorting, saved jobs, and detail pages with localStorage persistence.</li>
-            <li>Added CI pipeline with syntax checks, JSON schema validation, and automated tests via Node.js test runner.</li>
+            <li>Added CI pipeline with syntax checks, JSON schema validation, unit tests, and Playwright E2E for core user flows.</li>
           </ul>
         </article>
 
@@ -263,13 +266,6 @@
         <h2>Education</h2>
         <ul>
           <li>FreeCodeCamp - Web Development Curriculum (Responsive Web Design, JavaScript, Frontend Libraries)</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2>Certifications</h2>
-        <ul>
-          <li>None yet</li>
         </ul>
       </section>
     </main>
