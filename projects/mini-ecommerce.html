@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini E-commerce Case Study | Alejo Castillo</title>
+    <meta
+      name="description"
+      content="Case study: Redis cart sessions, Postgres orders via Prisma on Neon, and fixing a checkout race condition in a Next.js storefront with Clerk auth and CI-backed tests."
+    />
+    <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/mini-ecommerce.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Alejo Castillo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/mini-ecommerce.html" />
+    <meta property="og:title" content="Mini E-commerce — Redis to Postgres Migration" />
+    <meta
+      property="og:description"
+      content="How I migrated orders from Redis JSON blobs to Postgres + Prisma without breaking the API—and fixed a duplicate-order race on checkout success."
+    />
+    <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/mini-ecommerce-neon-og.webp" />
+    <meta property="og:image:alt" content="Neon SQL Editor showing live Order rows from mini-ecommerce production Postgres" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mini E-commerce — Redis to Postgres Migration" />
+    <meta
+      name="twitter:description"
+      content="Redis cart, Postgres orders, Prisma adapter swap, and a checkout useEffect race condition fix."
+    />
+    <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/mini-ecommerce-neon-og.webp" />
+    <link rel="stylesheet" href="../portfolio.css" />
+    <script src="../i18n.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="case-study-body">
+    <header class="site-header">
+      <a class="logo logo-link" href="../index.html" data-i18n="logoName">Alejo Castillo</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="navToggleText">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="../index.html#projects" data-i18n="navProjects">Projects</a>
+        <a href="../index.html#skills" data-i18n="navSkills">Skills</a>
+        <a href="../index.html#engineering" data-i18n="navEngineering">Engineering</a>
+        <a href="../index.html#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="../index.html#about" data-i18n="navAbout">About</a>
+        <a href="../index.html#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a
+          class="btn btn-ghost"
+          href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
+          aria-label="LinkedIn Profile"
+          data-i18n="headerLinkedIn"
+          data-i18n-attr="aria-label:headerLinkedInAria"
+        >LinkedIn</a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language to Spanish">ES</button>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <p class="case-study-eyebrow" data-i18n="mecCaseEyebrow">Case study</p>
+      <h1 class="case-study-title" data-i18n="mecCaseTitle">Fake E-commerce — Redis cart, Postgres orders</h1>
+      <p class="case-study-lede" data-i18n="mecCaseLede">
+        A production-minded Next.js storefront where I started with Redis JSON blobs for order speed, then migrated to Postgres + Prisma on Neon for relational integrity—without changing the public API.
+      </p>
+
+      <div class="case-study-links case-study-links--top">
+        <a class="btn btn-small" href="https://mini-ecommerce-nextjs-psi.vercel.app/" data-i18n="projectLive">Live</a>
+        <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs" data-i18n="projectRepo">Repo</a>
+        <a class="btn btn-ghost btn-small" href="../index.html#mini-ecommerce" data-i18n="mecCaseBack">← Back to portfolio</a>
+      </div>
+
+      <figure class="case-study-hero">
+        <img
+          src="../assets/projects/mini-ecommerce-main.webp"
+          alt="Mini E-commerce storefront"
+          loading="eager"
+          data-i18n-attr="alt:miniEcommerceAlt"
+        />
+      </figure>
+
+      <section class="case-study-section" id="problem">
+        <h2 data-i18n="mecCaseProblemTitle">1. Problem</h2>
+        <p data-i18n="mecCaseProblemP1">
+          v1 stored orders as Redis JSON blobs keyed by Clerk userId (orders:user:{userId}). That was fast to ship and fine for a demo checkout—but it broke down when I needed relational integrity, per-line-item queries, and an admin view over all orders.
+        </p>
+        <p data-i18n="mecCaseProblemP2">
+          Cart data stayed the right fit for Redis: session-scoped, high-churn key/value with no joins. Orders needed rows, foreign keys, and migrations. The migration had to swap the persistence adapter behind order-store.ts while keeping REST and GraphQL contracts identical.
+        </p>
+      </section>
+
+      <section class="case-study-section" id="architecture">
+        <h2 data-i18n="mecCaseArchTitle">2. Architecture</h2>
+        <p data-i18n="mecCaseArchIntro">Two stores on purpose—each matches its access pattern:</p>
+        <pre class="case-study-diagram" aria-label="Architecture diagram"><code>┌─────────────┐     ┌──────────────────┐     ┌─────────────────────────┐
+│   Browser   │────▶│  Next.js App     │────▶│  Redis                  │
+│  (React 19) │     │  App Router      │     │  • cart / session       │
+└─────────────┘     │  + Clerk auth    │     │  • product cache        │
+       │            └────────┬─────────┘     └─────────────────────────┘
+       │                     │
+       │            ┌────────▼─────────┐     ┌─────────────────────────┐
+       └───────────▶│  /api/orders     │────▶│  PostgreSQL (Neon)      │
+                    │  Prisma adapter  │     │  Order + OrderItem      │
+                    └──────────────────┘     └─────────────────────────┘
+
+Checkout flow: Cart (Redis) → /checkout/pay → /checkout/success → POST /api/orders → Postgres</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="mecCaseArchBullet1">Cart — /api/cart/[sessionId] on Redis (in-memory fallback without REDIS_URL).</li>
+          <li data-i18n="mecCaseArchBullet2">Orders — /api/orders and GraphQL createOrder via Prisma; scoped by Clerk userId.</li>
+          <li data-i18n="mecCaseArchBullet3">Deploy — Neon pooled DATABASE_URL; prisma migrate deploy runs before next build on Vercel.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="migration">
+        <h2 data-i18n="mecCaseMigrationTitle">3. The migration</h2>
+        <p data-i18n="mecCaseMigrationIntro">Four commits, same day—schema first, adapter swap, production bug fix, then docs:</p>
+        <ol class="case-study-commits">
+          <li>
+            <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/f7440c3" rel="noopener noreferrer" target="_blank"><code>f7440c3</code></a>
+            <span data-i18n="mecCaseCommit1">— Bootstrap Prisma 6 with Order + OrderItem schema, Docker Compose Postgres for local dev, initial migration.</span>
+          </li>
+          <li>
+            <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/50fd84b" rel="noopener noreferrer" target="_blank"><code>50fd84b</code></a>
+            <span data-i18n="mecCaseCommit2">— Replace Redis order-store with Prisma adapter; map models to existing Order type; Redis stays for cart only. 45/45 tests green.</span>
+          </li>
+          <li>
+            <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/385f4a4" rel="noopener noreferrer" target="_blank"><code>385f4a4</code></a>
+            <span data-i18n="mecCaseCommit3">— Fix duplicate order creation on /checkout/success (race condition deep-dive below).</span>
+          </li>
+          <li>
+            <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/4575a38" rel="noopener noreferrer" target="_blank"><code>4575a38</code></a>
+            <span data-i18n="mecCaseCommit4">— README documents Redis cart vs Postgres orders and the migration narrative.</span>
+          </li>
+        </ol>
+        <p class="case-study-note">
+          <span data-i18n="mecCaseMigrationNote">Before the adapter swap I locked Redis behavior with commit 9668a49 so the test suite would catch regressions during the Prisma cutover.</span>
+          <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/9668a49" rel="noopener noreferrer" target="_blank"><code>9668a49</code></a>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="race-condition">
+        <h2 data-i18n="mecCaseRaceTitle">4. Race condition deep-dive</h2>
+        <p data-i18n="mecCaseRaceIntro">
+          After Postgres went live, checkout success sometimes created two orders for one cart. The bug lived in a useEffect on /checkout/success—not in Prisma. That’s the kind of issue that separates “it works on my machine” from production-aware React.
+        </p>
+
+        <h3 class="case-study-subtitle" data-i18n="mecCaseRaceCauseTitle">Root cause</h3>
+        <ul class="case-study-bullets">
+          <li data-i18n="mecCaseRaceCause1">The effect depended on [addOrder, clearCart, total, cart, setOrderPaid, sendEvent]—unstable references on every render.</li>
+          <li data-i18n="mecCaseRaceCause2">hasSubmitted.current = true ran in .finally() after the async addOrder call—too late if the effect re-fired first.</li>
+          <li data-i18n="mecCaseRaceCause3">total was derived from async fetchProducts(), so dependency churn retriggered the effect while the first submission was still in flight.</li>
+        </ul>
+
+        <h3 class="case-study-subtitle" data-i18n="mecCaseRaceFixTitle">Fix</h3>
+        <ul class="case-study-bullets">
+          <li data-i18n="mecCaseRaceFix1">Set hasSubmitted.current = true synchronously before addOrder.</li>
+          <li data-i18n="mecCaseRaceFix2">Snapshot cart items at submit time (cart.map(...)) to avoid stale closures.</li>
+          <li data-i18n="mecCaseRaceFix3">Replace async product fetch with computeOrderTotal() from static catalog data.</li>
+          <li data-i18n="mecCaseRaceFix4">Depend only on [cart.length]—fire once when the cart hydrates; reset guard on API failure.</li>
+        </ul>
+
+        <pre class="case-study-code"><code>// Guard before async work — not in .finally()
+hasSubmitted.current = true;
+
+const items = cart.map((item) => ({ ...item }));
+const orderTotal = computeOrderTotal(items);
+
+// Effect deps: [cart.length] only — intentional
+</code></pre>
+        <p>
+          <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/385f4a4" rel="noopener noreferrer" target="_blank" data-i18n="mecCaseRaceLink">View full diff on GitHub →</a>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="outcomes">
+        <h2 data-i18n="mecCaseOutcomesTitle">5. Outcomes</h2>
+        <ul class="case-study-bullets case-study-outcomes">
+          <li data-i18n="mecCaseOutcome1">45/45 tests passing after the Prisma adapter swap (Vitest unit + integration).</li>
+          <li data-i18n="mecCaseOutcome2">Live smoke test — sign in, add to cart, complete checkout; order appears in /my-purchases backed by Neon rows.</li>
+          <li>
+            <span data-i18n="mecCaseOutcome3">Production URL with Clerk auth, SSG/ISR catalog, and Playwright checkout E2E in CI:</span>
+            <a href="https://mini-ecommerce-nextjs-psi.vercel.app/">mini-ecommerce-nextjs-psi.vercel.app</a>
+          </li>
+          <li data-i18n="mecCaseOutcome4">Accessibility — Lighthouse 100 on home, products, PDP, and cart after landmark and labeling fixes.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="links">
+        <h2 data-i18n="mecCaseLinksTitle">6. Links</h2>
+        <div class="case-study-link-grid">
+          <a class="case-study-link-card" href="https://mini-ecommerce-nextjs-psi.vercel.app/" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mecCaseLinkLive">Live app</span>
+            <span class="case-study-link-url">mini-ecommerce-nextjs-psi.vercel.app</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mecCaseLinkRepo">Repository</span>
+            <span class="case-study-link-url">github.com/alejosworkstuff/mini-ecommerce-nextjs</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/blob/main/docs/lighthouse-a11y-pass.md" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mecCaseLinkLighthouse">Lighthouse &amp; a11y pass</span>
+            <span class="case-study-link-url">docs/lighthouse-a11y-pass.md</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs/blob/main/README.md#data-persistence-redis-vs-postgres" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mecCaseLinkReadme">Persistence docs</span>
+            <span class="case-study-link-url">README — Redis vs Postgres</span>
+          </a>
+        </div>
+        <div class="tags case-study-tags">
+          <span>Next.js</span><span>Prisma</span><span>Neon</span><span>Redis</span><span>Clerk</span><span>Playwright</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><span data-i18n="footerPortfolio">Portfolio:</span> <a href="https://alejosworkstuff.github.io/portfolio/" data-i18n="footerUrl">https://alejosworkstuff.github.io/portfolio/</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen);
+      });
+    </script>
+  </body>
+</html>
