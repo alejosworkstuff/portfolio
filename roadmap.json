@@ -478,7 +478,7 @@
               "labelEs": "Página case study (mini-ecommerce) con narrativa migración Postgres",
               "status": "done",
               "repo": "portfolio",
-              "proofUrl": "https://alejosworkstuff.github.io/portfolio/projects/mini-ecommerce.html"
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/5e99c28"
             },
             {
               "label": "Card “Read more” links to dedicated pages",
