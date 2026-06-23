@@ -466,6 +466,13 @@
               "status": "done",
               "repo": "mini-ecommerce-nextjs",
               "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/4575a38"
+            },
+            {
+              "label": "Fix Docker Compose WebSocket URL for local dev",
+              "labelEs": "Fix URL WebSocket en Docker Compose para dev local",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/1c167cd"
             }
           ]
         },
@@ -508,8 +515,29 @@
             {
               "label": "Content validation script in CI",
               "labelEs": "Script de validación de contenido en CI",
-              "status": "pending",
-              "repo": "sarava-radio-streaming"
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/e18536a"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 — Mini Job Board multi-page robustness",
+          "labelEs": "Fase 3 — Robustez multi-página en Mini Job Board",
+          "tasks": [
+            {
+              "label": "Saved-jobs page E2E (save → navigate → apply)",
+              "labelEs": "E2E página saved-jobs (guardar → navegar → apply)",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/c8ccc82"
+            },
+            {
+              "label": "Error UI when jobs.json fetch fails",
+              "labelEs": "UI de error cuando falla la carga de jobs.json",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/c8ccc82"
             }
           ]
         },
