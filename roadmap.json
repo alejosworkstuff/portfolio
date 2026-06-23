@@ -501,8 +501,9 @@
             {
               "label": "Individual post pages (`/espacio-cultural/[slug]`)",
               "labelEs": "Páginas individuales de posts (`/espacio-cultural/[slug]`)",
-              "status": "pending",
-              "repo": "sarava-radio-streaming"
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/6c68f9a"
             },
             {
               "label": "Content validation script in CI",
