@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Story Generator Case Study | Alejo Castillo</title>
+    <meta
+      name="description"
+      content="Case study: a serverless LLM story generator with prompt orchestration on Replicate (Llama 3), a deterministic local fallback when credits fail, per-IP rate limiting, and multi-turn conversation memory—built vanilla and AI-native."
+    />
+    <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Alejo Castillo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
+    <meta property="og:title" content="AI Story Generator — Orchestration, Fallback & Rate Limiting" />
+    <meta
+      property="og:description"
+      content="A production-minded LLM feature: serverless Replicate orchestration, a deterministic fallback when credits run out, per-IP rate limiting, and multi-turn story memory."
+    />
+    <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
+    <meta property="og:image:alt" content="AI Story Generator main form with seed, tone, and length controls" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI Story Generator — Orchestration, Fallback & Rate Limiting" />
+    <meta
+      name="twitter:description"
+      content="Serverless LLM orchestration with a deterministic fallback, per-IP rate limiting, and multi-turn conversation memory—vanilla and AI-native."
+    />
+    <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
+    <link rel="stylesheet" href="../portfolio.css" />
+    <script src="../i18n.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="case-study-body">
+    <header class="site-header">
+      <a class="logo logo-link" href="../index.html" data-i18n="logoName">Alejo Castillo</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="navToggleText">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="../index.html#projects" data-i18n="navProjects">Projects</a>
+        <a href="../index.html#skills" data-i18n="navSkills">Skills</a>
+        <a href="../index.html#engineering" data-i18n="navEngineering">Engineering</a>
+        <a href="../index.html#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="../index.html#about" data-i18n="navAbout">About</a>
+        <a href="../index.html#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a
+          class="btn btn-ghost"
+          href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
+          aria-label="LinkedIn Profile"
+          data-i18n="headerLinkedIn"
+          data-i18n-attr="aria-label:headerLinkedInAria"
+        >LinkedIn</a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language to Spanish">ES</button>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <p class="case-study-eyebrow" data-i18n="iasCaseEyebrow">Case study</p>
+      <h1 class="case-study-title" data-i18n="iasCaseTitle">AI Story Generator — orchestration, fallback &amp; rate limiting</h1>
+      <p class="case-study-lede" data-i18n="iasCaseLede">
+        A serverless LLM feature built to behave well when the AI does not. The story is not "I called an API"—it's prompt orchestration on Replicate (Llama 3), a deterministic local generator that takes over when credits run out, per-IP rate limiting to cap cost and abuse, and a multi-turn conversation model so users iterate on a story instead of one-shotting it. Built vanilla, on purpose, and assembled AI-native.
+      </p>
+
+      <div class="case-study-links case-study-links--top">
+        <a class="btn btn-small" href="https://ai-stories-ashy.vercel.app/" data-i18n="projectLive">Live</a>
+        <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/ai-stories" data-i18n="projectRepo">Repo</a>
+        <a class="btn btn-ghost btn-small" href="../index.html#ai-story" data-i18n="iasCaseBack">← Back to portfolio</a>
+      </div>
+
+      <figure class="case-study-hero">
+        <img
+          src="../assets/projects/ia-stories-main.webp"
+          alt="AI Story Generator main form"
+          loading="eager"
+          data-i18n-attr="alt:aiStoryAlt"
+        />
+      </figure>
+
+      <section class="case-study-section" id="problem">
+        <h2 data-i18n="iasCaseProblemTitle">1. Problem</h2>
+        <p data-i18n="iasCaseProblemP1">
+          AI demos look great in ideal conditions and fall apart under real constraints: the provider runs out of credits, returns a transient 5xx, times out on a cold start, or someone hammers the endpoint and runs up the bill. A "generate a story" button that white-screens the moment Replicate returns HTTP 402 is not a feature—it's a liability.
+        </p>
+        <p data-i18n="iasCaseProblemP2">
+          So the goal was production-minded AI integration: an explicit request contract, controlled generation settings, a path that never leaves the user stranded when the model is unavailable, and guardrails on cost and abuse—all without a framework getting in the way of the actual engineering.
+        </p>
+      </section>
+
+      <section class="case-study-section" id="architecture">
+        <h2 data-i18n="iasCaseArchTitle">2. Architecture</h2>
+        <p data-i18n="iasCaseArchIntro">One serverless endpoint, a resilient client, and a fallback that lives entirely in the browser—so the feature degrades in layers instead of failing all at once:</p>
+        <pre class="case-study-diagram" role="img" aria-label="Architecture diagram"><code>┌─────────────┐  POST {messages,   ┌──────────────────────────┐
+│   Browser   │  tone, length}     │  /api/generate-stories   │
+│ (vanilla JS)│ ─────────────────▶ │  (Vercel Serverless)     │
+└──────┬──────┘                    │                          │
+       │                           │  1. rate-limit (per IP)  │
+       │  fetchWithResilience      │  2. validate request     │
+       │  timeout + retry          │  3. buildPrompt()        │
+       │                           │  4. replicate.run(...)   │
+       │                           └────────────┬─────────────┘
+       │                                        │
+       │  402 / 5xx / timeout      ┌────────────▼─────────────┐
+       └─────────────────────────▶│  Replicate (Llama 3 8B)  │
+       │                           └──────────────────────────┘
+       ▼
+┌──────────────────────┐   on failure   localStorage: theme · story history
+│ generateLocalStory() │ ◀── deterministic fallback, runs offline
+└──────────────────────┘</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseArchBullet1">api/generate-stories.js — serverless handler: rate limit → validate → build prompt → call Replicate → classify errors into HTTP contracts.</li>
+          <li data-i18n="iasCaseArchBullet2">public/js/http.js — fetchWithResilience: AbortController timeout, exponential retry on 429/502/503, typed HttpError.</li>
+          <li data-i18n="iasCaseArchBullet3">public/js/localGenerator.js — deterministic, offline story generator used when the AI path can't deliver.</li>
+          <li data-i18n="iasCaseArchBullet4">public/js/app.js — orchestrates the multi-turn conversation, triggers fallback, and persists history to localStorage.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="orchestration">
+        <h2 data-i18n="iasCaseOrchTitle">3. AI orchestration</h2>
+        <p data-i18n="iasCaseOrchIntro">
+          The endpoint owns the whole generation flow. Length maps to a token budget and a paragraph count, the conversation is flattened into a single prompt, and the model is called with controlled settings—so output stays bounded and the API secret never leaves the server.
+        </p>
+        <pre class="case-study-code"><code>const lengthSettings = {
+  short:  { maxTokens: 300, paragraphs: 3 },
+  medium: { maxTokens: 600, paragraphs: 5 },
+  long:   { maxTokens: 900, paragraphs: 7 },
+};
+
+const prompt = buildPrompt(messages, tone, settings.paragraphs);
+
+const output = await replicateClient.run("meta/meta-llama-3-8b-instruct", {
+  input: { prompt, max_new_tokens: settings.maxTokens, temperature: 0.75 },
+});
+const story = Array.isArray(output) ? output.join("") : output;
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseOrch1">Controlled generation — tone and length are first-class inputs; length caps max_new_tokens so cost and latency stay predictable.</li>
+          <li data-i18n="iasCaseOrch2">Prompt construction — buildPrompt() flattens the role/content history into one instruction and asks for ONLY the story text, no preamble.</li>
+          <li data-i18n="iasCaseOrch3">Output normalization — Replicate streams an array of tokens; the handler joins them into a single string before returning.</li>
+          <li data-i18n="iasCaseOrch4">Testable in isolation — getLengthSettings, buildPrompt, and the handler are pure exports, unit-tested with node --test against a mocked Replicate client.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="fallback">
+        <h2 data-i18n="iasCaseFallbackTitle">4. Fallback &amp; resilience</h2>
+        <p data-i18n="iasCaseFallbackIntro">
+          Resilience is layered. The server classifies failures into explicit HTTP contracts; the client retries the transient ones and, when the AI genuinely can't deliver, hands off to a deterministic local generator so the user always gets a story.
+        </p>
+
+        <h3 class="case-study-subtitle" data-i18n="iasCaseFallbackServerTitle">Server: classify, don't crash</h3>
+        <pre class="case-study-code"><code>try {
+  const output = await replicateClient.run(model, { input });
+  return res.status(200).json({ output: story });
+} catch (err) {
+  if (isReplicateCreditsError(err)) {
+    return res.status(402).json({ error: "replicate_no_credits" });
+  }
+  console.error("replicate_failed", err);
+  return res.status(500).json({ error: "replicate_failed" });
+}
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseFallbackServer1">isReplicateCreditsError() string-matches 402 / "payment required" / "insufficient" / "credit" so the exhausted-credits case becomes a clean, documented 402.</li>
+          <li data-i18n="iasCaseFallbackServer2">Explicit contracts — 400 invalid request, 402 no credits, 405 wrong method, 429 rate limited, 500 unexpected. The client branches on these, not on guesswork.</li>
+        </ul>
+
+        <h3 class="case-study-subtitle" data-i18n="iasCaseFallbackClientTitle">Client: retry, then degrade</h3>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseFallbackClient1">fetchWithResilience wraps fetch with an AbortController timeout (8s) and exponential-backoff retry on 429/502/503; AbortError becomes a typed TIMEOUT HttpError.</li>
+          <li data-i18n="iasCaseFallbackClient2">On 402, any non-OK status, an empty body, or a thrown error, app.js calls generateLocalStory(seed, tone, length)—a deterministic generator that runs entirely offline.</li>
+          <li data-i18n="iasCaseFallbackClient3">Transparency — a one-time, session-scoped notice tells the user they're in fallback mode ("Out of credits" vs "AI unavailable"), so the degraded path is honest, not hidden.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="iasCaseFallbackNote">The deliberate trade-off: the fallback is template-based, not "AI-quality." That's the point—reliability and demo continuity beat an AI-only purity that white-screens the moment a third party has a bad day.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="rate-limiting">
+        <h2 data-i18n="iasCaseRateTitle">5. Rate limiting</h2>
+        <p data-i18n="iasCaseRateIntro">
+          An LLM endpoint is a cost endpoint. A small fixed-window limiter keyed by client IP caps requests before any Replicate call is made—protecting the bill and blunting abuse—and reports its state back through standard headers.
+        </p>
+        <pre class="case-study-code"><code>function checkKey(key) {
+  const now = Date.now();
+  const entry = store.get(key);
+  if (!entry || now &gt;= entry.resetAt) {
+    store.set(key, { count: 1, resetAt: now + windowMs }); // 60s window
+    return { allowed: true, remaining: maxRequests - 1 };
+  }
+  if (entry.count &gt;= maxRequests) {            // default 10 / window
+    return { allowed: false, remaining: 0,
+             retryAfterSec: Math.ceil((entry.resetAt - now) / 1000) };
+  }
+  entry.count += 1;
+  return { allowed: true, remaining: maxRequests - entry.count };
+}
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseRate1">Cost before tokens — the limiter runs first in the handler, so a blocked request never reaches (or bills) Replicate.</li>
+          <li data-i18n="iasCaseRate2">Client identity — getClientIp() reads x-forwarded-for / x-real-ip (Vercel proxy headers) and falls back to the socket address.</li>
+          <li data-i18n="iasCaseRate3">Standard signaling — every response sets X-RateLimit-Remaining; a 429 also sets Retry-After so clients can back off correctly.</li>
+          <li data-i18n="iasCaseRate4">Injectable store — the window, the cap, and the backing Map are all options, so tests drive the limiter deterministically without real time or real IPs.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="iasCaseRateNote">Honest scope: the store is in-memory, so the limit is per serverless instance—right for a portfolio demo and abuse-blunting. The clear upgrade path is a shared store (Redis/Upstash) for a global limit across instances.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="multi-turn">
+        <h2 data-i18n="iasCaseMultiTitle">6. Multi-turn memory</h2>
+        <p data-i18n="iasCaseMultiIntro">
+          A story isn't one prompt—it's a conversation. The client keeps an in-memory messages array of role/content turns and sends the whole history on every call, so each continuation is conditioned on everything written so far. The same array works for the AI and the fallback path.
+        </p>
+        <pre class="case-study-code"><code>// New story: reset the conversation
+messages = [{ role: "user", content: seed }];
+
+// Continue: append the user's nudge, resend full history
+messages.push({ role: "user", content: prompt || "Continue the story." });
+const res = await requestStory({ messages, tone, length }, controller.signal);
+messages.push({ role: "assistant", content: story });
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseMulti1">Conversation as state — messages is the single source of truth; the rendered story is just the assistant turns joined together.</li>
+          <li data-i18n="iasCaseMulti2">Continue / regenerate — "Continue" appends a user turn and resends history; "Regenerate" re-runs the seed. Both flow through one runStoryRequest().</li>
+          <li data-i18n="iasCaseMulti3">Validated server-side — roles are restricted to user/assistant, content is length-capped, and the array is capped at 20 messages to bound prompt size.</li>
+          <li data-i18n="iasCaseMulti4">Persistence — completed stories are saved to localStorage and restorable from a collapsible history panel, no backend required.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="ai-native">
+        <h2 data-i18n="iasCaseNativeTitle">7. AI-native builder</h2>
+        <p data-i18n="iasCaseNativeIntro">
+          Beyond consuming an LLM at runtime, this project is where I lean on LLMs as a build tool—and the workflow only works because of the constraints around it.
+        </p>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseNative1">AI as a tool, not a crutch — I use models to draft and refactor, then gate everything behind syntax checks, node --test, Playwright E2E, and an .env.example validator in CI.</li>
+          <li data-i18n="iasCaseNative2">Pure, mockable seams — small exported functions (buildPrompt, getLengthSettings, createRateLimiter, createHandler) make AI-generated changes easy to verify and hard to silently break.</li>
+          <li data-i18n="iasCaseNative3">Vanilla on purpose — no framework keeps the focus on AI/API behavior and the platform (fetch, AbortController, modules), which is exactly what makes the codebase legible to both humans and models.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="outcomes">
+        <h2 data-i18n="iasCaseOutcomesTitle">8. Outcomes</h2>
+        <ul class="case-study-bullets case-study-outcomes">
+          <li data-i18n="iasCaseOutcome1">The feature never dead-ends — credits out, transient 5xx, or timeout, the user still gets a story plus an honest notice about why.</li>
+          <li data-i18n="iasCaseOutcome2">Tested at the seams — node --test covers prompt building, length mapping, credit-error classification, and fallback; Playwright drives the generate flow against a mocked API.</li>
+          <li data-i18n="iasCaseOutcome3">CI gates each push — JS syntax checks, unit tests, and .env.example validation via npm run ci (E2E in ci:full).</li>
+          <li>
+            <span data-i18n="iasCaseOutcome4">Live on Vercel serverless—try the fallback by spamming generate until credits throttle:</span>
+            <a href="https://ai-stories-ashy.vercel.app/">ai-stories-ashy.vercel.app</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="links">
+        <h2 data-i18n="iasCaseLinksTitle">9. Links</h2>
+        <div class="case-study-link-grid">
+          <a class="case-study-link-card" href="https://ai-stories-ashy.vercel.app/" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkLive">Live app</span>
+            <span class="case-study-link-url">ai-stories-ashy.vercel.app</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkRepo">Repository</span>
+            <span class="case-study-link-url">github.com/alejosworkstuff/ai-stories</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/api/generate-stories.js" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkApi">API handler</span>
+            <span class="case-study-link-url">api/generate-stories.js</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/api/rate-limit.js" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkRate">Rate limiter</span>
+            <span class="case-study-link-url">api/rate-limit.js</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/public/js/http.js" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkHttp">HTTP resilience</span>
+            <span class="case-study-link-url">public/js/http.js</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/public/js/localGenerator.js" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkFallback">Fallback generator</span>
+            <span class="case-study-link-url">public/js/localGenerator.js</span>
+          </a>
+        </div>
+        <div class="tags case-study-tags">
+          <span>Replicate</span><span>Llama 3</span><span>Serverless</span><span>Rate Limiting</span><span>Fallback</span><span>Vanilla JS</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><span data-i18n="footerPortfolio">Portfolio:</span> <a href="https://alejosworkstuff.github.io/portfolio/" data-i18n="footerUrl">https://alejosworkstuff.github.io/portfolio/</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen);
+      });
+    </script>
+  </body>
+</html>
