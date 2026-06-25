@@ -488,6 +488,13 @@
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/5e99c28"
             },
             {
+              "label": "Case study page (mini-job-board) — filter module, URL state, vanilla depth",
+              "labelEs": "Página case study (mini-job-board) — módulo de filtros, estado en URL, profundidad vanilla",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/4e335e6"
+            },
+            {
               "label": "Card “Read more” links to dedicated pages",
               "labelEs": "Enlaces “Leer más” en tarjetas a páginas dedicadas",
               "status": "in_progress",
@@ -519,6 +526,12 @@
               "status": "done",
               "repo": "sarava-radio-streaming",
               "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/e18536a"
+            },
+            {
+              "label": "Compress club-lectura-las-indignas image → WebP (425 KB → 24 KB)",
+              "labelEs": "Comprimir imagen club-lectura-las-indignas → WebP (425 KB → 24 KB)",
+              "status": "done",
+              "repo": "sarava-radio-streaming"
             }
           ]
         },
