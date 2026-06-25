@@ -4,6 +4,11 @@
   "private": true,
   "description": "Personal portfolio site deployed on GitHub Pages.",
   "homepage": "https://alejosworkstuff.github.io/portfolio/",
+  "scripts": {
+    "validate:html": "html-validate index.html resume/*.html projects/*.html",
+    "check:links": "linkinator index.html \"resume/*.html\" \"projects/*.html\" --config linkinator.config.json",
+    "check:pages": "npm run validate:html && npm run check:links"
+  },
   "keywords": [
     "portfolio",
     "javascript",
@@ -12,6 +17,8 @@
     "css"
   ],
   "devDependencies": {
+    "html-validate": "^11.5.3",
+    "linkinator": "^7.6.1",
     "sharp": "^0.35.1"
   }
 }

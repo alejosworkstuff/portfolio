@@ -1,0 +1,5 @@
+{
+  "recurse": true,
+  "retry": true,
+  "skip": ["node_modules"]
+}
