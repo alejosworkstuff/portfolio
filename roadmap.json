@@ -546,7 +546,8 @@
               "label": "Compress club-lectura-las-indignas image → WebP (425 KB → 24 KB)",
               "labelEs": "Comprimir imagen club-lectura-las-indignas → WebP (425 KB → 24 KB)",
               "status": "done",
-              "repo": "sarava-radio-streaming"
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/bd8b79e"
             },
             {
               "label": "Move about-content.ts → content/about.json (Zod-validated content pipeline)",
