@@ -495,10 +495,25 @@
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/4e335e6"
             },
             {
+              "label": "Case study page (ia-stories) — AI orchestration, fallback, rate limiting",
+              "labelEs": "Página case study (ia-stories) — orquestación IA, fallback, rate limiting",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/64a72b8"
+            },
+            {
+              "label": "Case study page (sarava) — static export, dynamic [slug] routes, Zod content pipeline",
+              "labelEs": "Página case study (sarava) — export estático, rutas dinámicas [slug], pipeline de contenido Zod",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/b478abf"
+            },
+            {
               "label": "Card “Read more” links to dedicated pages",
               "labelEs": "Enlaces “Leer más” en tarjetas a páginas dedicadas",
-              "status": "in_progress",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/b478abf"
             },
             {
               "label": "Portfolio link checker in CI",
