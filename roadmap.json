@@ -496,8 +496,9 @@
             {
               "label": "Portfolio link checker in CI",
               "labelEs": "Link checker del portfolio en CI",
-              "status": "pending",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/277495d"
             }
           ]
         },
