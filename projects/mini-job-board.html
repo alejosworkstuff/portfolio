@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Job Board Case Study | Alejo Castillo</title>
+    <meta
+      name="description"
+      content="Case study: a DOM-decoupled filter/sort module, URL as the single source of truth for shareable filtered views, and why vanilla JS depth is the point—built with unit tests and Playwright E2E."
+    />
+    <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/mini-job-board.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Alejo Castillo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/mini-job-board.html" />
+    <meta property="og:title" content="Mini Job Board — Testable Filters & Shareable URL State" />
+    <meta
+      property="og:description"
+      content="A pure filter/sort module decoupled from the DOM, URL query params as the source of truth for filters, and vanilla JS depth—proven with unit tests and 11 Playwright scenarios."
+    />
+    <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/mini-job-board-main.webp" />
+    <meta property="og:image:alt" content="Mini Job Board listing with search, multi-filter controls, and job cards" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mini Job Board — Testable Filters & Shareable URL State" />
+    <meta
+      name="twitter:description"
+      content="DOM-decoupled filter module, URL-as-state for deep links, and vanilla depth as a feature—not a limitation."
+    />
+    <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/mini-job-board-main.webp" />
+    <link rel="stylesheet" href="../portfolio.css" />
+    <script src="../i18n.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="case-study-body">
+    <header class="site-header">
+      <a class="logo logo-link" href="../index.html" data-i18n="logoName">Alejo Castillo</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="navToggleText">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="../index.html#projects" data-i18n="navProjects">Projects</a>
+        <a href="../index.html#skills" data-i18n="navSkills">Skills</a>
+        <a href="../index.html#engineering" data-i18n="navEngineering">Engineering</a>
+        <a href="../index.html#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="../index.html#about" data-i18n="navAbout">About</a>
+        <a href="../index.html#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a
+          class="btn btn-ghost"
+          href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
+          aria-label="LinkedIn Profile"
+          data-i18n="headerLinkedIn"
+          data-i18n-attr="aria-label:headerLinkedInAria"
+        >LinkedIn</a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language to Spanish">ES</button>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <p class="case-study-eyebrow" data-i18n="mjbCaseEyebrow">Case study</p>
+      <h1 class="case-study-title" data-i18n="mjbCaseTitle">Mini Job Board — testable filters, shareable URL state</h1>
+      <p class="case-study-lede" data-i18n="mjbCaseLede">
+        A vanilla-JavaScript job board where the engineering story isn't the UI—it's the architecture under it: a filter/sort module that has no idea the DOM exists, URL query params used as the single source of truth for filters, and a no-framework stack chosen on purpose and backed by tests.
+      </p>
+
+      <div class="case-study-links case-study-links--top">
+        <a class="btn btn-small" href="https://alejosworkstuff.github.io/mini-job-board/" data-i18n="projectLive">Live</a>
+        <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-job-board" data-i18n="projectRepo">Repo</a>
+        <a class="btn btn-ghost btn-small" href="../index.html#mini-job-board" data-i18n="mjbCaseBack">← Back to portfolio</a>
+      </div>
+
+      <figure class="case-study-hero">
+        <img
+          src="../assets/projects/mini-job-board-main.webp"
+          alt="Mini Job Board main page"
+          loading="eager"
+          data-i18n-attr="alt:miniJobBoardAlt"
+        />
+      </figure>
+
+      <section class="case-study-section" id="problem">
+        <h2 data-i18n="mjbCaseProblemTitle">1. Problem</h2>
+        <p data-i18n="mjbCaseProblemP1">
+          Most junior frontend demos show a static list and stop there. I wanted interaction-heavy product behavior—real-time search, combined filters, sorting, saved jobs, and multi-page flows—without reaching for React or a build step. The risk with vanilla JS is that everything collapses into one DOM-coupled file that you can't test.
+        </p>
+        <p data-i18n="mjbCaseProblemP2">
+          So the real problem was architectural: keep the filtering logic pure and unit-testable, make filtered views shareable and deep-linkable, and treat the absence of a framework as a deliberate engineering choice rather than a missing dependency.
+        </p>
+      </section>
+
+      <section class="case-study-section" id="architecture">
+        <h2 data-i18n="mjbCaseArchTitle">2. Architecture</h2>
+        <p data-i18n="mjbCaseArchIntro">Logic lives in shared modules; pages stay thin. State derives from data, not the other way around:</p>
+        <pre class="case-study-diagram" role="img" aria-label="Architecture diagram"><code>┌──────────────┐   fetch    ┌──────────────────┐
+│ data/jobs.json│──────────▶│  in-memory jobs  │  source of truth
+└──────────────┘            └────────┬─────────┘
+                                     │
+        URL (?type&amp;seniority         │  applyJobFilters(jobs, state)
+         &amp;salary&amp;q&amp;sort) ───────────▶│  ── pure, no DOM ──
+                                     │
+                            ┌────────▼─────────┐
+                            │  filteredJobs    │──▶ render (grid / list)
+                            └──────────────────┘     + load-more batching
+
+localStorage: theme · view mode · saved IDs · applied IDs · filters collapsed
+Pages: index.html  ·  job-details.html?id=  ·  saved-jobs.html</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="mjbCaseArchBullet1">scripts/filter-logic.mjs — pure filter/sort helpers, unit-tested in Node, importable without a browser.</li>
+          <li data-i18n="mjbCaseArchBullet2">app.js — wires inputs to the module, reads/writes the URL, and renders derived slices of state.</li>
+          <li data-i18n="mjbCaseArchBullet3">Shared scripts — site-header.js, jobs-fetch-error.js, and validate-jobs.mjs reused across pages and CI.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="filter-module">
+        <h2 data-i18n="mjbCaseFilterTitle">3. The filter module</h2>
+        <p data-i18n="mjbCaseFilterIntro">
+          Everything that decides which jobs show up lives in scripts/filter-logic.mjs as pure functions. They take data and a state object and return a new array—no DOM reads, no globals—so they can be unit-tested in Node with node --test.
+        </p>
+
+        <h3 class="case-study-subtitle" data-i18n="mjbCaseFilterComposeTitle">Composable filters</h3>
+        <ul class="case-study-bullets">
+          <li data-i18n="mjbCaseFilterCompose1">applyJobFilters(jobs, state) chains type, seniority, salary, and free-text search, then hands off to sortJobs.</li>
+          <li data-i18n="mjbCaseFilterCompose2">Search spans title, company, and location; each filter narrows an immutable copy, never the source array.</li>
+          <li data-i18n="mjbCaseFilterCompose3">sortJobs supports newest (by id), company A–Z, and remote-first (remote → hybrid → on-site, then company).</li>
+        </ul>
+
+        <h3 class="case-study-subtitle" data-i18n="mjbCaseFilterSalaryTitle">The salary-band edge case</h3>
+        <p data-i18n="mjbCaseFilterSalaryIntro">
+          Salaries arrive as messy strings ("€3k–5k / year", "5k-8k"). parseSalaryMonthlyUsd normalizes them to a monthly USD range—dividing yearly figures by 12 and converting EUR—then a band matches if the ranges overlap, not if one contains the other:
+        </p>
+        <pre class="case-study-code"><code>// Normalize "€48k-60k / year" → monthly USD range, then overlap-test
+const isYearly = /\/\s*year|per\s+year|yearly/.test(s);
+const isEur = /€|eur/.test(s);
+if (isYearly) { min /= 12; max /= 12; }
+if (isEur)    { min *= EUR_TO_USD; max *= EUR_TO_USD; }
+
+const rangesOverlap = (a, b) =&gt; a.min &lt; b.max &amp;&amp; a.max &gt; b.min;
+</code></pre>
+        <p class="case-study-note">
+          <span data-i18n="mjbCaseFilterSalaryNote">Overlap (not containment) is the right rule: a "3k–5k" job should still surface under the "5k–8k" band because its range crosses the boundary. That kind of decision is trivial to verify when the logic is a pure function.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="url-state">
+        <h2 data-i18n="mjbCaseUrlTitle">4. URL as the single source of truth</h2>
+        <p data-i18n="mjbCaseUrlIntro">
+          Filter state lives in the URL, not just in memory. That makes any filtered view shareable and deep-linkable—paste /?type=remote&amp;seniority=senior&amp;q=Developer and the board loads already filtered. Two small functions keep the URL and the controls in sync.
+        </p>
+
+        <h3 class="case-study-subtitle" data-i18n="mjbCaseUrlReadTitle">Reading state in (defensively)</h3>
+        <ul class="case-study-bullets">
+          <li data-i18n="mjbCaseUrlRead1">readFiltersFromUrl() parses URLSearchParams on load and accepts both q and search for the query.</li>
+          <li data-i18n="mjbCaseUrlRead2">normalizeUrlFilter lowercases, trims, dash-joins, and validates each value against an allow-list Set—junk params are ignored, not rendered.</li>
+        </ul>
+
+        <h3 class="case-study-subtitle" data-i18n="mjbCaseUrlWriteTitle">Writing state out (without history spam)</h3>
+        <pre class="case-study-code"><code>function syncUrlToFilters() {
+  const params = new URLSearchParams();
+  if (q) params.set("q", q);
+  if (typeFilter.value !== "all") params.set("type", typeFilter.value);
+  // ...seniority, salary, sort — only non-default values
+
+  const nextUrl = query ? `${path}?${query}` : path;
+  if (currentUrl !== nextUrl) history.replaceState(null, "", nextUrl);
+}
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="mjbCaseUrlWrite1">Only non-default values are written, so the URL stays clean (no ?type=all&amp;sort=newest noise).</li>
+          <li data-i18n="mjbCaseUrlWrite2">history.replaceState (not pushState) avoids polluting the back stack on every keystroke; it only writes when the URL actually changes.</li>
+          <li data-i18n="mjbCaseUrlWrite3">A popstate listener re-reads the URL, re-syncs the dropdown labels, and re-applies filters—so browser back/forward restores the exact view.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="vanilla-depth">
+        <h2 data-i18n="mjbCaseVanillaTitle">5. Vanilla depth, on purpose</h2>
+        <p data-i18n="mjbCaseVanillaIntro">
+          No framework and no build step is the feature here, not a shortcut. It forces—and demonstrates—command of the platform: DOM, events, history, storage, and module boundaries without a library smoothing over them.
+        </p>
+        <ul class="case-study-bullets">
+          <li data-i18n="mjbCaseVanilla1">State without a store — an in-memory jobs array is the source of truth; the UI renders derived slices (filteredJobs, paginated batches).</li>
+          <li data-i18n="mjbCaseVanilla2">Persistence without a backend — theme, grid/list view, saved IDs, applied IDs, and the collapsed-filters preference all live in localStorage.</li>
+          <li data-i18n="mjbCaseVanilla3">Multi-page flows — index listing, job-details.html?id=, and saved-jobs.html share header and fetch-error modules instead of duplicating logic.</li>
+          <li data-i18n="mjbCaseVanilla4">Resilience — a fetch-failure banner and empty states with one-click reset, so the board degrades gracefully on a slow or broken network.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="mjbCaseVanillaNote">The deliberate trade-off: device-local persistence and client-side filtering, with a clear upgrade path to a real API and server-side pagination. Vanilla multi-page depth is the story—so a React rewrite is explicitly out of scope.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="outcomes">
+        <h2 data-i18n="mjbCaseOutcomesTitle">6. Outcomes</h2>
+        <ul class="case-study-bullets case-study-outcomes">
+          <li data-i18n="mjbCaseOutcome1">Filter logic is unit-tested in isolation (tests/filter-logic.test.mjs via node --test)—no DOM, no browser needed.</li>
+          <li data-i18n="mjbCaseOutcome2">11 Playwright E2E scenarios cover search/save, the saved-jobs page, fetch-error banners, URL-state load/update, pagination, and apply tracking.</li>
+          <li data-i18n="mjbCaseOutcome3">CI runs JS syntax checks, JSON schema validation of data/jobs.json, unit tests, and E2E (npm run ci:full).</li>
+          <li>
+            <span data-i18n="mjbCaseOutcome4">Live on GitHub Pages—zero build, instant deploy:</span>
+            <a href="https://alejosworkstuff.github.io/mini-job-board/">alejosworkstuff.github.io/mini-job-board</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="links">
+        <h2 data-i18n="mjbCaseLinksTitle">7. Links</h2>
+        <div class="case-study-link-grid">
+          <a class="case-study-link-card" href="https://alejosworkstuff.github.io/mini-job-board/" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mjbCaseLinkLive">Live app</span>
+            <span class="case-study-link-url">alejosworkstuff.github.io/mini-job-board</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-job-board" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mjbCaseLinkRepo">Repository</span>
+            <span class="case-study-link-url">github.com/alejosworkstuff/mini-job-board</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-job-board/blob/main/scripts/filter-logic.mjs" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mjbCaseLinkFilter">Filter module</span>
+            <span class="case-study-link-url">scripts/filter-logic.mjs</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/mini-job-board/blob/main/e2e/filter-url-state.spec.js" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="mjbCaseLinkE2e">URL-state E2E</span>
+            <span class="case-study-link-url">e2e/filter-url-state.spec.js</span>
+          </a>
+        </div>
+        <div class="tags case-study-tags">
+          <span>Vanilla JS</span><span>ES Modules</span><span>URL State</span><span>localStorage</span><span>Playwright</span><span>GitHub Actions</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><span data-i18n="footerPortfolio">Portfolio:</span> <a href="https://alejosworkstuff.github.io/portfolio/" data-i18n="footerUrl">https://alejosworkstuff.github.io/portfolio/</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen);
+      });
+    </script>
+  </body>
+</html>
