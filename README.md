@@ -13,7 +13,6 @@ The site showcases selected projects with problem/stack/outcome case-study cards
 - **Bilingual UI** — EN/ES strings in `i18n.js`; language preference persisted in `localStorage`
 - **Project case studies** — Expandable cards with live demos and GitHub repos
 - **Responsive layout** — Mobile nav, project grid, and accessible controls
-- **Presentation card** — Standalone `presentation-card.html` for quick sharing or printing
 - **Zero build step** — Plain HTML, CSS, and JavaScript; deploys directly to GitHub Pages
 
 ## Tech stack
@@ -32,7 +31,6 @@ portfolio/
 ├── index.html              # Main portfolio page
 ├── portfolio.css           # Site styles
 ├── i18n.js                 # EN/ES translations and language toggle
-├── presentation-card.html  # Compact printable/shareable profile card
 ├── assets/
 │   ├── icons/              # LinkedIn, GitHub SVG icons
 │   └── projects/           # Project screenshot previews
