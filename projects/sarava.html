@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Saravá Cultural Hub Case Study | Alejo Castillo</title>
+    <meta
+      name="description"
+      content="Case study: a community cultural center site (Espacio Cultural Saravá) built on Next.js static export for zero-cost GitHub Pages hosting—with dynamic per-post routes, real per-entry SEO, and a Zod-validated JSON content pipeline gated in CI."
+    />
+    <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/sarava.html" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Alejo Castillo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/sarava.html" />
+    <meta property="og:title" content="Saravá — a zero-cost cultural hub with real per-post SEO" />
+    <meta
+      property="og:description"
+      content="A real community cultural product: Next.js static export to GitHub Pages, dynamic [slug] post routes with per-entry OG metadata, and a Zod content schema that gates every deploy in CI."
+    />
+    <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/sarava-main.webp" />
+    <meta property="og:image:alt" content="Saravá Espacio Cultural site" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saravá — a zero-cost cultural hub with real per-post SEO" />
+    <meta
+      name="twitter:description"
+      content="Next.js static export to GitHub Pages, dynamic per-post routes with real SEO, and a Zod-validated JSON content pipeline gated in CI."
+    />
+    <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/sarava-main.webp" />
+    <link rel="stylesheet" href="../portfolio.css" />
+    <script src="../i18n.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+
+  <body class="case-study-body">
+    <header class="site-header">
+      <a class="logo logo-link" href="../index.html" data-i18n="logoName">Alejo Castillo</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="navToggleText">
+        Menu
+      </button>
+      <nav id="site-nav" class="site-nav">
+        <a href="../index.html#projects" data-i18n="navProjects">Projects</a>
+        <a href="../index.html#skills" data-i18n="navSkills">Skills</a>
+        <a href="../index.html#engineering" data-i18n="navEngineering">Engineering</a>
+        <a href="../index.html#roadmap" data-i18n="navRoadmap">Roadmap</a>
+        <a href="../index.html#about" data-i18n="navAbout">About</a>
+        <a href="../index.html#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a
+          class="btn btn-ghost"
+          href="https://www.linkedin.com/in/alejo-castillo-0b02b73b0/"
+          aria-label="LinkedIn Profile"
+          data-i18n="headerLinkedIn"
+          data-i18n-attr="aria-label:headerLinkedInAria"
+        >LinkedIn</a>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Switch language to Spanish">ES</button>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <p class="case-study-eyebrow" data-i18n="srvCaseEyebrow">Case study</p>
+      <h1 class="case-study-title" data-i18n="srvCaseTitle">Saravá — a zero-cost cultural hub with real per-post SEO</h1>
+      <p class="case-study-lede" data-i18n="srvCaseLede">
+        A real cultural product, not a template: Espacio Cultural Saravá is a community center in Bolívar, Buenos Aires that needed one digital home for its radio, podcast, reading club, and cultural posts. The engineering story is how a non-technical collective gets shareable, SEO-correct pages with zero hosting cost—Next.js static export to GitHub Pages, dynamic <code>[slug]</code> routes with per-entry OG metadata, and a Zod content schema that refuses to deploy bad data.
+      </p>
+
+      <div class="case-study-links case-study-links--top">
+        <a class="btn btn-small" href="https://alejosworkstuff.github.io/sarava-radio-streaming/" data-i18n="projectLive">Live</a>
+        <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/sarava-radio-streaming" data-i18n="projectRepo">Repo</a>
+        <a class="btn btn-ghost btn-small" href="../index.html#sarava-radio-streaming" data-i18n="srvCaseBack">← Back to portfolio</a>
+      </div>
+
+      <figure class="case-study-hero">
+        <img
+          src="../assets/projects/sarava-main.webp"
+          alt="Saravá Espacio Cultural site"
+          loading="eager"
+          data-i18n-attr="alt:saravaAlt"
+        />
+      </figure>
+
+      <section class="case-study-section" id="problem">
+        <h2 data-i18n="srvCaseProblemTitle">1. Problem</h2>
+        <p data-i18n="srvCaseProblemP1">
+          A grassroots cultural collective has rich content—live radio, a podcast, a reading club, weekend workshops, cultural news—and almost no budget. A WordPress install means recurring hosting plus a security surface nobody will maintain; a single static landing page means each cultural post has no URL of its own, so nothing is shareable or indexable. The people who actually publish are organizers and writers, not developers.
+        </p>
+        <p data-i18n="srvCaseProblemP2">
+          So the brief was a product brief, not just a build: every post needs its own page with a correct title and social preview; publishing must be possible without a CMS or a database; hosting must cost nothing to run; and a bad content edit must never reach production. The engineering exists to serve those constraints—not the other way around.
+        </p>
+      </section>
+
+      <section class="case-study-section" id="architecture">
+        <h2 data-i18n="srvCaseArchTitle">2. Architecture</h2>
+        <p data-i18n="srvCaseArchIntro">Content lives as JSON in the repo, typed server-only loaders turn it into data, the App Router renders section and per-post pages, and the whole thing is exported to static HTML that GitHub Pages serves for free:</p>
+        <pre class="case-study-diagram" role="img" aria-label="Architecture diagram"><code>content/                         next build  (output: "export")
+├─ posts/*.json  ┐  Zod        ┌────────────────────────────┐
+├─ novels/*.json ├─ validate ─▶│  Next.js App Router        │
+└─ events/*.json ┘  (CI gate)  │  server-only loaders       │
+                               │                            │
+   lib/content.ts              │  /radio-streaming          │
+   getPosts() · getEvents()    │  /podcast · /club-lectura  │
+   getNovels()  (typed)        │  /espacio-cultural         │
+                               │  /espacio-cultural/[slug]  │
+                               └─────────────┬──────────────┘
+                                             │ static HTML + assets
+                                             ▼
+                          out/  ──▶  docs/  ──▶  GitHub Pages
+                                                (zero server cost)</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="srvCaseArchBullet1">content/*.json — posts, novels, and events as plain JSON files. The filename is the slug; editors add a post by adding a file in a pull request.</li>
+          <li data-i18n="srvCaseArchBullet2">lib/content.ts — server-only typed loaders (getPosts, getPostBySlug, getEvents, getNovels) that read the folders and sort by date; no client ever touches the filesystem.</li>
+          <li data-i18n="srvCaseArchBullet3">app/ — App Router section routes (radio-streaming, podcast, club-lectura, espacio-cultural, sobre-nosotras) plus the dynamic [slug] post route, all sharing a SiteHeader/SiteFooter shell.</li>
+          <li data-i18n="srvCaseArchBullet4">output: "export" — the build emits pure static HTML to out/, copied into docs/, which GitHub Pages serves. No Node server, no database, nothing to keep running.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="routes">
+        <h2 data-i18n="srvCaseRoutesTitle">3. Dynamic routes &amp; SEO</h2>
+        <p data-i18n="srvCaseRoutesIntro">
+          Each cultural post gets a real page at build time. <code>generateStaticParams</code> enumerates every slug, and <code>generateMetadata</code> reads that post's frontmatter to emit a per-entry title, description, and OG image—so a link pasted in WhatsApp or Slack previews correctly, and search engines index each post on its own URL.
+        </p>
+        <pre class="case-study-code"><code>// app/espacio-cultural/[slug]/page.tsx
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) =&gt; ({ slug: post.slug }));   // one page per post
+}
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  if (!post) return { title: "Publicación no encontrada" };
+
+  return buildPageMetadata({           // canonical + OG + Twitter card
+    title: post.title,
+    description: post.excerpt,
+    path: `/espacio-cultural/${slug}`,
+    image: post.image,                 // real per-post social preview
+  });
+}
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="srvCaseRoutes1">Static params from data — generateStaticParams maps getPosts() to slugs, so the route set is derived from content, not hardcoded; add a JSON file and the page exists.</li>
+          <li data-i18n="srvCaseRoutes2">Per-entry metadata — generateMetadata builds title, description, canonical URL, and OG/Twitter image from the post itself, via a shared buildPageMetadata() helper.</li>
+          <li data-i18n="srvCaseRoutes3">Honest 404s — an unknown slug calls notFound() instead of rendering an empty shell, and metadata falls back to a clear "post not found" title.</li>
+          <li data-i18n="srvCaseRoutes4">List → detail — the espacio-cultural index links each card to /espacio-cultural/{slug}, so the list and the indexable detail pages stay in sync.</li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="content-pipeline">
+        <h2 data-i18n="srvCaseContentTitle">4. Content pipeline</h2>
+        <p data-i18n="srvCaseContentIntro">
+          With JSON-in-Git as the CMS, the schema is the quality gate. A Zod schema describes every collection, and a validation script runs in CI before the build—rejecting a malformed date, a missing field, a non-kebab-case filename, or an image reference that doesn't exist on disk. Bad content fails the pipeline instead of shipping silently.
+        </p>
+        <pre class="case-study-code"><code>// lib/content-schemas.ts
+export const postSchema = z.object({
+  title:   z.string().min(1, "title is required"),
+  author:  z.string().min(1, "author is required"),
+  date:    isoDate,                          // YYYY-MM-DD, real calendar date
+  excerpt: z.string().min(1, "excerpt is required"),
+  tags:    z.array(z.string().min(1)).min(1),
+  image:   z.string().min(1, "image is required"),
+});
+
+// scripts/validate-content.ts — fails CI on bad data
+const result = schema.safeParse(raw);
+if (!result.success) collect(result.error.issues);   // path + message
+// also: filename must be kebab-case, image must exist in public/
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="srvCaseContent1">Schema per collection — postSchema, novelSchema, eventSchema (and a podcast schema) encode required fields, URL validity, and a strict YYYY-MM-DD date that must parse to a real day.</li>
+          <li data-i18n="srvCaseContent2">Broken-image guard — for image fields, the script resolves the path under public/ and fails if the asset is missing, so a renamed file can't ship a dead image.</li>
+          <li data-i18n="srvCaseContent3">Slug discipline — the filename must be lowercase kebab-case (it becomes the URL), validated by the same slug regex the routes rely on.</li>
+          <li data-i18n="srvCaseContent4">Wired into CI — npm run ci is lint → validate:content → build, so the production build never runs against content the schema rejects.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="srvCaseContentNote">The deliberate trade-off: editors publish through Git pull requests rather than a point-and-click admin. For a small collective that's a feature, not a flaw—versioned history, free review, and a schema that catches mistakes—at the cost of asking contributors to learn a minimal Git flow.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="static-export">
+        <h2 data-i18n="srvCaseExportTitle">5. Static export &amp; zero-cost hosting</h2>
+        <p data-i18n="srvCaseExportIntro">
+          The same config that makes hosting free also keeps SEO intact. <code>output: "export"</code> emits a fully static site; a base path scopes every asset and link to the GitHub Pages project URL; and a tiny script copies the build into <code>docs/</code>, which Pages serves directly.
+        </p>
+        <pre class="case-study-code"><code>// next.config.ts
+const repoName = "sarava-radio-streaming";
+const isProd = process.env.NODE_ENV === "production";
+
+const nextConfig = {
+  output: "export",                              // pure static HTML, no server
+  basePath:    isProd ? `/${repoName}` : undefined,
+  assetPrefix: isProd ? `/${repoName}/` : undefined,
+  trailingSlash: true,                           // /post/ → post/index.html
+  images: { unoptimized: true },                 // no image-optimizer server
+};
+
+// build:pages → next build → copy out/ → docs/ → GitHub Pages
+</code></pre>
+        <ul class="case-study-bullets">
+          <li data-i18n="srvCaseExport1">Pure static output — output: "export" produces prerendered HTML for every route, so there is no serverless function or container to pay for or patch.</li>
+          <li data-i18n="srvCaseExport2">Project-path correctness — basePath and assetPrefix prefix the repo name in production so links, assets, and the NEXT_PUBLIC_BASE_PATH images resolve under /sarava-radio-streaming/.</li>
+          <li data-i18n="srvCaseExport3">Pages-friendly URLs — trailingSlash: true emits folder/index.html per route, which GitHub Pages serves cleanly without rewrites; images are unoptimized since there's no optimizer at runtime.</li>
+          <li data-i18n="srvCaseExport4">Deterministic deploy — build:pages runs next build then copies out/ into docs/; pushing docs/ is the deploy. No pipeline secrets, no host to provision.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="srvCaseExportNote">Honest scope: static export rules out SSR, ISR, and API routes—data is fixed at build time, not per request. That's the right call for a content site that changes at editor speed, and the clear upgrade path (if the collective ever needs live data) is moving those routes to a hosted runtime.</span>
+        </p>
+      </section>
+
+      <section class="case-study-section" id="outcomes">
+        <h2 data-i18n="srvCaseOutcomesTitle">6. Outcomes</h2>
+        <ul class="case-study-bullets case-study-outcomes">
+          <li data-i18n="srvCaseOutcome1">Zero hosting cost — a real, client-ready cultural site running on GitHub Pages with no server, database, or recurring bill.</li>
+          <li data-i18n="srvCaseOutcome2">Shareable, indexable posts — each cultural entry has its own static URL with a correct title and OG image, so links preview properly and search engines can index them.</li>
+          <li data-i18n="srvCaseOutcome3">Non-dev publishing with guardrails — organizers add content as JSON via pull requests, and the Zod schema + validate script block malformed data, broken dates, or missing images before deploy.</li>
+          <li>
+            <span data-i18n="srvCaseOutcome4">Live on GitHub Pages—browse the radio, podcast, reading club, and per-post cultural space:</span>
+            <a href="https://alejosworkstuff.github.io/sarava-radio-streaming/">alejosworkstuff.github.io/sarava-radio-streaming</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="case-study-section" id="links">
+        <h2 data-i18n="srvCaseLinksTitle">7. Links</h2>
+        <div class="case-study-link-grid">
+          <a class="case-study-link-card" href="https://alejosworkstuff.github.io/sarava-radio-streaming/" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkLive">Live site</span>
+            <span class="case-study-link-url">alejosworkstuff.github.io/sarava-radio-streaming</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/sarava-radio-streaming" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkRepo">Repository</span>
+            <span class="case-study-link-url">github.com/alejosworkstuff/sarava-radio-streaming</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/sarava-radio-streaming/blob/main/app/espacio-cultural/%5Bslug%5D/page.tsx" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkRoute">Dynamic [slug] route</span>
+            <span class="case-study-link-url">app/espacio-cultural/[slug]/page.tsx</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/sarava-radio-streaming/blob/main/lib/content-schemas.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkSchema">Zod content schema</span>
+            <span class="case-study-link-url">lib/content-schemas.ts</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/sarava-radio-streaming/blob/main/scripts/validate-content.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkValidate">Content validator</span>
+            <span class="case-study-link-url">scripts/validate-content.ts</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/sarava-radio-streaming/blob/main/next.config.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="srvCaseLinkConfig">Static export config</span>
+            <span class="case-study-link-url">next.config.ts</span>
+          </a>
+        </div>
+        <div class="tags case-study-tags">
+          <span>Next.js</span><span>App Router</span><span>Static Export</span><span>GitHub Pages</span><span>Zod</span><span>SEO</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><span data-i18n="footerPortfolio">Portfolio:</span> <a href="https://alejosworkstuff.github.io/portfolio/" data-i18n="footerUrl">https://alejosworkstuff.github.io/portfolio/</a></p>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.getElementById("site-nav");
+
+      toggle.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen);
+      });
+    </script>
+  </body>
+</html>
