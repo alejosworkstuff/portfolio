@@ -535,6 +535,13 @@
               "status": "done",
               "repo": "portfolio",
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/e7b4d2c"
+            },
+            {
+              "label": "Fix check-pages CI — bump Node 20 → 22 for html-validate fs.globSync",
+              "labelEs": "Fix CI check-pages — subir Node 20 → 22 por fs.globSync de html-validate",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/6853755"
             }
           ]
         },
