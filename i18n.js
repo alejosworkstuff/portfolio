@@ -327,6 +327,7 @@ const translations = {
     contactBody: "Open to full-time roles, contract work, and collaborations. Email is the fastest way to reach me.",
     contactEmail: "alejoworkstuff@gmail.com",
     contactCopyEmail: "Copy email",
+    contactCopyFeedback: "Copied!",
     contactUseEmailApp: "Use email app",
     contactDocsLabel: "Application materials",
     contactResumeLabel: "Resume",
@@ -669,6 +670,7 @@ const translations = {
     contactBody: "Disponible para trabajos full-time, contrato y colaboraciones. El email es la forma más rápida de contactarme.",
     contactEmail: "alejoworkstuff@gmail.com",
     contactCopyEmail: "Copiar email",
+    contactCopyFeedback: "¡Copiado!",
     contactUseEmailApp: "Usar app de email",
     contactDocsLabel: "Material de postulación",
     contactResumeLabel: "CV",
@@ -698,6 +700,12 @@ window.__roadmapStrings = {
     proofAria: "Ver prueba en GitHub",
     loadError: "No se pudo cargar la hoja de ruta.",
   },
+};
+
+window.getI18nString = function (key) {
+  const lang = document.documentElement.lang === "es" ? "es" : "en";
+  const dict = translations[lang] || translations.en;
+  return dict[key] || "";
 };
 
 const storageKey = "portfolio-language";
