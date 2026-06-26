@@ -579,6 +579,19 @@
           ]
         },
         {
+          "label": "Phase 5 — CI / reliability (mini-ecommerce)",
+          "labelEs": "Fase 5 — CI / confiabilidad (mini-ecommerce)",
+          "tasks": [
+            {
+              "label": "De-flake checkout E2E + harden order flow (retry 5xx, safe auth, error logging)",
+              "labelEs": "Estabilizar E2E de checkout + endurecer flujo de pedidos (retry 5xx, auth seguro, logging de errores)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/e19ed8a"
+            }
+          ]
+        },
+        {
           "label": "Phase 6.2 — Open source",
           "labelEs": "Fase 6.2 — Open source",
           "tasks": [
