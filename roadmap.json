@@ -528,6 +528,13 @@
               "status": "done",
               "repo": "portfolio",
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/ec71ad8"
+            },
+            {
+              "label": "Page checks in GitHub Actions (html-validate + linkinator on push)",
+              "labelEs": "Checks de páginas en GitHub Actions (html-validate + linkinator en push)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/e7b4d2c"
             }
           ]
         },
