@@ -521,6 +521,13 @@
               "status": "done",
               "repo": "portfolio",
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/277495d"
+            },
+            {
+              "label": "Page polish — close mobile nav on anchor click + i18n copy-email feedback",
+              "labelEs": "Pulido de página — cerrar nav mobile al clickear un anchor + feedback i18n de copiar email",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/ec71ad8"
             }
           ]
         },
