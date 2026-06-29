@@ -542,6 +542,13 @@
               "status": "done",
               "repo": "portfolio",
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/6853755"
+            },
+            {
+              "label": "Shared layout — generate <head>/header/footer from one source (build-layout.mjs)",
+              "labelEs": "Layout compartido — generar <head>/header/footer desde una sola fuente (build-layout.mjs)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/60805ea"
             }
           ]
         },
