@@ -583,6 +583,13 @@
               "status": "done",
               "repo": "sarava-radio-streaming",
               "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/55dd584"
+            },
+            {
+              "label": "Hero a11y (prefers-reduced-motion) + dead code cleanup",
+              "labelEs": "Accesibilidad del hero (prefers-reduced-motion) + limpieza de código muerto",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/f0f0248"
             }
           ]
         },
