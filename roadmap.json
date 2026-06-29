@@ -473,6 +473,13 @@
               "status": "done",
               "repo": "mini-ecommerce-nextjs",
               "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/1c167cd"
+            },
+            {
+              "label": "Legacy Redis → Postgres order backfill + stale-key cleanup script",
+              "labelEs": "Script de backfill de pedidos Redis → Postgres + limpieza de claves obsoletas",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/c37c19b"
             }
           ]
         },
@@ -643,6 +650,13 @@
               "status": "done",
               "repo": "mini-ecommerce-nextjs",
               "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/b5854c5"
+            },
+            {
+              "label": "Client bundle split — dynamic import of Clerk + Sentry",
+              "labelEs": "Split del bundle cliente — import dinámico de Clerk + Sentry",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/c37c19b"
             }
           ]
         },
