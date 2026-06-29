@@ -610,6 +610,13 @@
               "status": "done",
               "repo": "mini-job-board",
               "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/c8ccc82"
+            },
+            {
+              "label": "Extract shared utils (escapeHtml, slugify, URL helpers) into one module",
+              "labelEs": "Extraer utilidades compartidas (escapeHtml, slugify, helpers de URL) en un módulo",
+              "status": "done",
+              "repo": "mini-job-board",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-job-board/commit/4ba2aff"
             }
           ]
         },
