@@ -5,9 +5,11 @@
   "description": "Personal portfolio site deployed on GitHub Pages.",
   "homepage": "https://alejosworkstuff.github.io/portfolio/",
   "scripts": {
+    "build:layout": "node scripts/build-layout.mjs",
+    "check:layout": "node scripts/build-layout.mjs --check",
     "validate:html": "html-validate index.html resume/*.html projects/*.html",
     "check:links": "linkinator index.html \"resume/*.html\" \"projects/*.html\" --config linkinator.config.json",
-    "check:pages": "npm run validate:html && npm run check:links"
+    "check:pages": "npm run check:layout && npm run validate:html && npm run check:links"
   },
   "keywords": [
     "portfolio",

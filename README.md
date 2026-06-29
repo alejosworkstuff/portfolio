@@ -29,13 +29,31 @@ The site showcases selected projects with problem/stack/outcome case-study cards
 ```
 portfolio/
 ├── index.html              # Main portfolio page
+├── projects/               # Per-project case-study pages
 ├── portfolio.css           # Site styles
 ├── i18n.js                 # EN/ES translations and language toggle
+├── scripts/
+│   └── build-layout.mjs    # Shared <head>/header/footer generator (single source of truth)
 ├── assets/
 │   ├── icons/              # LinkedIn, GitHub SVG icons
 │   └── projects/           # Project screenshot previews
 └── README.md
 ```
+
+## Shared layout
+
+The `<head>` SEO/Open Graph block, the site header/nav, and the footer are
+identical (modulo per-page SEO values and the relative path prefix) across
+`index.html` and every `projects/*.html` page. To avoid copy-paste drift, those
+three regions are generated from a single source of truth in
+[`scripts/build-layout.mjs`](scripts/build-layout.mjs):
+
+- Edit per-page SEO and the shared markup in the config/renderers at the top of
+  that file, then run `npm run build:layout` to rewrite the regions in place.
+- The pages stay plain, directly-servable static HTML — there is no runtime
+  templating step, so GitHub Pages serving is unchanged.
+- `npm run check:layout` fails if any page is stale (wired into
+  `npm run check:pages` so CI catches forgotten regenerations).
 
 ## Featured projects
 
