@@ -613,6 +613,19 @@
           ]
         },
         {
+          "label": "Phase 4 — Vercel app hardening (mini-ecommerce)",
+          "labelEs": "Fase 4 — Endurecimiento app Vercel (mini-ecommerce)",
+          "tasks": [
+            {
+              "label": "API route integration tests (checkout + orders, REST + GraphQL)",
+              "labelEs": "Tests de integración de rutas API (checkout + pedidos, REST + GraphQL)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/b5854c5"
+            }
+          ]
+        },
+        {
           "label": "Phase 6.2 — Open source",
           "labelEs": "Fase 6.2 — Open source",
           "tasks": [
