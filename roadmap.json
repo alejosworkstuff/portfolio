@@ -670,6 +670,13 @@
               "status": "done",
               "repo": "ai-stories",
               "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/3970a24"
+            },
+            {
+              "label": "CSP + security headers on Vercel (vercel.json)",
+              "labelEs": "CSP + headers de seguridad en Vercel (vercel.json)",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/2adde93"
             }
           ]
         },
