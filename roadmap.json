@@ -677,6 +677,13 @@
               "status": "done",
               "repo": "ai-stories",
               "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/2adde93"
+            },
+            {
+              "label": "Rename package historia-minima → ai-stories",
+              "labelEs": "Renombrar paquete historia-minima → ai-stories",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/1b71a0c"
             }
           ]
         },
