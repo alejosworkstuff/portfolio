@@ -661,6 +661,19 @@
           ]
         },
         {
+          "label": "Phase 4 — ia-stories hardening",
+          "labelEs": "Fase 4 — Endurecimiento ia-stories",
+          "tasks": [
+            {
+              "label": "Use normalizeApiError() for granular fallback messages (remove dead code)",
+              "labelEs": "Usar normalizeApiError() para mensajes de fallback granulares (eliminar código muerto)",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/3970a24"
+            }
+          ]
+        },
+        {
           "label": "Phase 6.2 — Open source",
           "labelEs": "Fase 6.2 — Open source",
           "tasks": [
