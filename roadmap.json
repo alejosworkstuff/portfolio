@@ -641,6 +641,26 @@
           ]
         },
         {
+          "label": "Phase 5 — Platform (branch protection + PR previews)",
+          "labelEs": "Fase 5 — Plataforma (protección de ramas + previews en PRs)",
+          "tasks": [
+            {
+              "label": "Require passing CI status checks before merge on all 4 featured repos",
+              "labelEs": "Requerir checks de CI en verde antes de mergear en los 4 repos destacados",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/db08528"
+            },
+            {
+              "label": "Vercel preview deployments on PRs (mini-ecommerce + ia-stories)",
+              "labelEs": "Despliegues preview de Vercel en PRs (mini-ecommerce + ia-stories)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/db08528"
+            }
+          ]
+        },
+        {
           "label": "Phase 4 — Vercel app hardening (mini-ecommerce)",
           "labelEs": "Fase 4 — Endurecimiento app Vercel (mini-ecommerce)",
           "tasks": [
