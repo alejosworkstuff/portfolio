@@ -4,20 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AI Story Generator Case Study | Alejo Castillo</title>
-    <meta name="description" content="Case study: a serverless LLM story generator with prompt orchestration on Replicate (Llama 3), a deterministic local fallback when credits fail, per-IP rate limiting, and multi-turn conversation memory—built vanilla and AI-native." />
+    <meta name="description" content="Case study: a streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK — pgvector retrieval on Neon, tool-calling agent, Zod-typed outputs, prompt-injection guardrails, an eval harness, observability, and a deterministic fallback." />
     <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Alejo Castillo Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
-    <meta property="og:title" content="AI Story Generator — Orchestration, Fallback & Rate Limiting" />
-    <meta property="og:description" content="A production-minded LLM feature: serverless Replicate orchestration, a deterministic fallback when credits run out, per-IP rate limiting, and multi-turn story memory." />
+    <meta property="og:title" content="AI Story Generator — Streaming RAG, Agents & Evals" />
+    <meta property="og:description" content="A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability." />
     <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
     <meta property="og:image:alt" content="AI Story Generator main form with seed, tone, and length controls" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AI Story Generator — Orchestration, Fallback & Rate Limiting" />
-    <meta name="twitter:description" content="Serverless LLM orchestration with a deterministic fallback, per-IP rate limiting, and multi-turn conversation memory—vanilla and AI-native." />
+    <meta name="twitter:title" content="AI Story Generator — Streaming RAG, Agents & Evals" />
+    <meta name="twitter:description" content="A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability." />
     <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
     <link rel="stylesheet" href="../portfolio.css" />
     <script src="../i18n.js" defer></script>
@@ -52,9 +52,9 @@
 
     <main class="case-study">
       <p class="case-study-eyebrow" data-i18n="iasCaseEyebrow">Case study</p>
-      <h1 class="case-study-title" data-i18n="iasCaseTitle">AI Story Generator — orchestration, fallback &amp; rate limiting</h1>
+      <h1 class="case-study-title" data-i18n="iasCaseTitle">AI Story Generator — streaming RAG, agents &amp; evals</h1>
       <p class="case-study-lede" data-i18n="iasCaseLede">
-        A serverless LLM feature built to behave well when the AI does not. The story is not "I called an API"—it's prompt orchestration on Replicate (Llama 3), a deterministic local generator that takes over when credits run out, per-IP rate limiting to cap cost and abuse, and a multi-turn conversation model so users iterate on a story instead of one-shotting it. Built vanilla, on purpose, and assembled AI-native.
+        A production-minded AI feature, upgraded from an LLM-API wrapper into a streaming, RAG-grounded, agentic system on the Vercel AI SDK. It streams tokens to the browser, grounds generation in a retrieved corpus (RAG over pgvector on Neon), runs a bounded tool-calling agent, enforces Zod-typed outputs and prompt-injection guardrails, and ships with an eval harness and observability — while keeping the deterministic local fallback for when the provider fails.
       </p>
 
       <div class="case-study-links case-study-links--top">
@@ -71,6 +71,22 @@
           data-i18n-attr="alt:aiStoryAlt"
         />
       </figure>
+
+      <section class="case-study-section" id="v2-upgrade">
+        <h2 data-i18n="iasCaseV2Title">What changed in v2</h2>
+        <p data-i18n="iasCaseV2Lead">v1 proved the resilience story below (rate limiting, error contracts, fallback). v2 turns the same app into an AI-engineering flagship:</p>
+        <ul class="case-study-bullets">
+          <li data-i18n="iasCaseV2B1">Vercel AI SDK + streaming — generation moved from a single Replicate call returning a JSON blob to streamText with token streaming to a vanilla stream-reading client.</li>
+          <li data-i18n="iasCaseV2B2">RAG over pgvector (Neon) — a storytelling-craft corpus is chunked, embedded, and retrieved by cosine similarity to ground craft decisions, with sources cited.</li>
+          <li data-i18n="iasCaseV2B3">Agentic tool calling — the model calls a searchCorpus tool inside a step-bounded loop (stopWhen: stepCountIs).</li>
+          <li data-i18n="iasCaseV2B4">Typed outputs + guardrails — a Zod storySchema powers structured generation; input is screened for prompt injection and retrieved text is fenced as untrusted.</li>
+          <li data-i18n="iasCaseV2B5">Evals + observability — a golden set with deterministic graders scores schema-validity, structure, and prompt-leak resistance (`npm run eval`; CI regression gate next); per-generation telemetry (tokens, latency, steps, tool calls) is logged, with optional Langfuse.</li>
+          <li data-i18n="iasCaseV2B6">TypeScript end-to-end on the server (api/ + lib/), with Vitest + the existing Playwright/node tests.</li>
+        </ul>
+        <p class="case-study-note">
+          <span data-i18n="iasCaseV2Note">The sections below document the v1 resilience design (still in the app); they describe the original Replicate orchestration and remain accurate for the fallback/rate-limit/error-contract layers.</span>
+        </p>
+      </section>
 
       <section class="case-study-section" id="problem">
         <h2 data-i18n="iasCaseProblemTitle">1. Problem</h2>
@@ -258,17 +274,25 @@ messages.push({ role: "assistant", content: story });
             <span class="case-study-link-label" data-i18n="iasCaseLinkRepo">Repository</span>
             <span class="case-study-link-url">github.com/alejosworkstuff/ai-stories</span>
           </a>
-          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/api/generate-stories.js" rel="noopener noreferrer" target="_blank">
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/api/generate-stories.ts" rel="noopener noreferrer" target="_blank">
             <span class="case-study-link-label" data-i18n="iasCaseLinkApi">API handler</span>
-            <span class="case-study-link-url">api/generate-stories.js</span>
+            <span class="case-study-link-url">api/generate-stories.ts</span>
           </a>
-          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/api/rate-limit.js" rel="noopener noreferrer" target="_blank">
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/lib/ai/agent.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkAgent">Streaming agent</span>
+            <span class="case-study-link-url">lib/ai/agent.ts</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/lib/rag/retrieve.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkRag">RAG retrieval (pgvector)</span>
+            <span class="case-study-link-url">lib/rag/retrieve.ts</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/evals/graders.ts" rel="noopener noreferrer" target="_blank">
+            <span class="case-study-link-label" data-i18n="iasCaseLinkEvals">Eval graders</span>
+            <span class="case-study-link-url">evals/graders.ts</span>
+          </a>
+          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/lib/rate-limit.ts" rel="noopener noreferrer" target="_blank">
             <span class="case-study-link-label" data-i18n="iasCaseLinkRate">Rate limiter</span>
-            <span class="case-study-link-url">api/rate-limit.js</span>
-          </a>
-          <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/public/js/http.js" rel="noopener noreferrer" target="_blank">
-            <span class="case-study-link-label" data-i18n="iasCaseLinkHttp">HTTP resilience</span>
-            <span class="case-study-link-url">public/js/http.js</span>
+            <span class="case-study-link-url">lib/rate-limit.ts</span>
           </a>
           <a class="case-study-link-card" href="https://github.com/alejosworkstuff/ai-stories/blob/main/public/js/localGenerator.js" rel="noopener noreferrer" target="_blank">
             <span class="case-study-link-label" data-i18n="iasCaseLinkFallback">Fallback generator</span>
@@ -276,7 +300,7 @@ messages.push({ role: "assistant", content: story });
           </a>
         </div>
         <div class="tags case-study-tags">
-          <span>Replicate</span><span>Llama 3</span><span>Serverless</span><span>Rate Limiting</span><span>Fallback</span><span>Vanilla JS</span>
+          <span>Vercel AI SDK</span><span>RAG</span><span>pgvector</span><span>Agents</span><span>Streaming</span><span>Evals</span><span>TypeScript</span><span>Zod</span><span>Neon</span>
         </div>
       </section>
     </main>

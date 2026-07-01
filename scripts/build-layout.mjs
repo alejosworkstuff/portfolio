@@ -62,18 +62,18 @@ const PAGES = [
     base: "../",
     title: "AI Story Generator Case Study | Alejo Castillo",
     description:
-      "Case study: a serverless LLM story generator with prompt orchestration on Replicate (Llama 3), a deterministic local fallback when credits fail, per-IP rate limiting, and multi-turn conversation memory\u2014built vanilla and AI-native.",
+      "Case study: a streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK \u2014 pgvector retrieval on Neon, tool-calling agent, Zod-typed outputs, prompt-injection guardrails, an eval harness, observability, and a deterministic fallback.",
     canonical: `${SITE.origin}/projects/ia-stories.html`,
     ogType: "article",
     ogUrl: `${SITE.origin}/projects/ia-stories.html`,
-    ogTitle: "AI Story Generator \u2014 Orchestration, Fallback & Rate Limiting",
+    ogTitle: "AI Story Generator \u2014 Streaming RAG, Agents & Evals",
     ogDescription:
-      "A production-minded LLM feature: serverless Replicate orchestration, a deterministic fallback when credits run out, per-IP rate limiting, and multi-turn story memory.",
+      "A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability.",
     ogImage: `${SITE.origin}/assets/projects/ia-stories-main.webp`,
     ogImageAlt: "AI Story Generator main form with seed, tone, and length controls",
-    twitterTitle: "AI Story Generator \u2014 Orchestration, Fallback & Rate Limiting",
+    twitterTitle: "AI Story Generator \u2014 Streaming RAG, Agents & Evals",
     twitterDescription:
-      "Serverless LLM orchestration with a deterministic fallback, per-IP rate limiting, and multi-turn conversation memory\u2014vanilla and AI-native.",
+      "A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability.",
     twitterImage: `${SITE.origin}/assets/projects/ia-stories-main.webp`,
   },
   {

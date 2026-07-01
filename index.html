@@ -78,20 +78,20 @@
             </div>
             <h3 data-i18n="aiStoryTitle">AI Story Generator</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Generate coherent short stories from minimal user input without breaking when API credits run out.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Vercel Serverless Functions, Replicate API (Llama 3), Vanilla JavaScript, Playwright, GitHub Actions.</span></p>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Move past an LLM-API wrapper: ship a streaming, RAG-grounded, agentic AI feature that stays reliable when the provider fails.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Vercel AI SDK, RAG over pgvector (Neon), TypeScript, Zod, Vitest, Playwright, GitHub Actions.</span></p>
             </div>
             <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">Production-minded AI feature with explicit API contracts, resilient client HTTP, and deterministic fallbacks.</span></p>
+              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">An AI-engineering flagship: token streaming, retrieval grounding, a tool-calling agent, typed outputs, guardrails, evals, and observability.</span></p>
               <ul class="case-study-bullets">
-                <li data-i18n="aiStoryBulletApi">AI API — Serverless Replicate integration with tone/length controls and explicit HTTP contracts (402 when credits fail).</li>
-                <li data-i18n="aiStoryBulletHttp">HTTP resilience — fetchWithResilience: AbortController timeout, retry on 429/502/503, typed HttpError.</li>
-                <li data-i18n="aiStoryBulletFallback">Fallback — Deterministic local story generator plus transparent session notice when AI is unavailable.</li>
-                <li data-i18n="aiStoryBulletCi">CI + E2E — GitHub Actions (syntax, API/fallback tests) and Playwright generate flow with mocked API.</li>
+                <li data-i18n="aiStoryBulletApi">AI SDK + streaming — streamText with token streaming; provider-agnostic (Replicate via an OpenAI-compatible gateway, swappable to OpenAI/Anthropic).</li>
+                <li data-i18n="aiStoryBulletHttp">RAG + agent — pgvector retrieval on Neon grounds a bounded tool-calling loop; Zod-typed outputs and prompt-injection guardrails.</li>
+                <li data-i18n="aiStoryBulletFallback">Evals + observability — golden-set graders (`npm run eval`); per-generation telemetry (tokens, latency, tool calls), plus a deterministic local fallback.</li>
+                <li data-i18n="aiStoryBulletCi">CI + E2E — typecheck, Vitest, node tests, and Playwright; GitHub Actions with required checks and Vercel previews.</li>
               </ul>
-              <p class="impact" data-i18n="aiStoryImpact">Impact: Users always get a story—even when API credits run out or the provider returns transient errors.</p>
+              <p class="impact" data-i18n="aiStoryImpact">Impact: Streaming AI with retrieval grounding and typed outputs—users still get a story when the provider fails.</p>
               <div class="tags">
-                <span>Replicate</span><span>HTTP Resilience</span><span>Fallback</span><span>Playwright</span>
+                <span>Vercel AI SDK</span><span>RAG</span><span>pgvector</span><span>Neon</span><span>TypeScript</span><span>Evals</span>
               </div>
             </div>
             <a class="card-link" href="projects/ia-stories.html" data-i18n="read-more">Read more</a>
@@ -215,7 +215,7 @@
           </div>
           <div class="card">
             <h4 data-i18n="skillsBackendTitle">Backend &amp; Auth</h4>
-            <p data-i18n="skillsBackendList">Node.js, REST &amp; GraphQL, Clerk auth, Serverless, Redis, WebSockets, Replicate AI integration</p>
+            <p data-i18n="skillsBackendList">Node.js, REST &amp; GraphQL, Clerk auth, Serverless, Redis, Neon pgvector, Vercel AI SDK, WebSockets</p>
           </div>
           <div class="card">
             <h4 data-i18n="skillsDataTitle">Reliability &amp; State</h4>
@@ -298,7 +298,7 @@
             </li>
             <li>
               <strong>ia-stories</strong> —
-              <span data-i18n="engLocalCiAi">syntax checks, API/fallback tests, .env.example validation</span>
+              <span data-i18n="engLocalCiAi">typecheck, Vitest (64 tests), .env.example validation; E2E in ci:full</span>
             </li>
           </ul>
           <p class="eng-local-ci-note">
@@ -321,7 +321,7 @@
           <p data-i18n="aiDevIntro">I use AI tools to accelerate scaffolding, ideation, and refactoring—not to skip thinking. Every change still goes through the same bar I'd use on any team: tests, type-checks, and manual review before it ships.</p>
           <ul class="ai-dev-bullets">
             <li data-i18n="aiDevBulletWorkflow">Development workflow — Draft boilerplate, explore refactors, and speed up docs; I review and edit everything before merge.</li>
-            <li data-i18n="aiDevBulletProduct">Product integration — Built AI Story Generator with Replicate, client timeouts, and deterministic fallbacks when credits or providers fail.</li>
+            <li data-i18n="aiDevBulletProduct">Product integration — Evolving AI Story Generator from an LLM wrapper into streaming + RAG on Neon pgvector, with Zod guardrails, eval graders, and a deterministic fallback when providers fail.</li>
             <li data-i18n="aiDevBulletQuality">Quality guardrails — CI (lint, type-check, tests, E2E where it matters) catches regressions whether code came from me or an assistant.</li>
             <li data-i18n="aiDevBulletOwnership">Ownership — I own architecture choices, error handling, and production readiness—not the tool.</li>
           </ul>

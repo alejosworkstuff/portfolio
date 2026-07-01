@@ -59,7 +59,7 @@ three regions are generated from a single source of truth in
 
 | Project | Stack highlights |
 |---------|------------------|
-| [AI Story Generator](https://ai-stories-ashy.vercel.app/) | Node.js, Vercel Serverless, Replicate API |
+| [AI Story Generator](https://ai-stories-ashy.vercel.app/) | Vercel AI SDK, RAG/pgvector (Neon), TypeScript, Zod, Vitest, Playwright |
 | [Fake E-commerce](https://mini-ecommerce-nextjs-psi.vercel.app/) | Next.js, React 19, Clerk, Playwright, GitHub Actions |
 | [Mini Job Board](https://alejosworkstuff.github.io/mini-job-board/) | HTML, CSS, Vanilla JS, JSON |
 | [Saravá — Espacio Cultural](https://alejosworkstuff.github.io/sarava-radio-streaming/) | Next.js static export, GitHub Pages |
