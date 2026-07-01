@@ -823,26 +823,30 @@
             {
               "label": "Provision pgvector on Neon DB branch",
               "labelEs": "Provisionar pgvector en rama Neon",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             },
             {
               "label": "Pick a finite corpus (story-craft references / world bible)",
               "labelEs": "Elegir corpus finito (referencias de craft / world bible)",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             },
             {
               "label": "Ingestion script — chunk → embed → upsert documents",
               "labelEs": "Script de ingestión — chunk → embed → upsert documents",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             },
             {
               "label": "Retrieval — top-k cosine query, inject context, cite sources",
               "labelEs": "Retrieval — top-k coseno, inyectar contexto, citar fuentes",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             }
           ]
         },
@@ -853,14 +857,16 @@
             {
               "label": "Output validation against Zod schema — refuse/repair on invalid",
               "labelEs": "Validación de salida contra schema Zod — rechazar/reparar si inválido",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             },
             {
               "label": "Prompt-injection defense — sanitize retrieved + user content",
               "labelEs": "Defensa prompt-injection — sanitizar contenido recuperado + usuario",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
             }
           ]
         },
