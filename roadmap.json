@@ -746,8 +746,9 @@
             {
               "label": "Portfolio copy pass — reframe ia-stories toward AI engineering",
               "labelEs": "Pase de copy del portfolio — reencuadrar ia-stories hacia ingeniería IA",
-              "status": "pending",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/a5c129d"
             },
             {
               "label": "Tailwind keyword + UI refresh on ia-stories",
