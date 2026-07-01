@@ -781,33 +781,37 @@
             {
               "label": "Add Vercel AI SDK + provider abstraction",
               "labelEs": "Agregar Vercel AI SDK + abstracción de provider",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             },
             {
               "label": "Stream generation — streamText / streamObject",
               "labelEs": "Generación en streaming — streamText / streamObject",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             },
             {
               "label": "Zod structured output — story turn schema",
               "labelEs": "Salida estructurada Zod — schema de turnos de historia",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             },
             {
               "label": "Provider abstraction seam for tests (createHandler)",
               "labelEs": "Seam de abstracción de provider para tests (createHandler)",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             },
             {
               "label": "Update API + fallback tests for new stack",
               "labelEs": "Actualizar tests de API + fallback para nuevo stack",
               "status": "done",
               "repo": "ai-stories",
-              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/e77c26b"
             }
           ]
         },
