@@ -190,9 +190,11 @@
       <section class="section">
         <h2>Professional Summary</h2>
         <p>
-          Entry-level Full-stack Developer focused on building clean, user-first web applications with strong fundamentals
-          in frontend and backend development. Experienced shipping end-to-end projects using Next.js, React, TypeScript,
-          Node.js, and serverless APIs—with Clerk auth, resilient HTTP layers, Sentry observability, and Playwright E2E in CI.
+          Entry-level AI-adjacent fullstack developer building production-minded web apps with Next.js (App Router), React,
+          TypeScript, and Vercel serverless APIs. Strongest proof in ecommerce (Clerk auth, SSG/ISR, Redis, GraphQL,
+          WebSockets) and in an LLM-powered story generator with resilient HTTP, deterministic fallbacks, rate limiting,
+          and CI-gated tests. Currently evolving the flagship into Vercel AI SDK streaming, RAG over pgvector, Zod structured
+          outputs, and an eval harness.
         </p>
       </section>
 
@@ -202,6 +204,7 @@
           <li><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS</li>
           <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, SSG/ISR, Context API, Error Boundaries</li>
           <li><strong>Backend and Auth:</strong> Node.js, REST APIs, GraphQL, Clerk auth, Serverless Functions, PostgreSQL, Prisma, Redis, WebSockets</li>
+          <li><strong>AI / LLM:</strong> LLM API integration (Replicate), prompt-based generation, serverless inference routes, resilient client/server error handling; building toward Vercel AI SDK, RAG, embeddings, Zod structured outputs, evals</li>
           <li><strong>Reliability:</strong> HTTP resilience (timeout, retry, typed errors), Sentry, structured logging</li>
           <li><strong>Testing:</strong> Vitest, Testing Library, Playwright E2E, Node.js test runner</li>
           <li><strong>Delivery:</strong> Git, GitHub Actions CI, Vercel, GitHub Pages, Docker (learning)</li>
@@ -231,9 +234,9 @@
             Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
           </p>
           <ul>
-            <li>Developed a prompt-based story generator using Node.js serverless API routes and Replicate (Llama 3).</li>
-            <li>Built resilient client HTTP layer with timeout/retry and typed errors; explicit 402 handling with deterministic local fallback stories.</li>
-            <li>Added GitHub Actions CI (syntax, API/fallback tests) and Playwright E2E for the generate flow with mocked API.</li>
+            <li>Built a prompt-based LLM story generator on Node.js serverless API routes (Vercel) with Replicate (Llama 3), input validation, per-IP rate limiting, and CSP/security headers.</li>
+            <li>Implemented resilient HTTP (timeout/retry, typed errors) and deterministic local fallback when provider credits or API calls fail — no blank-screen UX.</li>
+            <li>Added GitHub Actions CI (API + fallback tests) and Playwright E2E with mocked generation flow.</li>
           </ul>
         </article>
 
