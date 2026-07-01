@@ -764,7 +764,8 @@
             {
               "label": "Interview stories — trace a bug UI→API→DB; review AI PR for security flaw",
               "labelEs": "Historias de entrevista — rastrear bug UI→API→DB; revisar PR IA por fallo de seguridad",
-              "status": "pending"
+              "status": "done",
+              "repo": "portfolio"
             }
           ]
         },
