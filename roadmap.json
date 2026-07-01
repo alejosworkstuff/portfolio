@@ -774,8 +774,9 @@
             {
               "label": "TypeScript migration — make ia-stories TS end-to-end",
               "labelEs": "Migración TypeScript — ia-stories TS de punta a punta",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             },
             {
               "label": "Add Vercel AI SDK + provider abstraction",
@@ -804,8 +805,9 @@
             {
               "label": "Update API + fallback tests for new stack",
               "labelEs": "Actualizar tests de API + fallback para nuevo stack",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/95ce36a"
             }
           ]
         },
