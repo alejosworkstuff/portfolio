@@ -26,6 +26,14 @@
   </head>
 
   <body>
+    <div class="lava-lamp" aria-hidden="true">
+      <span class="lava-blob lava-blob--1"></span>
+      <span class="lava-blob lava-blob--2"></span>
+      <span class="lava-blob lava-blob--3"></span>
+      <span class="lava-blob lava-blob--4"></span>
+      <span class="lava-blob lava-blob--5"></span>
+      <span class="lava-blob lava-blob--6"></span>
+    </div>
     <header class="site-header">
       <div class="logo" data-i18n="logoName">Alejo Castillo</div>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n="navToggleText">
@@ -201,6 +209,38 @@
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/sarava-radio-streaming/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/sarava-radio-streaming" data-i18n="projectRepo">Repo</a>
+            </div>
+          </article>
+
+          <article class="card card--interactive" id="code-quest">
+            <p class="card-eyebrow" data-i18n="codeQuestEyebrow">Interactive companion</p>
+            <div class="project-preview">
+              <img src="assets/projects/code-quest-main.webp" alt="Code Quest world map hub" loading="lazy" data-i18n-attr="alt:codeQuestAlt" />
+            </div>
+            <h3 data-i18n="codeQuestTitle">Code Quest</h3>
+            <div class="card__text">
+              <p><strong data-i18n="labelPurpose">Purpose:</strong> <span data-i18n="codeQuestPurpose">Interactive walkthrough of the architecture decisions behind my featured repos—filters, auth, RAG, CI—so reviewers can explore tradeoffs by playing, not just reading.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="codeQuestStack">Vanilla HTML/CSS/JS, JSON-driven curriculum, bilingual i18n, Web Audio API, localStorage progress, GitHub Pages, GitHub Actions.</span></p>
+            </div>
+            <div class="card__extended">
+              <p><strong data-i18n="labelDemonstrates">Demonstrates:</strong></p>
+              <ul class="case-study-bullets">
+                <li data-i18n="codeQuestBulletPipeline">Content pipeline — real project decisions (decisions.json, stacks.json, repo snippets) distilled into 8 minigames.</li>
+                <li data-i18n="codeQuestBulletGraph">Cross-repo knowledge graph — each world maps to mini-job-board, mini-ecommerce, ia-stories, and Saravá.</li>
+                <li data-i18n="codeQuestBulletVanilla">Vanilla depth — no build step; fetch + ES modules + shared game UI patterns.</li>
+                <li data-i18n="codeQuestBulletUx">UX polish — world map, XP/badges, retro sound, confetti, EN/ES settings modal.</li>
+              </ul>
+              <div class="tags">
+                <span>Vanilla JS</span><span>Interactive</span><span>Portfolio</span><span>i18n</span>
+              </div>
+            </div>
+            <details class="card-details">
+              <summary class="card-details-toggle" data-i18n="codeQuestCardToggle">Quick summary</summary>
+              <p class="card-more" data-i18n="codeQuestMore">A companion to the case studies—not another product demo. Play the tradeoffs instead of only reading READMEs.</p>
+            </details>
+            <div class="project-links">
+              <a class="btn btn-small" href="https://alejosworkstuff.github.io/code-quest/" data-i18n="projectPlay">Play</a>
+              <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/code-quest" data-i18n="projectRepo">Repo</a>
             </div>
           </article>
         </div>
