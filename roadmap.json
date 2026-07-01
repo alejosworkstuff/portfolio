@@ -848,6 +848,13 @@
               "status": "done",
               "repo": "ai-stories",
               "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/891ed0f"
+            },
+            {
+              "label": "Vercel production env — DATABASE_URL + AI provider vars for live RAG",
+              "labelEs": "Env producción Vercel — DATABASE_URL + vars de provider IA para RAG live",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/0981f3c"
             }
           ]
         },
