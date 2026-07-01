@@ -725,6 +725,236 @@
           ]
         }
       ]
+    },
+    {
+      "id": "v3.1",
+      "label": "Phase v3.1 — AI Flagship (LEAN)",
+      "labelEs": "Fase v3.1 — Flagship IA (LEAN)",
+      "status": "in-progress",
+      "groups": [
+        {
+          "label": "Phase 0 — Positioning (Week 1, Days 1–2)",
+          "labelEs": "Fase 0 — Posicionamiento (Semana 1, Días 1–2)",
+          "tasks": [
+            {
+              "label": "Resume keyword pass (Tier A — AI-adjacent framing + forward-looking keywords)",
+              "labelEs": "Pase de keywords en CV (Tier A — encuadre AI-adjacent + keywords a futuro)",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/c0a9967"
+            },
+            {
+              "label": "Portfolio copy pass — reframe ia-stories toward AI engineering",
+              "labelEs": "Pase de copy del portfolio — reencuadrar ia-stories hacia ingeniería IA",
+              "status": "pending",
+              "repo": "portfolio"
+            },
+            {
+              "label": "Tailwind keyword + UI refresh on ia-stories",
+              "labelEs": "Keyword Tailwind + refresh UI en ia-stories",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Where-to-apply list (Wellfound, WeWorkRemotely, Arc.dev, YC boards)",
+              "labelEs": "Lista dónde aplicar (Wellfound, WeWorkRemotely, Arc.dev, boards YC)",
+              "status": "pending"
+            },
+            {
+              "label": "Interview stories — trace a bug UI→API→DB; review AI PR for security flaw",
+              "labelEs": "Historias de entrevista — rastrear bug UI→API→DB; revisar PR IA por fallo de seguridad",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "label": "Phase 1.1 — AI SDK + streaming + structured output (Week 1)",
+          "labelEs": "Fase 1.1 — AI SDK + streaming + salida estructurada (Semana 1)",
+          "tasks": [
+            {
+              "label": "TypeScript migration — make ia-stories TS end-to-end",
+              "labelEs": "Migración TypeScript — ia-stories TS de punta a punta",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Add Vercel AI SDK + provider abstraction",
+              "labelEs": "Agregar Vercel AI SDK + abstracción de provider",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Stream generation — streamText / streamObject",
+              "labelEs": "Generación en streaming — streamText / streamObject",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Zod structured output — story turn schema",
+              "labelEs": "Salida estructurada Zod — schema de turnos de historia",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Provider abstraction seam for tests (createHandler)",
+              "labelEs": "Seam de abstracción de provider para tests (createHandler)",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Update API + fallback tests for new stack",
+              "labelEs": "Actualizar tests de API + fallback para nuevo stack",
+              "status": "pending",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 1.2 — RAG over pgvector (Week 2)",
+          "labelEs": "Fase 1.2 — RAG sobre pgvector (Semana 2)",
+          "tasks": [
+            {
+              "label": "Provision pgvector on Neon DB branch",
+              "labelEs": "Provisionar pgvector en rama Neon",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Pick a finite corpus (story-craft references / world bible)",
+              "labelEs": "Elegir corpus finito (referencias de craft / world bible)",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Ingestion script — chunk → embed → upsert documents",
+              "labelEs": "Script de ingestión — chunk → embed → upsert documents",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Retrieval — top-k cosine query, inject context, cite sources",
+              "labelEs": "Retrieval — top-k coseno, inyectar contexto, citar fuentes",
+              "status": "pending",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 1.3 — Guardrails + safety (Week 2)",
+          "labelEs": "Fase 1.3 — Guardrails + seguridad (Semana 2)",
+          "tasks": [
+            {
+              "label": "Output validation against Zod schema — refuse/repair on invalid",
+              "labelEs": "Validación de salida contra schema Zod — rechazar/reparar si inválido",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Prompt-injection defense — sanitize retrieved + user content",
+              "labelEs": "Defensa prompt-injection — sanitizar contenido recuperado + usuario",
+              "status": "pending",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 1.4 — Evals + observability (Week 3)",
+          "labelEs": "Fase 1.4 — Evals + observabilidad (Semana 3)",
+          "tasks": [
+            {
+              "label": "Golden set — 10 input/expected pairs",
+              "labelEs": "Golden set — 10 pares input/expected",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Graders — deterministic checks + optional LLM-as-judge",
+              "labelEs": "Graders — checks determinísticos + LLM-as-judge opcional",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "CI regression gate — npm run eval fails on score regression",
+              "labelEs": "Gate de regresión en CI — npm run eval falla si baja el score",
+              "status": "pending",
+              "repo": "ai-stories"
+            },
+            {
+              "label": "Observability — AI SDK telemetry or LangFuse (prompts, tokens, latency, cost)",
+              "labelEs": "Observabilidad — telemetría AI SDK o LangFuse (prompts, tokens, latencia, costo)",
+              "status": "pending",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 1.5 — Proof (Week 3)",
+          "labelEs": "Fase 1.5 — Prueba (Semana 3)",
+          "tasks": [
+            {
+              "label": "Portfolio case study — RAG diagram, streaming, guardrails, eval harness",
+              "labelEs": "Case study portfolio — diagrama RAG, streaming, guardrails, eval harness",
+              "status": "pending",
+              "repo": "portfolio"
+            },
+            {
+              "label": "README + architecture doc — RAG pipeline, eval methodology, safety model",
+              "labelEs": "README + doc de arquitectura — pipeline RAG, metodología eval, modelo de seguridad",
+              "status": "pending",
+              "repo": "ai-stories"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 — Open source (parallel, never blocking)",
+          "labelEs": "Fase 3 — Open source (paralelo, nunca bloqueante)",
+          "tasks": [
+            {
+              "label": "Pick a target — vercel/ai, colinhacks/zod, or pgvector tooling",
+              "labelEs": "Elegir target — vercel/ai, colinhacks/zod, o tooling pgvector",
+              "status": "pending"
+            },
+            {
+              "label": "1 meaningful merged PR (bug fix / test / docs gap)",
+              "labelEs": "1 PR mergeado con sentido (bug fix / test / gap de docs)",
+              "status": "pending"
+            },
+            {
+              "label": "Portfolio Open Source section — flip placeholder when PR lands",
+              "labelEs": "Sección Open Source en portfolio — activar cuando mergee el PR",
+              "status": "pending",
+              "repo": "portfolio"
+            }
+          ]
+        },
+        {
+          "label": "Phase 5 — Job-search execution (Week 4+)",
+          "labelEs": "Fase 5 — Ejecución búsqueda laboral (Semana 4+)",
+          "tasks": [
+            {
+              "label": "Publish flagship case study — ship Phase 1.5, pin the repo",
+              "labelEs": "Publicar case study flagship — ship Fase 1.5, fijar el repo",
+              "status": "pending",
+              "repo": "portfolio"
+            },
+            {
+              "label": "Apply to 10 AI-adjacent roles",
+              "labelEs": "Aplicar a 10 roles AI-adjacent",
+              "status": "pending"
+            },
+            {
+              "label": "Application tracker spreadsheet",
+              "labelEs": "Planilla tracker de aplicaciones",
+              "status": "pending"
+            },
+            {
+              "label": "Interview prep — Phase 0 stories + one RAG tradeoff",
+              "labelEs": "Prep entrevistas — historias Fase 0 + un tradeoff RAG",
+              "status": "pending"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
