@@ -899,26 +899,30 @@
             {
               "label": "Golden set — 10 input/expected pairs",
               "labelEs": "Golden set — 10 pares input/expected",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/52c007c"
             },
             {
               "label": "Graders — deterministic checks + optional LLM-as-judge",
               "labelEs": "Graders — checks determinísticos + LLM-as-judge opcional",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/52c007c"
             },
             {
               "label": "CI regression gate — npm run eval fails on score regression",
               "labelEs": "Gate de regresión en CI — npm run eval falla si baja el score",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/52c007c"
             },
             {
               "label": "Observability — AI SDK telemetry or LangFuse (prompts, tokens, latency, cost)",
               "labelEs": "Observabilidad — telemetría AI SDK o LangFuse (prompts, tokens, latencia, costo)",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/52c007c"
             }
           ]
         },
