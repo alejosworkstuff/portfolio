@@ -814,6 +814,20 @@
               "status": "done",
               "repo": "ai-stories",
               "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/e77c26b"
+            },
+            {
+              "label": "Free-tier provider swap — Groq (llama-3.3-70b-versatile) replaces Replicate",
+              "labelEs": "Swap provider free tier — Groq (llama-3.3-70b-versatile) reemplaza Replicate",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/ab8372c"
+            },
+            {
+              "label": "Story history UX — per-item delete + clear all (localStorage)",
+              "labelEs": "UX historial — borrar item + clear all (localStorage)",
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/f2daf4a"
             }
           ]
         },
