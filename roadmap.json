@@ -933,8 +933,9 @@
             {
               "label": "Portfolio case study — RAG diagram, streaming, guardrails, eval harness",
               "labelEs": "Case study portfolio — diagrama RAG, streaming, guardrails, eval harness",
-              "status": "pending",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/d3bdd39"
             },
             {
               "label": "README + architecture doc — RAG pipeline, eval methodology, safety model",
