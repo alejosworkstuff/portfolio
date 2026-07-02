@@ -1,5 +1,5 @@
 {
   "recurse": true,
   "retry": true,
-  "skip": ["node_modules"]
+  "skip": ["node_modules", "linkedin.com"]
 }
