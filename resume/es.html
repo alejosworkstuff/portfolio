@@ -232,8 +232,8 @@
             Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
           </p>
           <ul>
-            <li>Desarrollé un generador de historias basado en prompts con rutas API serverless en Node.js y Replicate (Llama 3).</li>
-            <li>Construí capa HTTP cliente resiliente con timeout/retry y errores tipados; manejo explícito de 402 con historias fallback locales determinísticas.</li>
+            <li>Desarrollé un generador de historias con streaming usando Vercel AI SDK (streamText) y Groq (llama-3.3-70b-versatile) en rutas API serverless en Node.js.</li>
+            <li>Construí capa HTTP cliente resiliente con timeout/retry y errores tipados; fallback local determinístico cuando fallan las llamadas al proveedor.</li>
             <li>Agregué CI con GitHub Actions (sintaxis, tests de API/fallback) y E2E con Playwright para el flujo de generación con API mockeada.</li>
           </ul>
         </article>
