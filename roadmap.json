@@ -753,8 +753,9 @@
             {
               "label": "Tailwind keyword + UI refresh on ia-stories",
               "labelEs": "Keyword Tailwind + refresh UI en ia-stories",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/c0c971a"
             },
             {
               "label": "Where-to-apply list (Wellfound, WeWorkRemotely, Arc.dev, YC boards)",
