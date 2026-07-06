@@ -940,8 +940,9 @@
             {
               "label": "README + architecture doc — RAG pipeline, eval methodology, safety model",
               "labelEs": "README + doc de arquitectura — pipeline RAG, metodología eval, modelo de seguridad",
-              "status": "pending",
-              "repo": "ai-stories"
+              "status": "done",
+              "repo": "ai-stories",
+              "proofUrl": "https://github.com/alejosworkstuff/ai-stories/commit/168b4dc"
             }
           ]
         },
