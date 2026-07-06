@@ -948,6 +948,19 @@
           ]
         },
         {
+          "label": "Phase 2 — Backend depth (optional, Week 4+)",
+          "labelEs": "Fase 2 — Profundidad backend (opcional, Semana 4+)",
+          "tasks": [
+            {
+              "label": "Server Action — syncCartAction for cart persistence (cart-store + docs)",
+              "labelEs": "Server Action — syncCartAction para persistencia del carrito (cart-store + docs)",
+              "status": "done",
+              "repo": "mini-ecommerce-nextjs",
+              "proofUrl": "https://github.com/alejosworkstuff/mini-ecommerce-nextjs/commit/bbc012a"
+            }
+          ]
+        },
+        {
           "label": "Phase 3 — Open source (parallel, never blocking)",
           "labelEs": "Fase 3 — Open source (paralelo, nunca bloqueante)",
           "tasks": [
