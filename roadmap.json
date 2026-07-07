@@ -967,18 +967,22 @@
             {
               "label": "Pick a target — vercel/ai, colinhacks/zod, or pgvector tooling",
               "labelEs": "Elegir target — vercel/ai, colinhacks/zod, o tooling pgvector",
-              "status": "pending"
+              "status": "done",
+              "repo": "vercel/ai",
+              "proofUrl": "https://github.com/vercel/ai/issues/13798"
             },
             {
               "label": "1 meaningful merged PR (bug fix / test / docs gap)",
               "labelEs": "1 PR mergeado con sentido (bug fix / test / gap de docs)",
-              "status": "pending"
+              "status": "pending",
+              "proofUrl": "https://github.com/vercel/ai/pull/16869"
             },
             {
-              "label": "Portfolio Open Source section — flip placeholder when PR lands",
-              "labelEs": "Sección Open Source en portfolio — activar cuando mergee el PR",
-              "status": "pending",
-              "repo": "portfolio"
+              "label": "Portfolio Open Source section — draft PR #16869 linked",
+              "labelEs": "Sección Open Source en portfolio — draft PR #16869 enlazado",
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/vercel/ai/pull/16869"
             }
           ]
         },

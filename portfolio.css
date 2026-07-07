@@ -416,6 +416,7 @@ a {
 .projects,
 .skills,
 .engineering,
+.open-source,
 .roadmap,
 .ai-dev,
 .closing {
@@ -438,6 +439,8 @@ a {
 .roadmap > h2,
 .roadmap-intro,
 .roadmap-content,
+.open-source > h2,
+.open-source-panel,
 .ai-dev > h2,
 .ai-dev-panel,
 .closing-about > h2 {
@@ -655,7 +658,8 @@ a {
   margin-bottom: 20px;
 }
 
-.ai-dev-panel {
+.ai-dev-panel,
+.open-source-panel {
   background: var(--panel);
   border: 1px solid var(--stroke);
   border-radius: var(--radius);
@@ -663,9 +667,14 @@ a {
   max-width: 720px;
 }
 
-.ai-dev-panel > p {
+.ai-dev-panel > p,
+.open-source-panel > p {
   color: var(--muted);
   margin-bottom: 16px;
+}
+
+.open-source-panel > p {
+  margin-bottom: 0;
 }
 
 .ai-dev-bullets {
