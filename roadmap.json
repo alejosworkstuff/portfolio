@@ -730,7 +730,8 @@
       "id": "v3.1",
       "label": "Phase v3.1 — AI Flagship (LEAN)",
       "labelEs": "Fase v3.1 — Flagship IA (LEAN)",
-      "status": "in-progress",
+      "status": "done",
+      "completedDate": "2026-07-09",
       "groups": [
         {
           "label": "Phase 0 — Positioning (Week 1, Days 1–2)",
@@ -760,7 +761,9 @@
             {
               "label": "Where-to-apply list (Wellfound, WeWorkRemotely, Arc.dev, YC boards)",
               "labelEs": "Lista dónde aplicar (Wellfound, WeWorkRemotely, Arc.dev, boards YC)",
-              "status": "pending"
+              "status": "done",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/job-hunt-status.md"
             },
             {
               "label": "Interview stories — trace a bug UI→API→DB; review AI PR for security flaw",
@@ -993,23 +996,99 @@
             {
               "label": "Publish flagship case study — ship Phase 1.5, pin the repo",
               "labelEs": "Publicar case study flagship — ship Fase 1.5, fijar el repo",
-              "status": "pending",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/d3bdd39"
             },
             {
               "label": "Apply to 10 AI-adjacent roles",
               "labelEs": "Aplicar a 10 roles AI-adjacent",
-              "status": "pending"
+              "status": "in-progress",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/job-hunt-status.md"
             },
             {
               "label": "Application tracker spreadsheet",
               "labelEs": "Planilla tracker de aplicaciones",
-              "status": "pending"
+              "status": "done",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/job-hunt-status.md"
             },
             {
               "label": "Interview prep — Phase 0 stories + one RAG tradeoff",
               "labelEs": "Prep entrevistas — historias Fase 0 + un tradeoff RAG",
               "status": "pending"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v4",
+      "label": "Phase v4 — Hire-First (Post-MVP)",
+      "labelEs": "Fase v4 — Hire-First (Post-MVP)",
+      "status": "in-progress",
+      "groups": [
+        {
+          "label": "Phase 5 — Job hunt (ACTIVE, P0)",
+          "labelEs": "Fase 5 — Búsqueda laboral (ACTIVA, P0)",
+          "tasks": [
+            {
+              "label": "Application volume — 3+/day high energy; min 1/day low energy",
+              "labelEs": "Volumen de aplicaciones — 3+/día alta energía; mín 1/día baja",
+              "status": "in-progress",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/job-hunt-status.md"
+            },
+            {
+              "label": "Gap analysis — market vs portfolio (Jul 2026)",
+              "labelEs": "Análisis de gaps — mercado vs portfolio (Jul 2026)",
+              "status": "done",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/gap-analysis-2026-07.md"
+            },
+            {
+              "label": "Roadmap v4 hire-first — 70% job hunt / 30% deepen repos",
+              "labelEs": "Roadmap v4 hire-first — 70% job hunt / 30% profundizar repos",
+              "status": "done",
+              "repo": "littlebird-memory",
+              "proofUrl": "https://github.com/alejosworkstuff/littlebird-memory/blob/main/proyectos/roadmap-v4.md"
+            }
+          ]
+        },
+        {
+          "label": "Phase 2 — mini-ecommerce depth (OPTIONAL, P2)",
+          "labelEs": "Fase 2 — Profundidad mini-ecommerce (OPCIONAL, P2)",
+          "tasks": [
+            {
+              "label": "Order idempotency — Idempotency-Key on POST /api/orders",
+              "labelEs": "Idempotencia de pedidos — Idempotency-Key en POST /api/orders",
+              "status": "pending",
+              "repo": "mini-ecommerce-nextjs"
+            },
+            {
+              "label": "Stripe Checkout test mode — webhook → Prisma order",
+              "labelEs": "Stripe Checkout modo test — webhook → pedido en Prisma",
+              "status": "pending",
+              "repo": "mini-ecommerce-nextjs"
+            },
+            {
+              "label": "Audit bumps — Next.js + AI SDK security patches",
+              "labelEs": "Audit bumps — parches de seguridad Next.js + AI SDK",
+              "status": "in-progress",
+              "repo": "mini-ecommerce-nextjs"
+            }
+          ]
+        },
+        {
+          "label": "Phase 3 — Open source (parallel, P2)",
+          "labelEs": "Fase 3 — Open source (paralelo, P2)",
+          "tasks": [
+            {
+              "label": "1 meaningful merged PR — vercel/ai #16869",
+              "labelEs": "1 PR mergeado con sentido — vercel/ai #16869",
+              "status": "pending",
+              "proofUrl": "https://github.com/vercel/ai/pull/16869"
             }
           ]
         }
