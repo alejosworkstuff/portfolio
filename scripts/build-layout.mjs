@@ -2,17 +2,17 @@
 // Shared layout builder for the portfolio.
 //
 // The site ships as plain static HTML (no runtime build, no templating engine),
-// but the <head> SEO block, the site header/nav, and the footer were copy-pasted
-// across index.html and every projects/*.html page. This script makes that shared
-// markup live in ONE place: edit the config + renderers below, then run
-// `npm run build:layout` to rewrite those three regions in every page.
+// but the <head> SEO block, animated background, site header/nav, and footer were
+// copy-pasted across index.html and every projects/*.html page. This script makes
+// that shared markup live in ONE place: edit the config + renderers below, then
+// run `npm run build:layout` to rewrite those regions in every page.
 //
 // Usage:
 //   node scripts/build-layout.mjs          # rewrite the shared regions in place
 //   node scripts/build-layout.mjs --check  # CI guard: fail if any page is stale
 //
-// Regions are located by structural anchors (<head>…</head>, the
-// <header class="site-header">…</header> block, and the
+// Regions are located by structural anchors (<head>…</head>, the background
+// block, the <header class="site-header">…</header> block, and the
 // <footer class="site-footer">…</footer> block), so no marker comments are
 // needed in the HTML and the output stays valid, directly-servable static files.
 
@@ -153,8 +153,17 @@ const I4 = "    ";
 const I6 = "      ";
 const I8 = "        ";
 
+function renderBackground() {
+  return `${I4}<div class="bg-atmosphere" aria-hidden="true">
+${I6}<div class="bg-grid-fallback"></div>
+${I6}<canvas id="bg-grid"></canvas>
+${I4}</div>`;
+}
+
 function renderHead(page) {
   const b = page.base;
+  const pageScripts = page.scripts || [];
+  const scripts = ["grid-bg.js", ...pageScripts.filter((s) => s !== "grid-bg.js")];
   const lines = [
     `<meta charset="UTF-8" />`,
     `<meta name="viewport" content="width=device-width, initial-scale=1" />`,
@@ -176,7 +185,7 @@ function renderHead(page) {
     `<meta name="twitter:image" content="${page.twitterImage}" />`,
     `<link rel="stylesheet" href="${b}portfolio.css" />`,
     `<script src="${b}i18n.js" defer></script>`,
-    ...(page.scripts || []).map((s) => `<script src="${b}${s}" defer></script>`),
+    ...scripts.map((s) => `<script src="${b}${s}" defer></script>`),
     `<link href="${SITE.fontsHref}" rel="stylesheet">`,
   ];
   return lines.map((l) => I4 + l).join("\n");
@@ -226,6 +235,20 @@ function applyRegions(html, page) {
     /(<head>\n)[\s\S]*?(\n {2}<\/head>)/,
     (_m, open, close) => open + renderHead(page) + close
   );
+
+  const atmosphereRe =
+    /[^\S\n]*<div class="bg-atmosphere" aria-hidden="true">\s*<div class="bg-grid-fallback"><\/div>\s*<canvas id="bg-grid"><\/canvas>\s*<\/div>\s*(?=<header class="site-header">)/;
+  const lavaRe =
+    /[^\S\n]*<div class="lava-lamp"[\s\S]*?<\/div>\s*(?=<header class="site-header">)/;
+
+  if (atmosphereRe.test(out)) {
+    out = out.replace(atmosphereRe, () => `${renderBackground()}\n`);
+  } else if (lavaRe.test(out)) {
+    out = out.replace(lavaRe, () => `${renderBackground()}\n`);
+  } else {
+    out = out.replace(/(<body>\n)/, (_m, open) => `${open}${renderBackground()}\n`);
+  }
+
   out = out.replace(
     /[^\S\n]*<header class="site-header">[\s\S]*?<\/header>/,
     () => renderHeader(page)

@@ -21,18 +21,15 @@
     <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/me.webp" />
     <link rel="stylesheet" href="portfolio.css" />
     <script src="i18n.js" defer></script>
+    <script src="grid-bg.js" defer></script>
     <script src="roadmap.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class="lava-lamp" aria-hidden="true">
-      <span class="lava-blob lava-blob--1"></span>
-      <span class="lava-blob lava-blob--2"></span>
-      <span class="lava-blob lava-blob--3"></span>
-      <span class="lava-blob lava-blob--4"></span>
-      <span class="lava-blob lava-blob--5"></span>
-      <span class="lava-blob lava-blob--6"></span>
+    <div class="bg-atmosphere" aria-hidden="true">
+      <div class="bg-grid-fallback"></div>
+      <canvas id="bg-grid"></canvas>
     </div>
     <header class="site-header">
       <div class="logo" data-i18n="logoName">Alejo Castillo</div>
@@ -86,60 +83,26 @@
             </div>
             <h3 data-i18n="aiStoryTitle">AI Story Generator</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Move past an LLM-API wrapper: ship a streaming, RAG-grounded, agentic AI feature that stays reliable when the provider fails.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Vercel AI SDK, RAG over pgvector (Neon), TypeScript, Zod, Vitest, Playwright, GitHub Actions.</span></p>
-            </div>
-            <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="aiStoryOutcome">An AI-engineering flagship: token streaming, retrieval grounding, a tool-calling agent, typed outputs, guardrails, evals, and observability.</span></p>
-              <ul class="case-study-bullets">
-                <li data-i18n="aiStoryBulletApi">AI SDK + streaming — streamText with token streaming; Groq (llama-3.3-70b-versatile) via OpenAI-compatible API, swappable through AI_BASE_URL/AI_API_KEY.</li>
-                <li data-i18n="aiStoryBulletHttp">RAG + agent — pgvector retrieval on Neon grounds a bounded tool-calling loop; Zod-typed outputs and prompt-injection guardrails.</li>
-                <li data-i18n="aiStoryBulletFallback">Evals + observability — golden-set graders (`npm run eval`); per-generation telemetry (tokens, latency, tool calls), plus a deterministic local fallback.</li>
-                <li data-i18n="aiStoryBulletCi">CI + E2E — typecheck, Vitest, node tests, and Playwright; GitHub Actions with required checks and Vercel previews.</li>
-              </ul>
-              <p class="impact" data-i18n="aiStoryImpact">Impact: Streaming AI with retrieval grounding and typed outputs—users still get a story when the provider fails.</p>
-              <div class="tags">
-                <span>Vercel AI SDK</span><span>RAG</span><span>pgvector</span><span>Neon</span><span>TypeScript</span><span>Evals</span>
-              </div>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="aiStoryProblem">Streaming RAG story generator with agents, guardrails, and evals.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="aiStoryStack">Vercel AI SDK · pgvector · Neon · TypeScript</span></p>
             </div>
             <a class="card-link" href="projects/ia-stories.html" data-i18n="read-more">Read more</a>
-            <details class="card-details">
-              <summary class="card-details-toggle" data-i18n="aiStoryCardToggle">Quick summary</summary>
-              <p class="card-more" data-i18n="aiStoryMore">Engineering decisions on the card—AI contracts, client resilience, fallbacks, and CI—not just a demo that works on a good day.</p>
-            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://ai-stories-ashy.vercel.app/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/ai-stories" data-i18n="projectRepo">Repo</a>
             </div>
           </article>
 
-          <article class="card card--case-study" id="mini-ecommerce"> 
+          <article class="card card--case-study" id="mini-ecommerce">
             <div class="project-preview">
               <img src="assets/projects/mini-ecommerce-main.webp" alt="Mini Ecommerce main page" loading="lazy" data-i18n-attr="alt:miniEcommerceAlt" />
             </div>
             <h3 data-i18n="miniEcomTitle">Fake E-commerce</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniEcomProblem">Build a production-grade storefront—not a static catalog—with auth, API resilience, and CI-backed checkout flows.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniEcomStack">Next.js App Router, React 19, TypeScript, Clerk, Tailwind CSS, Sentry, Playwright, GitHub Actions.</span></p>
-            </div>
-            <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniEcomOutcome">Production-grade storefront with auth-aware flows, resilient APIs, and CI-backed checkout.</span></p>
-              <ul class="case-study-bullets">
-                <li data-i18n="miniEcomBulletAuth">Auth — Clerk sign-in, protected routes, per-user orders, and admin role demo.</li>
-                <li data-i18n="miniEcomBulletHttp">HTTP resilience — Typed client with timeout/retry and AppError for user-facing failures.</li>
-                <li data-i18n="miniEcomBulletRendering">Rendering — SSG/ISR catalog and PDP for fast loads with fresh product data.</li>
-                <li data-i18n="miniEcomBulletCi">CI — GitHub Actions (lint, type-check, tests, build) plus Playwright checkout E2E.</li>
-              </ul>
-              <p class="impact" data-i18n="miniEcomImpact">Impact: Recruiters can sign in, browse, and complete a tested checkout—not just click through a mock UI.</p>
-              <div class="tags">
-                <span>Clerk</span><span>SSG/ISR</span><span>HTTP Resilience</span><span>Playwright</span>
-              </div>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniEcomProblem">Auth-aware storefront with resilient APIs and CI-backed checkout.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniEcomStack">Next.js · Clerk · TypeScript · Playwright</span></p>
             </div>
             <a class="card-link" href="projects/mini-ecommerce.html" data-i18n="read-more">Read more</a>
-            <details class="card-details">
-              <summary class="card-details-toggle" data-i18n="miniEcomCardToggle">Quick summary</summary>
-              <p class="card-more" data-i18n="miniEcomMore">Engineering decisions spelled out on the card—auth, resilience, rendering, and CI—not just a screenshot and stack list.</p>
-            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://mini-ecommerce-nextjs-psi.vercel.app/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs" data-i18n="projectRepo">Repo</a>
@@ -152,27 +115,10 @@
             </div>
             <h3 data-i18n="miniJobTitle">Mini Job Board</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniJobProblem">Simulate hiring-platform workflows—search, filters, saved jobs, detail views—without a framework or build step.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniJobStack">HTML, CSS, Vanilla JavaScript, JSON data source, Playwright, GitHub Actions.</span></p>
-            </div>
-            <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="miniJobOutcome">Interaction-heavy job board with tested filter logic, multi-page flows, and CI-backed quality gates.</span></p>
-              <ul class="case-study-bullets">
-                <li data-i18n="miniJobBulletFilter">Filter logic — Pure filter/sort module decoupled from the DOM; unit-tested in Node.</li>
-                <li data-i18n="miniJobBulletFlows">Product flows — Search, filters, saved jobs, detail modals/pages; theme and grid/list prefs in localStorage.</li>
-                <li data-i18n="miniJobBulletCi">CI — GitHub Actions: JS syntax checks, JSON schema validation, and filter unit tests.</li>
-                <li data-i18n="miniJobBulletE2e">E2E — Playwright happy path: search → save job → saved jobs modal.</li>
-              </ul>
-              <p class="impact" data-i18n="miniJobImpact">Impact: Recruiters can search, filter, save jobs, and verify the flow via Playwright—not just scroll a static list.</p>
-              <div class="tags">
-                <span>Vanilla JS</span><span>Unit Tests</span><span>Playwright</span><span>CI</span>
-              </div>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="miniJobProblem">Vanilla job board with testable filters and shareable URL state.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="miniJobStack">HTML · CSS · Vanilla JS · Playwright</span></p>
             </div>
             <a class="card-link" href="projects/mini-job-board.html" data-i18n="read-more">Read more</a>
-            <details class="card-details">
-              <summary class="card-details-toggle" data-i18n="miniJobCardToggle">Quick summary</summary>
-              <p class="card-more" data-i18n="miniJobMore">Engineering decisions on the card—testable filter architecture, product flows, CI, and E2E—not just a styled job list.</p>
-            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/mini-job-board/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/mini-job-board" data-i18n="projectRepo">Repo</a>
@@ -185,27 +131,10 @@
             </div>
             <h3 data-i18n="saravaTitle">Saravá — Espacio Cultural</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="saravaProblem">A grassroots cultural center needed a unified digital hub for live radio streaming and project archival without recurring infrastructure costs.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="saravaStack">Next.js (Static), React, TypeScript, GitHub Pages.</span></p>
-            </div>
-            <div class="card__extended">
-              <p><strong data-i18n="labelOutcome">Outcome:</strong> <span data-i18n="saravaOutcome">Delivered a high-performance platform with zero hosting costs, featuring a custom audio player and modular content loaders for community events.</span></p>
-              <ul class="case-study-bullets">
-                <li data-i18n="saravaBulletStatic">Static export — Next.js App Router with output: export for GitHub Pages; zero server cost in production.</li>
-                <li data-i18n="saravaBulletContent">Content pipeline — JSON posts, novels, and events with typed loaders; editors ship copy through Git.</li>
-                <li data-i18n="saravaBulletShell">Site shell — Reusable header/footer, hero carousel, and section routes for radio, podcast, club, and cultural space.</li>
-                <li data-i18n="saravaBulletCi">CI — GitHub Actions lint + production build before docs/ deploy.</li>
-              </ul>
-              <p class="impact" data-i18n="saravaImpact">Impact: Client-ready cultural hub deployed on GitHub Pages with CI-backed builds.</p>
-              <div class="tags">
-                <span>Next.js</span><span>Static Export</span><span>Client Work</span>
-              </div>
+              <p><strong data-i18n="labelProblem">Problem:</strong> <span data-i18n="saravaProblem">Zero-cost cultural hub for live radio and community archival.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="saravaStack">Next.js · TypeScript · GitHub Pages</span></p>
             </div>
             <a class="card-link" href="projects/sarava.html" data-i18n="read-more">Read more</a>
-            <details class="card-details">
-              <summary class="card-details-toggle" data-i18n="saravaCardToggle">Quick summary</summary>
-              <p class="card-more" data-i18n="saravaMore">Engineering decisions on the card—static export, JSON content pipeline, modular sections, and CI—not just a cultural landing page.</p>
-            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/sarava-radio-streaming/" data-i18n="projectLive">Live</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/sarava-radio-streaming" data-i18n="projectRepo">Repo</a>
@@ -219,25 +148,9 @@
             </div>
             <h3 data-i18n="codeQuestTitle">Code Quest</h3>
             <div class="card__text">
-              <p><strong data-i18n="labelPurpose">Purpose:</strong> <span data-i18n="codeQuestPurpose">Interactive walkthrough of the architecture decisions behind my featured repos—filters, auth, RAG, CI—so reviewers can explore tradeoffs by playing, not just reading.</span></p>
-              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="codeQuestStack">Vanilla HTML/CSS/JS, JSON-driven curriculum, bilingual i18n, Web Audio API, localStorage progress, GitHub Pages, GitHub Actions.</span></p>
+              <p><strong data-i18n="labelPurpose">Purpose:</strong> <span data-i18n="codeQuestPurpose">Play the architecture tradeoffs behind my featured repos.</span></p>
+              <p><strong data-i18n="labelStack">Stack:</strong> <span data-i18n="codeQuestStack">Vanilla JS · GitHub Pages · i18n</span></p>
             </div>
-            <div class="card__extended">
-              <p><strong data-i18n="labelDemonstrates">Demonstrates:</strong></p>
-              <ul class="case-study-bullets">
-                <li data-i18n="codeQuestBulletPipeline">Content pipeline — real project decisions (decisions.json, stacks.json, repo snippets) distilled into 8 minigames.</li>
-                <li data-i18n="codeQuestBulletGraph">Cross-repo knowledge graph — each world maps to mini-job-board, mini-ecommerce, ia-stories, and Saravá.</li>
-                <li data-i18n="codeQuestBulletVanilla">Vanilla depth — no build step; fetch + ES modules + shared game UI patterns.</li>
-                <li data-i18n="codeQuestBulletUx">UX polish — world map, XP/badges, retro sound, confetti, EN/ES settings modal.</li>
-              </ul>
-              <div class="tags">
-                <span>Vanilla JS</span><span>Interactive</span><span>Portfolio</span><span>i18n</span>
-              </div>
-            </div>
-            <details class="card-details">
-              <summary class="card-details-toggle" data-i18n="codeQuestCardToggle">Quick summary</summary>
-              <p class="card-more" data-i18n="codeQuestMore">A companion to the case studies—not another product demo. Play the tradeoffs instead of only reading READMEs.</p>
-            </details>
             <div class="project-links">
               <a class="btn btn-small" href="https://alejosworkstuff.github.io/code-quest/" data-i18n="projectPlay">Play</a>
               <a class="btn btn-ghost btn-small" href="https://github.com/alejosworkstuff/code-quest" data-i18n="projectRepo">Repo</a>

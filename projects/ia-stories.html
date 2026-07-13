@@ -21,17 +21,14 @@
     <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
     <link rel="stylesheet" href="../portfolio.css" />
     <script src="../i18n.js" defer></script>
+    <script src="../grid-bg.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body class="case-study-body">
-    <div class="lava-lamp" aria-hidden="true">
-      <span class="lava-blob lava-blob--1"></span>
-      <span class="lava-blob lava-blob--2"></span>
-      <span class="lava-blob lava-blob--3"></span>
-      <span class="lava-blob lava-blob--4"></span>
-      <span class="lava-blob lava-blob--5"></span>
-      <span class="lava-blob lava-blob--6"></span>
+    <div class="bg-atmosphere" aria-hidden="true">
+      <div class="bg-grid-fallback"></div>
+      <canvas id="bg-grid"></canvas>
     </div>
     <header class="site-header">
       <a class="logo logo-link" href="../index.html" data-i18n="logoName">Alejo Castillo</a>
@@ -71,14 +68,61 @@
         <a class="btn btn-ghost btn-small" href="../index.html#ai-story" data-i18n="iasCaseBack">← Back to portfolio</a>
       </div>
 
-      <figure class="case-study-hero">
-        <img
-          src="../assets/projects/ia-stories-main.webp"
-          alt="AI Story Generator main form"
-          loading="eager"
-          data-i18n-attr="alt:aiStoryAlt"
-        />
-      </figure>
+      <section
+        class="case-study-gallery"
+        data-gallery
+        tabindex="0"
+        aria-roledescription="carousel"
+        data-i18n-attr="aria-label:galleryLabel"
+        aria-label="Project screenshots"
+      >
+        <div class="case-study-gallery__viewport">
+          <ul class="case-study-gallery__track">
+            <li class="case-study-gallery__slide is-active">
+              <figure>
+                <img
+                  src="../assets/projects/ia-stories-main.webp"
+                  alt="AI Story Generator main form"
+                  loading="eager"
+                  data-i18n-attr="alt:aiStoryAlt"
+                />
+                <figcaption data-i18n="aiStoryCapMain">Main generator</figcaption>
+              </figure>
+            </li>
+            <li class="case-study-gallery__slide">
+              <figure>
+                <img
+                  src="../assets/projects/ia-stories-dark.webp"
+                  alt="AI Story Generator dark mode UI"
+                  loading="lazy"
+                  data-i18n-attr="alt:aiStoryAltDark"
+                />
+                <figcaption data-i18n="aiStoryCapDark">Dark mode</figcaption>
+              </figure>
+            </li>
+            <li class="case-study-gallery__slide">
+              <figure>
+                <img
+                  src="../assets/projects/ia-stories-fallback.webp"
+                  alt="AI Story Generator offline fallback story"
+                  loading="lazy"
+                  data-i18n-attr="alt:aiStoryAltFallback"
+                />
+                <figcaption data-i18n="aiStoryCapFallback">Offline fallback</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+        <div class="case-study-gallery__controls">
+          <button type="button" class="case-study-gallery__nav case-study-gallery__prev" data-i18n-attr="aria-label:galleryPrev" aria-label="Previous screenshot">‹</button>
+          <div class="case-study-gallery__dots" role="tablist" aria-label="Slides"></div>
+          <button type="button" class="case-study-gallery__nav case-study-gallery__next" data-i18n-attr="aria-label:galleryNext" aria-label="Next screenshot">›</button>
+        </div>
+        <div class="case-study-gallery__progress" aria-hidden="true">
+          <span class="case-study-gallery__progress-bar"></span>
+        </div>
+        <p class="case-study-gallery__live" aria-live="polite"></p>
+      </section>
 
       <section class="case-study-section" id="problem">
         <h2 data-i18n="iasCaseProblemTitle">1. Problem</h2>
