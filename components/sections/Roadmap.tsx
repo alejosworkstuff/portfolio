@@ -38,7 +38,7 @@ type Phase = {
   groups: Group[];
 };
 
-type RoadmapStrings = (typeof roadmapStrings)["en"];
+type RoadmapStrings = (typeof roadmapStrings)[keyof typeof roadmapStrings];
 
 const EXPAND_DURATION = 0.85;
 const COLLAPSE_DURATION = 0.75;
