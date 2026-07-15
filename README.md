@@ -2,9 +2,9 @@
 
 Personal portfolio rebuilt on **Next.js App Router** with GSAP + Lenis scroll choreography, pigmented cream/orange brand tokens, day/night wipe transition, and swappable aesthetic packs.
 
-**Live (Vercel):** [portfolio-sooty-nu-bjae97llpm.vercel.app](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
+**Live:** [portfolio-sooty-nu-bjae97llpm.vercel.app](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
 
-The previous GitHub Pages URL (`alejosworkstuff.github.io/portfolio`) is configured to redirect to Vercel via `.github/workflows/gh-pages-redirect.yml`.
+The old GitHub Pages URL (`alejosworkstuff.github.io/portfolio`) redirects to Vercel. Pages must use **GitHub Actions** as the deploy source so `.github/workflows/gh-pages-redirect.yml` wins; a root `index.html` + `.nojekyll` is also kept as a fallback if Pages is ever left on branch/legacy mode.
 
 ## Stack
 
