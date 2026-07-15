@@ -1,26 +1,29 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Personal portfolio site deployed on GitHub Pages.",
-  "homepage": "https://alejosworkstuff.github.io/portfolio/",
+  "description": "Alejo Castillo portfolio — Next.js + GSAP/Lenis.",
+  "homepage": "https://portfolio-sooty-nu-bjae97llpm.vercel.app/",
   "scripts": {
-    "build:layout": "node scripts/build-layout.mjs",
-    "check:layout": "node scripts/build-layout.mjs --check",
-    "validate:html": "html-validate index.html resume/*.html projects/*.html",
-    "check:links": "linkinator index.html \"resume/*.html\" \"projects/*.html\" --config linkinator.config.json",
-    "check:pages": "npm run check:layout && npm run validate:html && npm run check:links"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [
-    "portfolio",
-    "javascript",
-    "typescript",
-    "html",
-    "css"
-  ],
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "next": "^15.3.4",
+    "next-themes": "^0.4.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
-    "html-validate": "^11.5.3",
-    "linkinator": "^7.6.1",
-    "sharp": "^0.35.1"
+    "@types/node": "^22.15.32",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.29.0",
+    "eslint-config-next": "^15.3.4",
+    "playwright": "^1.61.1",
+    "typescript": "^5.8.3"
   }
 }

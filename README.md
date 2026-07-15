@@ -1,100 +1,61 @@
-# Portfolio — Alejo Castillo
+# Portfolio 2.0 — Alejo Castillo
 
-Personal portfolio site for a full-stack developer. Hand-coded static site focused on clarity, speed, and proof of real product work—not tutorial demos.
+Personal portfolio rebuilt on **Next.js App Router** with GSAP + Lenis scroll choreography, pigmented cream/orange brand tokens, day/night wipe transition, and swappable aesthetic packs.
 
-**Live site:** [alejosworkstuff.github.io/portfolio](https://alejosworkstuff.github.io/portfolio/)
+**Live (Vercel):** [portfolio-sooty-nu-bjae97llpm.vercel.app](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
 
-## Overview
+The previous GitHub Pages URL (`alejosworkstuff.github.io/portfolio`) is configured to redirect to Vercel via `.github/workflows/gh-pages-redirect.yml`.
 
-The site showcases selected projects with problem/stack/outcome case-study cards, a skills breakdown, an “How I use AI in development” section, and contact links. Copy is available in **English** and **Spanish** via a client-side language toggle.
+## Stack
+
+| Layer | Tech |
+|-------|------|
+| Framework | Next.js 15 (App Router), TypeScript, React 19 |
+| Motion | GSAP + ScrollTrigger, Lenis |
+| Theme | `next-themes` + View Transitions wipe + aesthetic packs |
+| Fonts | Fraunces (display) + Outfit (sans) via `next/font` |
+| Hosting | Vercel |
 
 ## Features
 
-- **Bilingual UI** — EN/ES strings in `i18n.js`; language preference persisted in `localStorage`
-- **Project case studies** — Expandable cards with live demos and GitHub repos
-- **Responsive layout** — Mobile nav, project grid, and accessible controls
-- **Zero build step** — Plain HTML, CSS, and JavaScript; deploys directly to GitHub Pages
+- Bilingual EN/ES UI (persisted)
+- Edge-cascade scroll reveals for sections and project cards
+- Video-ready project cards (WebP posters now; drop `.webm` later)
+- Case studies at `/projects/[slug]`
+- Aesthetic switcher: Cream Amber (default), Sky Cream, Space Violet
+- Day/night horizontal wipe (`prefers-reduced-motion` respected)
 
-## Tech stack
+## Develop
 
-| Layer | Technologies |
-|-------|--------------|
-| Markup & style | HTML5, CSS3 (custom properties, responsive grid) |
-| Behavior | Vanilla JavaScript |
-| i18n | Client-side translation map (`i18n.js`) |
-| Hosting | GitHub Pages |
+```bash
+npm install
+npm run dev
+```
+
+```bash
+npm run build
+npm start
+```
 
 ## Project structure
 
 ```
-portfolio/
-├── index.html              # Main portfolio page
-├── projects/               # Per-project case-study pages
-├── portfolio.css           # Site styles
-├── i18n.js                 # EN/ES translations and language toggle
-├── scripts/
-│   └── build-layout.mjs    # Shared <head>/header/footer generator (single source of truth)
-├── assets/
-│   ├── icons/              # LinkedIn, GitHub SVG icons
-│   └── projects/           # Project screenshot previews
-└── README.md
+app/                 # App Router pages + globals.css
+components/          # sections, motion, theme, layout
+lib/                 # translations, projects, aesthetics, case studies
+public/assets/       # images (and future videos)
+public/resume/       # static resume / cover letter HTML
+_legacy/             # archived static site (reference only)
 ```
 
-## Shared layout
+## Videos
 
-The `<head>` SEO/Open Graph block, the site header/nav, and the footer are
-identical (modulo per-page SEO values and the relative path prefix) across
-`index.html` and every `projects/*.html` page. To avoid copy-paste drift, those
-three regions are generated from a single source of truth in
-[`scripts/build-layout.mjs`](scripts/build-layout.mjs):
+When you record project loops, place files under `public/assets/projects/` and set `videoSrc` on the matching entry in `lib/projects.ts`. Until then, posters are used.
 
-- Edit per-page SEO and the shared markup in the config/renderers at the top of
-  that file, then run `npm run build:layout` to rewrite the regions in place.
-- The pages stay plain, directly-servable static HTML — there is no runtime
-  templating step, so GitHub Pages serving is unchanged.
-- `npm run check:layout` fails if any page is stale (wired into
-  `npm run check:pages` so CI catches forgotten regenerations).
+## Aesthetic packs
 
-## Featured projects
-
-| Project | Stack highlights |
-|---------|------------------|
-| [AI Story Generator](https://ai-stories-ashy.vercel.app/) | Vercel AI SDK, RAG/pgvector (Neon), TypeScript, Zod, Vitest, Playwright |
-| [Fake E-commerce](https://mini-ecommerce-nextjs-psi.vercel.app/) | Next.js, React 19, Clerk, Playwright, GitHub Actions |
-| [Mini Job Board](https://alejosworkstuff.github.io/mini-job-board/) | HTML, CSS, Vanilla JS, JSON |
-| [Saravá — Espacio Cultural](https://alejosworkstuff.github.io/sarava-radio-streaming/) | Next.js static export, GitHub Pages |
-
-## Local development
-
-No install or build required.
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/alejosworkstuff/portfolio.git
-   cd portfolio
-   ```
-
-2. Serve the folder with any static file server, for example:
-
-   ```bash
-   npx serve .
-   ```
-
-   Or open `index.html` directly in a browser.
-
-3. Edit `index.html`, `portfolio.css`, or `i18n.js` and refresh to preview changes.
-
-## Deployment
-
-The site is deployed on **GitHub Pages** from the `main` branch. Push to `main` to update the live site at the URL above.
-
-## Contact
-
-- **Email:** alejoworkstuff@gmail.com
-- **LinkedIn:** [alejo-castillo-0b02b73b0](https://www.linkedin.com/in/alejo-castillo-0b02b73b0/)
-- **GitHub:** [alejosworkstuff](https://github.com/alejosworkstuff)
+Token packs live in `lib/aesthetics/`. Day/night is independent of the selected pack.
 
 ## License
 
-All rights reserved unless otherwise noted. Project screenshots and copy are personal portfolio materials.
+See [LICENSE](./LICENSE).

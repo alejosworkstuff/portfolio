@@ -1,0 +1,52 @@
+name: GitHub Pages redirect
+
+# Keeps https://alejosworkstuff.github.io/portfolio/ pointing at the Vercel site.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-redirect
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare redirect site
+        run: |
+          mkdir -p _site
+          cat > _site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <title>Alejo Castillo — Portfolio</title>
+              <meta http-equiv="refresh" content="0; url=https://portfolio-sooty-nu-bjae97llpm.vercel.app/" />
+              <link rel="canonical" href="https://portfolio-sooty-nu-bjae97llpm.vercel.app/" />
+              <script>
+                location.replace("https://portfolio-sooty-nu-bjae97llpm.vercel.app/");
+              </script>
+            </head>
+            <body>
+              <p>
+                Portfolio 2.0 moved to
+                <a href="https://portfolio-sooty-nu-bjae97llpm.vercel.app/">Vercel</a>.
+              </p>
+            </body>
+          </html>
+          EOF
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

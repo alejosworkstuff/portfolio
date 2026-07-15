@@ -433,7 +433,9 @@
       "id": "v2",
       "label": "Phase v2 — Pages, Depth & Full-Stack Signals",
       "labelEs": "Fase v2 — Páginas, profundidad y señales full-stack",
-      "status": "in-progress",
+      "status": "done",
+      "completedDate": "2026-07-09",
+      "collapsed": true,
       "groups": [
         {
           "label": "Phase 6 — PostgreSQL & persistence (mini-ecommerce)",
@@ -732,6 +734,7 @@
       "labelEs": "Fase v3.1 — Flagship IA (LEAN)",
       "status": "done",
       "completedDate": "2026-07-09",
+      "collapsed": true,
       "groups": [
         {
           "label": "Phase 0 — Positioning (Week 1, Days 1–2)",
@@ -1028,6 +1031,7 @@
       "label": "Phase v4 — Hire-First (Post-MVP)",
       "labelEs": "Fase v4 — Hire-First (Post-MVP)",
       "status": "in-progress",
+      "collapsed": true,
       "groups": [
         {
           "label": "Phase 5 — Job hunt (ACTIVE, P0)",
