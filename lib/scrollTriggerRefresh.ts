@@ -1,13 +1,16 @@
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  scheduleScrollTriggerRefresh,
+  beginLayoutMotion,
+  tickLayoutMotion,
+  endLayoutMotion,
+  isLayoutMotionActive,
+} from "@/lib/pageMotion";
 
-let timer: number | undefined;
-
-/** Coalesce layout thrash so N EdgeReveals / details toggles don't race refresh. */
-export function scheduleScrollTriggerRefresh(delayMs = 80) {
-  if (typeof window === "undefined") return;
-  if (timer !== undefined) window.clearTimeout(timer);
-  timer = window.setTimeout(() => {
-    timer = undefined;
-    ScrollTrigger.refresh();
-  }, delayMs) as unknown as number;
-}
+/** @deprecated Prefer `@/lib/pageMotion` — kept so old imports keep working. */
+export {
+  scheduleScrollTriggerRefresh,
+  beginLayoutMotion as beginLayoutFlow,
+  endLayoutMotion as endLayoutFlow,
+  tickLayoutMotion,
+  isLayoutMotionActive,
+};

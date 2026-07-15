@@ -10,7 +10,11 @@ import {
 import gsap from "gsap";
 import { useI18n } from "@/lib/i18n";
 import { EdgeReveal } from "@/components/motion/EdgeReveal";
-import { scheduleScrollTriggerRefresh } from "@/lib/scrollTriggerRefresh";
+import {
+  beginLayoutMotion,
+  tickLayoutMotion,
+  endLayoutMotion,
+} from "@/lib/pageMotion";
 import roadmapData from "@/lib/roadmap.json";
 import { roadmapStrings } from "@/lib/translations";
 
@@ -71,6 +75,10 @@ function RoadmapPhase({
   useLayoutEffect(() => {
     return () => {
       tweenRef.current?.kill();
+      if (animatingRef.current) {
+        animatingRef.current = false;
+        endLayoutMotion();
+      }
     };
   }, []);
 
@@ -93,9 +101,14 @@ function RoadmapPhase({
           ? COLLAPSE_DURATION
           : EXPAND_DURATION;
 
-      // Keep ScrollTrigger markers in sync with live height so scrubbed
-      // reveals below don't jump to progress 0 when the page shortens.
-      const syncLayout = () => scheduleScrollTriggerRefresh(32);
+      // Layout owns vertical push; tick refreshes scroll scrub every frame
+      // so both drivers stay in the same motion model.
+      beginLayoutMotion();
+
+      const finish = () => {
+        animatingRef.current = false;
+        endLayoutMotion();
+      };
 
       if (open) {
         animatingRef.current = true;
@@ -106,11 +119,10 @@ function RoadmapPhase({
             height: 0,
             duration,
             ease: "power2.inOut",
-            onUpdate: syncLayout,
+            onUpdate: tickLayoutMotion,
             onComplete: () => {
               setOpen(false);
-              animatingRef.current = false;
-              syncLayout();
+              finish();
             },
           },
         );
@@ -120,13 +132,11 @@ function RoadmapPhase({
       setOpen(true);
       animatingRef.current = true;
 
-      // Wait for <details open> to paint — closed content is display:none and
-      // scrollHeight is 0 until then.
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           const target = panelRef.current;
           if (!target) {
-            animatingRef.current = false;
+            finish();
             return;
           }
 
@@ -138,11 +148,10 @@ function RoadmapPhase({
             height: fullHeight,
             duration,
             ease: "power2.out",
-            onUpdate: syncLayout,
+            onUpdate: tickLayoutMotion,
             onComplete: () => {
               gsap.set(target, { height: "auto" });
-              animatingRef.current = false;
-              syncLayout();
+              finish();
             },
           });
         });

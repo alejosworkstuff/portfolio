@@ -3,7 +3,10 @@
 import { useLayoutEffect, useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { scheduleScrollTriggerRefresh } from "@/lib/scrollTriggerRefresh";
+import {
+  isLayoutMotionActive,
+  scheduleScrollTriggerRefresh,
+} from "@/lib/pageMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,17 +20,22 @@ type EdgeRevealProps = {
   className?: string;
 };
 
-const offsets: Record<Edge, { x: number; y: number }> = {
-  left: { x: -80, y: 28 },
-  right: { x: 80, y: 28 },
-  bottom: { x: 0, y: 72 },
-  top: { x: 0, y: -56 },
+/**
+ * Horizontal-only offsets. Vertical motion is owned by document layout so
+ * accordion height tweens and scroll scrub share one vertical model.
+ */
+const offsets: Record<Edge, number> = {
+  left: -80,
+  right: 80,
+  bottom: 0,
+  top: 0,
 };
 
 /**
- * Progress is bound to scroll position (scrub).
- * Scrolling up unwinds the same tween in the same proportion.
- * Native window scroll only — no Lenis proxy (that broke reverse sync).
+ * Scroll-driven reveal: autoAlpha + x only.
+ * - Scroll updates progress while the user scrolls.
+ * - Layout motion (accordion) refreshes markers each frame; settled nodes
+ *   stay fully visible so a height change cannot “unreveal” them.
  */
 export function EdgeReveal({
   children,
@@ -42,33 +50,58 @@ export function EdgeReveal({
     if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      gsap.set(el, { autoAlpha: 1, x: 0, y: 0, clearProps: "transform" });
+      gsap.set(el, { autoAlpha: 1, x: 0, clearProps: "transform" });
       return;
     }
 
-    const { x, y } = offsets[edge];
-    // Short scrub: finish while the block is still mid/lower viewport
-    // so a centered section is already fully revealed (not half-done).
+    const x = offsets[edge];
     const startY = 92 - Math.min(10, delay * 40);
     const endY = 58 - Math.min(6, delay * 25);
 
-    const syncVisibility = (self: ScrollTrigger) => {
-      const p = self.progress;
+    let settled = el.dataset.edgeSettled === "1";
+
+    const paint = (p: number) => {
       gsap.set(el, {
         autoAlpha: p,
         x: x * (1 - p),
-        y: y * (1 - p),
+        y: 0,
       });
+    };
+
+    const apply = (self: ScrollTrigger) => {
+      if (settled || el.dataset.edgeSettled === "1") {
+        settled = true;
+        el.dataset.edgeSettled = "1";
+        paint(1);
+        return;
+      }
+
+      if (self.progress >= 1) {
+        settled = true;
+        el.dataset.edgeSettled = "1";
+        paint(1);
+        return;
+      }
+
+      // During layout motion, never drop a mid-reveal below its current paint
+      // if progress collapses from geometry shifting — keep at least visible.
+      if (isLayoutMotionActive() && self.progress < 0.05) {
+        const opacity = Number(gsap.getProperty(el, "opacity"));
+        if (opacity > 0.2) {
+          settled = true;
+          el.dataset.edgeSettled = "1";
+          paint(1);
+          return;
+        }
+      }
+
+      paint(self.progress);
     };
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        {
-          autoAlpha: 0,
-          x,
-          y,
-        },
+        { autoAlpha: 0, x, y: 0 },
         {
           autoAlpha: 1,
           x: 0,
@@ -80,10 +113,34 @@ export function EdgeReveal({
             start: `top ${startY}%`,
             end: `top ${endY}%`,
             scrub: true,
-            // false: refresh must not re-apply the fromTo "from" state
-            // (that flash is what made nearby sections blink on accordion).
             invalidateOnRefresh: false,
-            onRefresh: syncVisibility,
+            onUpdate(self) {
+              if (self.progress >= 1) {
+                settled = true;
+                el.dataset.edgeSettled = "1";
+                paint(1);
+                return;
+              }
+
+              if (
+                (settled || el.dataset.edgeSettled === "1") &&
+                self.direction === -1 &&
+                !isLayoutMotionActive()
+              ) {
+                settled = false;
+                delete el.dataset.edgeSettled;
+                paint(self.progress);
+                return;
+              }
+
+              if (settled || el.dataset.edgeSettled === "1") {
+                paint(1);
+                return;
+              }
+
+              apply(self);
+            },
+            onRefresh: apply,
           },
         },
       );
@@ -95,7 +152,7 @@ export function EdgeReveal({
   }, [edge, delay]);
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} className={className} data-edge-reveal>
       {children}
     </div>
   );
