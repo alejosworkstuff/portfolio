@@ -1025,7 +1025,8 @@
               "label": "Scroll progress bar — contiguous unique pastels per section (GSAP scrub)",
               "labelEs": "Barra de progreso de scroll — pasteles únicos por sección (GSAP scrub)",
               "status": "done",
-              "repo": "portfolio"
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/691cf7d"
             }
           ]
         }
