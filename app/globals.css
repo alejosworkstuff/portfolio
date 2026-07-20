@@ -184,6 +184,36 @@ a:hover {
   border: 0;
 }
 
+/* Scroll progress — bright opaque pastel blocks, revealed L→R */
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: 6px;
+  pointer-events: none;
+  background: var(--bg-deep);
+  container-type: inline-size;
+}
+
+.scroll-progress__reveal {
+  height: 100%;
+  width: 0%;
+  overflow: hidden;
+}
+
+.scroll-progress__segments {
+  display: flex;
+  height: 100%;
+  width: 100cqw;
+}
+
+.scroll-progress__segment {
+  height: 100%;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
 /* Header — solid cream bar, thick rule */
 
 .site-header {

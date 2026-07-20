@@ -1016,6 +1016,18 @@
               "proofUrl": "https://github.com/vercel/ai/pull/16869"
             }
           ]
+        },
+        {
+          "label": "Phase 4.3",
+          "labelEs": "Fase 4.3",
+          "tasks": [
+            {
+              "label": "Scroll progress bar — contiguous unique pastels per section (GSAP scrub)",
+              "labelEs": "Barra de progreso de scroll — pasteles únicos por sección (GSAP scrub)",
+              "status": "done",
+              "repo": "portfolio"
+            }
+          ]
         }
       ]
     }

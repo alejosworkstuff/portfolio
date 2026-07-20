@@ -4,6 +4,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { ThemeProviders } from "@/components/theme/ThemeProviders";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { ScrollProgressBar } from "@/components/motion/ScrollProgressBar";
 import "./globals.css";
 
 const display = Fraunces({
@@ -56,6 +57,7 @@ export default function RootLayout({
               <div className="page-shell">
                 <div className="bg-atmosphere" aria-hidden />
                 <div className="bg-grain" aria-hidden />
+                <ScrollProgressBar />
                 <SiteHeader />
                 <main>{children}</main>
                 <footer className="site-footer">
