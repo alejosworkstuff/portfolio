@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/lib/i18n";
 import { EdgeReveal } from "@/components/motion/EdgeReveal";
+import { contributions } from "@/lib/contributions";
 
 export function OpenSource() {
   const { t } = useI18n();
@@ -11,25 +12,29 @@ export function OpenSource() {
       <EdgeReveal edge="right">
         <h2>{t("openSourceTitle")}</h2>
         <div className="panel-card">
-          <p>
-            {t("openSourcePrefix")}{" "}
-            <a
-              href="https://github.com/vercel/ai"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              vercel/ai
-            </a>
-            {t("openSourceSuffix")}
-            <a
-              href="https://github.com/vercel/ai/pull/16869"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              draft PR #16869
-            </a>
-            {t("openSourceClose")}
-          </p>
+          <ul>
+            {contributions.map((item) => (
+              <li key={item.id}>
+                {t("openSourcePrefix")}{" "}
+                <a
+                  href={item.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.repoLabel}
+                </a>
+                {t(item.summaryKey)}
+                <a
+                  href={item.prUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t(item.prLabelKey)}
+                </a>
+                {t("openSourceClose")}
+              </li>
+            ))}
+          </ul>
         </div>
       </EdgeReveal>
     </section>

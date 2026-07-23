@@ -714,15 +714,17 @@
           "labelEs": "Fase 2.7",
           "tasks": [
             {
-              "label": "1 merged PR in a public JS/TS repo",
-              "labelEs": "1 PR mergeado en repo JS/TS público",
-              "status": "pending"
+              "label": "Credited in merged linkinator fix (#846)",
+              "labelEs": "Citado en el fix mergeado de linkinator (#846)",
+              "status": "done",
+              "proofUrl": "https://github.com/JustinBeckwith/linkinator/pull/846"
             },
             {
               "label": "Open Source section on portfolio",
               "labelEs": "Sección Open Source en el portfolio",
-              "status": "pending",
-              "repo": "portfolio"
+              "status": "done",
+              "repo": "portfolio",
+              "proofUrl": "https://github.com/JustinBeckwith/linkinator/pull/846"
             }
           ]
         }
