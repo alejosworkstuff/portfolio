@@ -2,8 +2,7 @@ export type ProjectSlug =
   | "ia-stories"
   | "mini-ecommerce"
   | "mini-job-board"
-  | "sarava"
-  | "code-quest";
+  | "sarava";
 
 export type ProjectMeta = {
   slug: ProjectSlug;
@@ -19,7 +18,7 @@ export type ProjectMeta = {
   stackKey: string;
   altKey: string;
   eyebrowKey?: string;
-  ctaPrimaryKey: "projectLive" | "projectPlay";
+  ctaPrimaryKey: "projectLive";
 };
 
 export const projects: ProjectMeta[] = [
@@ -74,20 +73,6 @@ export const projects: ProjectMeta[] = [
     stackKey: "saravaStack",
     altKey: "saravaAlt",
     ctaPrimaryKey: "projectLive",
-  },
-  {
-    slug: "code-quest",
-    id: "code-quest",
-    poster: "/assets/projects/code-quest-main.webp",
-    liveUrl: "https://alejosworkstuff.github.io/code-quest/",
-    repoUrl: "https://github.com/alejosworkstuff/code-quest",
-    hasCaseStudy: false,
-    titleKey: "codeQuestTitle",
-    purposeKey: "codeQuestPurpose",
-    stackKey: "codeQuestStack",
-    altKey: "codeQuestAlt",
-    eyebrowKey: "codeQuestEyebrow",
-    ctaPrimaryKey: "projectPlay",
   },
 ];
 
