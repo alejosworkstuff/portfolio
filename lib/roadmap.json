@@ -1037,11 +1037,56 @@
           "labelEs": "Fase 4.4",
           "tasks": [
             {
+              "label": "ExportOps Day 1 — scaffold Next.js + Prisma/Neon + Vercel",
+              "labelEs": "ExportOps Día 1 — scaffold Next.js + Prisma/Neon + Vercel",
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/a143042"
+            },
+            {
+              "label": "ExportOps Day 2 — Clerk auth, /app shell, User sync on Neon",
+              "labelEs": "ExportOps Día 2 — auth Clerk, shell /app, sync User en Neon",
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/f51ff0f"
+            },
+            {
+              "label": "ExportOps Day 3 — schema, BNA helper, createIncome, seed",
+              "labelEs": "ExportOps Día 3 — schema, helper BNA, createIncome, seed",
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/f90c65f"
+            },
+            {
               "label": "ExportOps Day 4 — ledger UI (create, list, edit/delete, invoiced toggle)",
               "labelEs": "ExportOps Día 4 — UI de ledger (crear, listar, editar/borrar, toggle facturado)",
               "status": "done",
               "repo": "export-ops",
               "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/69bba6c"
+            },
+            {
+              "label": "ExportOps Day 5 — dashboard runway (category %, countdown, chart)",
+              "labelEs": "ExportOps Día 5 — dashboard runway (categoría %, countdown, gráfico)",
+              "status": "pending",
+              "repo": "export-ops"
+            },
+            {
+              "label": "ExportOps Day 6 — clients CRUD + income linking",
+              "labelEs": "ExportOps Día 6 — CRUD de clientes + vínculo con ingresos",
+              "status": "pending",
+              "repo": "export-ops"
+            },
+            {
+              "label": "ExportOps Day 7 — alerts (80%/95% + recategorization window)",
+              "labelEs": "ExportOps Día 7 — alertas (80%/95% + ventana de recategorización)",
+              "status": "pending",
+              "repo": "export-ops"
+            },
+            {
+              "label": "ExportOps Day 8 — ship gate (landing, README, LinkedIn)",
+              "labelEs": "ExportOps Día 8 — ship gate (landing, README, LinkedIn)",
+              "status": "pending",
+              "repo": "export-ops"
             }
           ]
         },
