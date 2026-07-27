@@ -1031,6 +1031,46 @@
               "proofUrl": "https://github.com/alejosworkstuff/portfolio/commit/691cf7d"
             }
           ]
+        },
+        {
+          "label": "Phase 4.4",
+          "labelEs": "Fase 4.4",
+          "tasks": [
+            {
+              "label": "ExportOps Day 4 — ledger UI (create, list, edit/delete, invoiced toggle)",
+              "labelEs": "ExportOps Día 4 — UI de ledger (crear, listar, editar/borrar, toggle facturado)",
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/69bba6c"
+            }
+          ]
+        },
+        {
+          "label": "Phase 4.5",
+          "labelEs": "Fase 4.5",
+          "tasks": [
+            {
+              "label": "Saravá CMS — Vercel runtime (drop static export / GH Pages)",
+              "labelEs": "Saravá CMS — runtime Vercel (sacar export estático / GH Pages)",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/414c885"
+            },
+            {
+              "label": "Saravá CMS — Clerk admin + Neon/Prisma seed + Blob CRUD",
+              "labelEs": "Saravá CMS — admin Clerk + seed Neon/Prisma + CRUD Blob",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/414c885"
+            },
+            {
+              "label": "Saravá hero — slower autoplay + pause while lightbox open",
+              "labelEs": "Saravá hero — autoplay más lento + pausa con lightbox abierto",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/17efaae"
+            }
+          ]
         }
       ]
     }
