@@ -190,7 +190,7 @@
       <section class="section">
         <h2>Professional Summary</h2>
         <p>
-          AI-adjacent Fullstack Developer focused on production-ready systems with Next.js (App Router), TypeScript, and Vercel serverless. Designs for resilience first: resilient HTTP (timeout/retry), type-safety (Zod/TypeScript), deterministic fallbacks, and CI/CD-gated quality so failures degrade gracefully instead of blank screens. Ships AI product surfaces (Vercel AI SDK streaming, RAG/pgvector) and ecommerce workflows with the same reliability bar used in latency-sensitive, user-facing apps.
+          AI-adjacent Fullstack Developer building user-facing apps with Next.js (App Router), TypeScript, and Vercel. I ship with typed APIs (Zod/TypeScript), HTTP timeout/retry plus deterministic fallbacks, and CI/CD so failures degrade gracefully. Recent work: a client CMS (Clerk, Prisma, Blob), streaming AI with the Vercel AI SDK, and ecommerce flows covered by Playwright E2E.
         </p>
       </section>
 
@@ -200,7 +200,7 @@
           <li><strong>Languages:</strong> TypeScript, JavaScript, HTML, CSS</li>
           <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, SSG/ISR, Context API, Error Boundaries</li>
           <li><strong>Backend and Auth:</strong> Node.js, REST APIs, GraphQL, Clerk auth, Serverless Functions, PostgreSQL, Prisma, Redis, WebSockets</li>
-          <li><strong>AI / LLM:</strong> Vercel AI SDK (streamText), Groq via OpenAI-compatible API, RAG/pgvector, Zod structured outputs, rate limiting, serverless inference routes, evals</li>
+          <li><strong>AI / LLM:</strong> Vercel AI SDK (streamText), Groq via OpenAI-compatible API, Zod structured outputs, rate limiting, serverless inference routes (RAG/pgvector and evals in progress)</li>
           <li><strong>Reliability:</strong> HTTP resilience (timeout, retry, typed errors), Sentry, structured logging, CSP/security headers</li>
           <li><strong>Testing &amp; Delivery:</strong> Vitest, Testing Library, Playwright E2E, Git, GitHub Actions CI/CD, Vercel, GitHub Pages</li>
         </ul>
@@ -210,16 +210,16 @@
         <h2>Professional Experience</h2>
 
         <article class="project">
-          <h3>Freelance Software Engineer &mdash; Sarav&aacute; Radio Streaming</h3>
+          <h3>Freelance Full-Stack Developer &mdash; Sarav&aacute; Radio Streaming</h3>
           <p class="links">
-            Client commission &middot; Remote |
+            Apr 2026 &ndash; Present &middot; Client commission &middot; Remote |
             Live: <a href="https://sarava-radio-streaming.vercel.app">sarava-radio-streaming.vercel.app</a> |
             Repo: <a href="https://github.com/alejosworkstuff/sarava-radio-streaming">github.com/alejosworkstuff/sarava-radio-streaming</a>
           </p>
           <ul>
-            <li>Delivered a multi-page cultural community website as a paid client commission using Next.js App Router, TypeScript, and Tailwind CSS, translating stakeholder content into a maintainable production site.</li>
-            <li>Implemented type-safe JSON content loaders and reusable section components to reduce content/layout drift and keep edits consistent for non-engineering stakeholders.</li>
-            <li>Established CI/CD with GitHub Actions and deploy to Vercel, enabling repeatable releases and lowering risk for ongoing content updates.</li>
+            <li>Delivered and continue evolving a multi-page cultural community site (Next.js App Router, TypeScript, Tailwind) as a paid client commission.</li>
+            <li>Built a single-admin CMS with Clerk, Neon/PostgreSQL + Prisma, and Vercel Blob so the client manages posts, media, and site logo without code deploys.</li>
+            <li>Shipped reader comments, a featured-content hero, and CI/CD on Vercel for repeatable releases.</li>
           </ul>
         </article>
       </section>
@@ -234,9 +234,9 @@
             Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
           </p>
           <ul>
-            <li>Built a streaming LLM story product on Vercel serverless routes with Vercel AI SDK (streamText) and Groq (Llama 3.3), optimizing for low-latency token delivery under variable provider load.</li>
-            <li>Enforced type-safety (Zod), per-IP rate limiting, and CSP headers; implemented resilient HTTP and deterministic local fallbacks so provider failures never blank-screen the UX.</li>
-            <li>Wired GitHub Actions CI/CD and Playwright E2E; extending with RAG over pgvector and an eval harness for grounded, scalable inference quality.</li>
+            <li>Built a streaming LLM story product on Vercel serverless routes with Vercel AI SDK (streamText) and Groq (Llama 3.3).</li>
+            <li>Added Zod validation, per-IP rate limiting, CSP headers, resilient HTTP, and deterministic local fallbacks when the provider fails.</li>
+            <li>Wired GitHub Actions CI/CD and Playwright E2E; RAG over pgvector and an eval harness are in progress.</li>
           </ul>
         </article>
 
@@ -247,8 +247,8 @@
             Repo: <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs">github.com/alejosworkstuff/mini-ecommerce-nextjs</a>
           </p>
           <ul>
-            <li>Shipped catalog, cart, checkout, and orders on Next.js App Router with Clerk auth and protected routes for production-minded access control.</li>
-            <li>Cut catalog latency risk via SSG/ISR and a typed HTTP client with timeout/retry; Redis cart sync and Prisma + PostgreSQL orders for durable, scalable data paths.</li>
+            <li>Shipped catalog, cart, checkout, and orders on Next.js App Router with Clerk auth and protected routes.</li>
+            <li>Reduced catalog load risk with SSG/ISR and a typed HTTP client (timeout/retry); Redis cart sync and Prisma + PostgreSQL for orders.</li>
             <li>Added Sentry error boundaries, Vitest/Testing Library coverage, and Playwright checkout E2E in GitHub Actions CI/CD.</li>
           </ul>
         </article>

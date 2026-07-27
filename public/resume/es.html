@@ -190,7 +190,7 @@
       <section class="section">
         <h2>Resumen Profesional</h2>
         <p>
-          Desarrollador Fullstack AI-adjacent enfocado en sistemas production-ready con Next.js (App Router), TypeScript y serverless en Vercel. Diseña primero por resilience: HTTP resiliente (timeout/retry), type-safety (Zod/TypeScript), fallbacks deterministas y calidad gated por CI/CD para que los fallos degraden con gracia en lugar de pantallas en blanco. Entrega superficies de producto con IA (streaming con Vercel AI SDK, RAG/pgvector) y flujos ecommerce con el mismo estándar de fiabilidad en apps sensibles a latency.
+          Desarrollador Fullstack con enfoque en IA, construyendo aplicaciones orientadas al usuario con Next.js (App Router), TypeScript y Vercel. Entrego APIs tipadas (Zod/TypeScript), HTTP con timeout/reintento y fallbacks deterministas, y CI/CD para que los fallos degraden con gracia. Trabajo reciente: CMS para un cliente (Clerk, Prisma, Blob), streaming con Vercel AI SDK y flujos ecommerce cubiertos con Playwright E2E.
         </p>
       </section>
 
@@ -200,8 +200,8 @@
           <li><strong>Lenguajes:</strong> TypeScript, JavaScript, HTML, CSS</li>
           <li><strong>Frontend:</strong> React, Next.js (App Router), Tailwind CSS, SSG/ISR, Context API, Error Boundaries</li>
           <li><strong>Backend y Auth:</strong> Node.js, APIs REST, GraphQL, Clerk auth, Funciones Serverless, PostgreSQL, Prisma, Redis, WebSockets</li>
-          <li><strong>IA / LLM:</strong> Vercel AI SDK (streamText), Groq (compatible OpenAI), RAG/pgvector, salidas estructuradas con Zod, rate limiting, rutas serverless, evals</li>
-          <li><strong>Reliability:</strong> HTTP resilience (timeout, retry, errores tipados), Sentry, logging estructurado, headers CSP/seguridad</li>
+          <li><strong>IA / LLM:</strong> Vercel AI SDK (streamText), Groq (compatible OpenAI), salidas estructuradas con Zod, rate limiting, rutas serverless de inferencia (RAG/pgvector y evals en progreso)</li>
+          <li><strong>Fiabilidad:</strong> HTTP resiliente (timeout, reintento, errores tipados), Sentry, logging estructurado, headers CSP/seguridad</li>
           <li><strong>Testing y Entrega:</strong> Vitest, Testing Library, Playwright E2E, Git, GitHub Actions CI/CD, Vercel, GitHub Pages</li>
         </ul>
       </section>
@@ -210,16 +210,16 @@
         <h2>Experiencia Profesional</h2>
 
         <article class="project">
-          <h3>Freelance Software Engineer &mdash; Sarav&aacute; Radio Streaming</h3>
+          <h3>Desarrollador Full-Stack Freelance &mdash; Sarav&aacute; Radio Streaming</h3>
           <p class="links">
-            Comisi&oacute;n de cliente &middot; Remoto |
+            Abr 2026 &ndash; Presente &middot; Comisi&oacute;n de cliente &middot; Remoto |
             Demo: <a href="https://sarava-radio-streaming.vercel.app">sarava-radio-streaming.vercel.app</a> |
             Repo: <a href="https://github.com/alejosworkstuff/sarava-radio-streaming">github.com/alejosworkstuff/sarava-radio-streaming</a>
           </p>
           <ul>
-            <li>Entregu&eacute; un sitio cultural multip&aacute;gina como comisi&oacute;n de cliente con Next.js App Router, TypeScript y Tailwind CSS, convirtiendo contenido de stakeholders en un sitio production-ready y mantenible.</li>
-            <li>Implement&eacute; loaders JSON con type-safety y componentes de secci&oacute;n reutilizables para reducir drift de contenido/layout y mantener ediciones consistentes para perfiles no t&eacute;cnicos.</li>
-            <li>Establec&iacute; CI/CD con GitHub Actions y deploy a Vercel, habilitando releases repetibles y bajando el riesgo en actualizaciones de contenido.</li>
+            <li>Entregu&eacute; y sigo evolucionando un sitio cultural multip&aacute;gina (Next.js App Router, TypeScript, Tailwind) como comisi&oacute;n paga de cliente.</li>
+            <li>Constru&iacute; un CMS de un solo admin con Clerk, Neon/PostgreSQL + Prisma y Vercel Blob para que el cliente gestione posts, media y logo sin deploys de c&oacute;digo.</li>
+            <li>Publiqu&eacute; comentarios de lectores, un hero de contenido destacado y CI/CD en Vercel para releases repetibles.</li>
           </ul>
         </article>
       </section>
@@ -234,9 +234,9 @@
             Repo: <a href="https://github.com/alejosworkstuff/ai-stories">github.com/alejosworkstuff/ai-stories</a>
           </p>
           <ul>
-            <li>Constru&iacute; un producto de historias con LLM en streaming sobre rutas serverless de Vercel con Vercel AI SDK (streamText) y Groq (Llama 3.3), optimizando latency de tokens bajo carga variable del proveedor.</li>
-            <li>Impuse type-safety (Zod), rate limiting por IP y headers CSP; implement&eacute; HTTP resilience y fallbacks locales deterministas para que los fallos del proveedor no dejen pantallas en blanco.</li>
-            <li>Cable&eacute; CI/CD en GitHub Actions y Playwright E2E; extiendo con RAG sobre pgvector y un harness de evals para inferencia grounded y con scalability.</li>
+            <li>Constru&iacute; un producto de historias con LLM en streaming sobre rutas serverless de Vercel con Vercel AI SDK (streamText) y Groq (Llama 3.3).</li>
+            <li>Agregu&eacute; validaci&oacute;n Zod, rate limiting por IP, headers CSP, HTTP resiliente y fallbacks locales deterministas cuando falla el proveedor.</li>
+            <li>Cable&eacute; CI/CD en GitHub Actions y Playwright E2E; RAG sobre pgvector y un harness de evals est&aacute;n en progreso.</li>
           </ul>
         </article>
 
@@ -247,9 +247,9 @@
             Repo: <a href="https://github.com/alejosworkstuff/mini-ecommerce-nextjs">github.com/alejosworkstuff/mini-ecommerce-nextjs</a>
           </p>
           <ul>
-            <li>Publiqué catálogo, carrito, checkout y pedidos en Next.js App Router con auth Clerk y rutas protegidas para control de acceso production-minded.</li>
-            <li>Reduje riesgo de latency del catálogo con SSG/ISR y cliente HTTP tipado con timeout/retry; sync de carrito con Redis y pedidos con Prisma + PostgreSQL.</li>
-            <li>Agregué error boundaries con Sentry, cobertura Vitest/Testing Library y E2E de checkout con Playwright en CI/CD de GitHub Actions.</li>
+            <li>Publiqu&eacute; cat&aacute;logo, carrito, checkout y pedidos en Next.js App Router con auth Clerk y rutas protegidas.</li>
+            <li>Reduje el riesgo de carga del cat&aacute;logo con SSG/ISR y un cliente HTTP tipado (timeout/reintento); sync de carrito con Redis y pedidos con Prisma + PostgreSQL.</li>
+            <li>Agregu&eacute; error boundaries con Sentry, cobertura Vitest/Testing Library y E2E de checkout con Playwright en CI/CD de GitHub Actions.</li>
           </ul>
         </article>
 
@@ -260,8 +260,8 @@
             Repo: <a href="https://github.com/alejosworkstuff/mini-job-board">github.com/alejosworkstuff/mini-job-board</a>
           </p>
           <ul>
-            <li>Construí un portal de empleos responsive en JavaScript vanilla (búsqueda, multi-filtro, ordenamiento, guardados) con persistencia en localStorage para demostrar fundamentos sólidos de DOM/HTML/CSS.</li>
-            <li>Agregué CI/CD con chequeos de sintaxis, validación de esquema JSON, unit tests y Playwright E2E para mantener reliability en los flujos clave.</li>
+            <li>Constru&iacute; un portal de empleos responsive en JavaScript vanilla (b&uacute;squeda, multi-filtro, ordenamiento, guardados) con persistencia en localStorage para demostrar fundamentos s&oacute;lidos de DOM/HTML/CSS.</li>
+            <li>Agregu&eacute; CI/CD con chequeos de sintaxis, validaci&oacute;n de esquema JSON, unit tests y Playwright E2E para mantener fiabilidad en los flujos clave.</li>
           </ul>
         </article>
       </section>
