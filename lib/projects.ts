@@ -65,7 +65,7 @@ export const projects: ProjectMeta[] = [
     slug: "sarava",
     id: "sarava-radio-streaming",
     poster: "/assets/projects/sarava-main.webp",
-    liveUrl: "https://alejosworkstuff.github.io/sarava-radio-streaming/",
+    liveUrl: "https://sarava-radio-streaming.vercel.app",
     repoUrl: "https://github.com/alejosworkstuff/sarava-radio-streaming",
     hasCaseStudy: true,
     titleKey: "saravaTitle",

@@ -1114,6 +1114,13 @@
               "status": "done",
               "repo": "sarava-radio-streaming",
               "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/17efaae"
+            },
+            {
+              "label": "Saravá — comments, logo CMS, featured hero, pastel theme preview",
+              "labelEs": "Saravá — comentarios, logo CMS, hero destacados, preview paleta pastel",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/6a94d7d"
             }
           ]
         }
