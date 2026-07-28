@@ -1067,8 +1067,9 @@
             {
               "label": "ExportOps Day 5 — dashboard runway (category %, countdown, chart)",
               "labelEs": "ExportOps Día 5 — dashboard runway (categoría %, countdown, gráfico)",
-              "status": "pending",
-              "repo": "export-ops"
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/a5e30b9"
             },
             {
               "label": "ExportOps Day 6 — clients CRUD + income linking",

@@ -2,7 +2,8 @@ export type ProjectSlug =
   | "ia-stories"
   | "mini-ecommerce"
   | "mini-job-board"
-  | "sarava";
+  | "sarava"
+  | "export-ops";
 
 export type ProjectMeta = {
   slug: ProjectSlug;
@@ -72,6 +73,19 @@ export const projects: ProjectMeta[] = [
     problemKey: "saravaProblem",
     stackKey: "saravaStack",
     altKey: "saravaAlt",
+    ctaPrimaryKey: "projectLive",
+  },
+  {
+    slug: "export-ops",
+    id: "export-ops",
+    poster: "/assets/projects/export-ops-main.webp",
+    liveUrl: "https://export-ops-jade.vercel.app",
+    repoUrl: "https://github.com/alejosworkstuff/export-ops",
+    hasCaseStudy: false,
+    titleKey: "exportOpsTitle",
+    problemKey: "exportOpsProblem",
+    stackKey: "exportOpsStack",
+    altKey: "exportOpsAlt",
     ctaPrimaryKey: "projectLive",
   },
 ];
