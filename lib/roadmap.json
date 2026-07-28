@@ -1122,6 +1122,13 @@
               "status": "done",
               "repo": "sarava-radio-streaming",
               "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/6a94d7d"
+            },
+            {
+              "label": "Saravá — admin image previews + team editor, Spotify podcast, page comments",
+              "labelEs": "Saravá — previews de imagen + editor de equipo, podcast Spotify, comentarios en páginas",
+              "status": "done",
+              "repo": "sarava-radio-streaming",
+              "proofUrl": "https://github.com/alejosworkstuff/sarava-radio-streaming/commit/31f0e3a"
             }
           ]
         }
