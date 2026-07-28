@@ -65,7 +65,7 @@ body {
   min-height: 100vh;
 }
 
-/* Flat cream field + geometric color bands (no soft glow) */
+/* Flat cream field + side color rails (no soft glow) */
 
 .bg-atmosphere {
   pointer-events: none;
@@ -75,16 +75,7 @@ body {
   background:
     linear-gradient(90deg, var(--glow-warm) 0 12px, transparent 12px),
     linear-gradient(90deg, transparent calc(100% - 12px), var(--accent-alt) 0),
-    linear-gradient(
-      180deg,
-      var(--bg) 0%,
-      var(--bg) 72%,
-      var(--bg-deep) 72%,
-      var(--bg-deep) 78%,
-      var(--glow-amber) 78%,
-      var(--glow-amber) 82%,
-      var(--bg) 82%
-    );
+    var(--bg);
 }
 
 .bg-grain {
@@ -429,13 +420,63 @@ a:hover {
   box-shadow: 4px 4px 0 var(--stroke);
 }
 
-/* Skills — chip stack */
+/* Skills — per-category logo marquees */
+
+.skills-logo-loop-wrap {
+  position: relative;
+  overflow: hidden;
+  margin: 0.35rem 0 0;
+  min-height: 4.5rem;
+}
+
+.skills-logo-loop {
+  /* Match page bg for all aesthetics (harvest / sky / violet) */
+  --logoloop-fadeColor: var(--bg);
+  --logoloop-fadeColorAuto: var(--bg);
+  color: var(--text);
+}
+
+.skills-loop-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: var(--logoloop-logoHeight);
+}
+
+.skills-loop-asset {
+  display: block;
+  height: calc(var(--logoloop-logoHeight) * 0.72);
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+html.dark .skills-loop-asset {
+  filter: invert(1) brightness(0.95);
+}
+
+.skills-loop-label {
+  display: inline-flex;
+  align-items: center;
+  height: var(--logoloop-logoHeight);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--text);
+  opacity: 0.88;
+}
+
+.skills-logo-loop.logoloop--scale-hover .logoloop__item:hover .skills-loop-label {
+  opacity: 1;
+}
 
 .skills-stack {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  margin-top: 0.5rem;
+  margin-top: 0.85rem;
 }
 
 .skills-category {
@@ -799,6 +840,18 @@ a:hover {
 .note {
   color: var(--muted);
   font-size: 0.92rem;
+}
+
+.cursor-grid-page {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+.dark .cursor-grid-page {
+  mix-blend-mode: screen;
 }
 
 .contact-email {
