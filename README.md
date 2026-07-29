@@ -44,7 +44,7 @@ app/                 # App Router pages + globals.css
 components/          # sections, motion, theme, layout
 lib/                 # translations, projects, aesthetics, case studies
 public/assets/       # images (and future videos)
-public/resume/       # static resume / cover letter HTML
+public/resume/       # static resume HTML
 _legacy/             # archived static site (reference only)
 ```
 

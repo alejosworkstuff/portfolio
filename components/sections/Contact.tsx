@@ -12,10 +12,6 @@ export function Contact() {
 
   const resumeHref =
     lang === "es" ? "/resume/es.html" : "/resume/en.html";
-  const coverHref =
-    lang === "es"
-      ? "/resume/cover-letter-es.html"
-      : "/resume/cover-letter-en.html";
 
   async function copyEmail() {
     try {
@@ -58,9 +54,6 @@ export function Contact() {
           </a>
           <a href={resumeHref} target="_blank" rel="noopener noreferrer">
             {lang === "es" ? "CV" : "Resume"}
-          </a>
-          <a href={coverHref} target="_blank" rel="noopener noreferrer">
-            {lang === "es" ? "Carta" : "Cover letter"}
           </a>
         </div>
       </EdgeReveal>
