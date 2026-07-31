@@ -1074,8 +1074,9 @@
             {
               "label": "ExportOps Day 6 — clients CRUD + income linking",
               "labelEs": "ExportOps Día 6 — CRUD de clientes + vínculo con ingresos",
-              "status": "pending",
-              "repo": "export-ops"
+              "status": "done",
+              "repo": "export-ops",
+              "proofUrl": "https://github.com/alejosworkstuff/export-ops/commit/bf5cbdb"
             },
             {
               "label": "ExportOps Day 7 — alerts (80%/95% + recategorization window)",
