@@ -27,7 +27,7 @@ const SITE = {
   origin: "https://alejosworkstuff.github.io/portfolio",
   ogSiteName: "Alejo Castillo Portfolio",
   ogLocale: "en_US",
-  linkedin: "https://www.linkedin.com/in/alejo-castillo-0b02b73b0/",
+  linkedin: "https://www.linkedin.com/in/alejo-castillo-gonzalez/",
   fontsHref:
     "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap",
 };

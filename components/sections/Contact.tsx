@@ -46,7 +46,7 @@ export function Contact() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/alejo-castillo-5bb3a01bb/"
+            href="https://www.linkedin.com/in/alejo-castillo-gonzalez/"
             target="_blank"
             rel="noopener noreferrer"
           >
