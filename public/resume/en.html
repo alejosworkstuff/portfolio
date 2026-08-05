@@ -190,7 +190,7 @@
       <section class="section">
         <h2>Professional Summary</h2>
         <p>
-          AI-adjacent Fullstack Developer building user-facing apps with Next.js (App Router), TypeScript, and Vercel. I ship with typed APIs (Zod/TypeScript), HTTP timeout/retry plus deterministic fallbacks, and CI/CD so failures degrade gracefully. Recent work: a client CMS (Clerk, Prisma, Blob), streaming AI with the Vercel AI SDK, and ecommerce flows covered by Playwright E2E.
+          AI-adjacent Fullstack Developer building user-facing apps with Next.js (App Router), TypeScript, and Vercel. I ship with typed APIs (Zod/TypeScript), HTTP timeout/retry plus deterministic fallbacks, and CI/CD so failures degrade gracefully. Recent work: a client CMS (Clerk, Prisma, Blob), ExportOps (Argentina monotributo fiscal runway), streaming AI with the Vercel AI SDK, and ecommerce flows covered by Playwright E2E.
         </p>
       </section>
 
@@ -237,6 +237,19 @@
             <li>Built a streaming LLM story product on Vercel serverless routes with Vercel AI SDK (streamText) and Groq (Llama 3.3).</li>
             <li>Added Zod validation, per-IP rate limiting, CSP headers, resilient HTTP, and deterministic local fallbacks when the provider fails.</li>
             <li>Wired GitHub Actions CI/CD and Playwright E2E; RAG over pgvector and an eval harness are in progress.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>ExportOps</h3>
+          <p class="links">
+            Live: <a href="https://export-ops-jade.vercel.app">export-ops-jade.vercel.app</a> |
+            Repo: <a href="https://github.com/alejosworkstuff/export-ops">github.com/alejosworkstuff/export-ops</a>
+          </p>
+          <ul>
+            <li>Built a cockpit for Argentinian freelancers exporting services: USD/EUR ledger &rarr; ARS at BNA seller FX and a rolling 12-month runway vs monotributo ceiling.</li>
+            <li>Next.js App Router, TypeScript, Tailwind, Clerk, Neon/PostgreSQL + Prisma; clients CRUD linked to income entries.</li>
+            <li>In-app alerts at 80%/95% of ceiling plus recategorization window (Jan/Jul); deployed on Vercel.</li>
           </ul>
         </article>
 

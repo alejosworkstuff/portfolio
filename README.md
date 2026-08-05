@@ -1,10 +1,12 @@
-# Portfolio 2.0 — Alejo Castillo
+# Portfolio 2.0: Alejo Castillo
 
-Personal portfolio rebuilt on **Next.js App Router** with GSAP + Lenis scroll choreography, pigmented cream/orange brand tokens, day/night wipe transition, and swappable aesthetic packs.
+[![Vercel](https://img.shields.io/badge/live-Vercel-000000?logo=vercel&logoColor=white)](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
+
+Personal site and project hub for an **AI-adjacent fullstack** engineer. Case studies, bilingual EN/ES UI, and motion built with Next.js + GSAP/Lenis.
 
 **Live:** [portfolio-sooty-nu-bjae97llpm.vercel.app](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
 
-The old GitHub Pages URL (`alejosworkstuff.github.io/portfolio`) redirects to Vercel. Pages must use **GitHub Actions** as the deploy source so `.github/workflows/gh-pages-redirect.yml` wins; a root `index.html` + `.nojekyll` is also kept as a fallback if Pages is ever left on branch/legacy mode.
+![Portfolio home](./docs/screenshots/main.webp)
 
 ## Stack
 
@@ -18,14 +20,13 @@ The old GitHub Pages URL (`alejosworkstuff.github.io/portfolio`) redirects to Ve
 
 ## Features
 
-- Bilingual EN/ES UI (persisted)
-- Edge-cascade scroll reveals for sections and project cards
-- Video-ready project cards (WebP posters now; drop `.webm` later)
+- Bilingual EN/ES UI
+- Scroll reveals for sections and project cards
 - Case studies at `/projects/[slug]`
-- Aesthetic switcher: Cream Amber (default), Sky Cream, Space Violet
-- Day/night horizontal wipe (`prefers-reduced-motion` respected)
+- Aesthetic switcher: Cream Amber, Sky Cream, Space Violet
+- Day/night wipe (`prefers-reduced-motion` respected)
 
-## Develop
+## Run locally
 
 ```bash
 npm install
@@ -36,25 +37,6 @@ npm run dev
 npm run build
 npm start
 ```
-
-## Project structure
-
-```
-app/                 # App Router pages + globals.css
-components/          # sections, motion, theme, layout
-lib/                 # translations, projects, aesthetics, case studies
-public/assets/       # images (and future videos)
-public/resume/       # static resume HTML
-_legacy/             # archived static site (reference only)
-```
-
-## Videos
-
-When you record project loops, place files under `public/assets/projects/` and set `videoSrc` on the matching entry in `lib/projects.ts`. Until then, posters are used.
-
-## Aesthetic packs
-
-Token packs live in `lib/aesthetics/`. Day/night is independent of the selected pack.
 
 ## License
 
