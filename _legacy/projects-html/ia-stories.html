@@ -130,7 +130,7 @@
           Most portfolio AI demos are thin wrappers: one prompt, one JSON blob, no grounding, no tests. They look fine in a screenshot and fall apart when you ask how retrieval works, what happens on prompt injection, or whether a model change regressed quality.
         </p>
         <p data-i18n="iasCaseProblemP2">
-          The goal was an AI-engineering flagship: stream tokens to the browser, ground craft decisions in a retrieved corpus, defend against injection, measure quality with an eval harness that gates CI: and still degrade gracefully when the provider fails. v1 proved resilience (rate limits, error contracts, offline fallback); v2 proves the full AI stack on top of that foundation.
+          The goal was a serious AI feature: stream tokens to the browser, ground craft decisions in a retrieved corpus, defend against injection, measure quality with an eval harness that gates CI, and fall back to a local generator when the provider fails. v1 covered resilience (rate limits, error contracts, offline fallback); v2 adds the full AI stack on top of that foundation.
         </p>
       </section>
 
