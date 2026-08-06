@@ -8,7 +8,11 @@ export function Hero() {
 
   return (
     <section id="hero" className="hero">
-      <div className="hero-atmosphere" aria-hidden />
+      <div className="hero-atmosphere" aria-hidden>
+        <span className="hero-block hero-block--amber" />
+        <span className="hero-block hero-block--teal" />
+        <span className="hero-block hero-block--warm" />
+      </div>
       <EdgeReveal edge="bottom" className="hero-inner">
         <p className="brand-mark">{t("logoName")}</p>
         <p className="eyebrow">{t("heroEyebrow")}</p>

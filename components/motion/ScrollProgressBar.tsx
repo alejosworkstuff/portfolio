@@ -11,17 +11,17 @@ gsap.registerPlugin(ScrollTrigger);
 const SECTIONS = [
   "hero",
   "projects",
-  "about",
   "skills",
   "engineering",
-  "open-source",
   "roadmap",
+  "open-source",
+  "about",
   "ai-dev",
   "contact",
 ] as const;
 
 /**
- * Unique bright pastel per section — hue-shifted from `--accent`
+ * Unique bright pastel per section: hue-shifted from `--accent`
  * so the palette tracks the active aesthetic and never repeats.
  */
 function uniquePastel(index: number, total: number) {
@@ -32,7 +32,7 @@ function uniquePastel(index: number, total: number) {
 /**
  * Contiguous scroll progress: full-width rainbow of section blocks,
  * clipped from the left by overall scroll width. Prior colors stay;
- * the next block appears at the tip — no color transitions.
+ * the next block appears at the tip: no color transitions.
  */
 export function ScrollProgressBar() {
   const trackRef = useRef<HTMLDivElement | null>(null);

@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>AI Story Generator Case Study | Alejo Castillo</title>
-    <meta name="description" content="Case study: a streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK — pgvector retrieval on Neon, tool-calling agent, Zod-typed outputs, prompt-injection guardrails, an eval harness, observability, and a deterministic fallback." />
+    <meta name="description" content="Case study: a streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval on Neon, tool-calling agent, Zod-typed outputs, prompt-injection guardrails, an eval harness, observability, and a deterministic fallback." />
     <link rel="canonical" href="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Alejo Castillo Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://alejosworkstuff.github.io/portfolio/projects/ia-stories.html" />
-    <meta property="og:title" content="AI Story Generator — Streaming RAG, Agents & Evals" />
+    <meta property="og:title" content="AI Story Generator: Streaming RAG, Agents & Evals" />
     <meta property="og:description" content="A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability." />
     <meta property="og:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
     <meta property="og:image:alt" content="AI Story Generator main form with seed, tone, and length controls" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AI Story Generator — Streaming RAG, Agents & Evals" />
+    <meta name="twitter:title" content="AI Story Generator: Streaming RAG, Agents & Evals" />
     <meta name="twitter:description" content="A streaming, RAG-grounded, agentic LLM app on the Vercel AI SDK: pgvector retrieval, tool-calling agent, typed outputs, guardrails, evals, and observability." />
     <meta name="twitter:image" content="https://alejosworkstuff.github.io/portfolio/assets/projects/ia-stories-main.webp" />
     <link rel="stylesheet" href="../portfolio.css" />
@@ -57,9 +57,9 @@
 
     <main class="case-study">
       <p class="case-study-eyebrow" data-i18n="iasCaseEyebrow">Case study</p>
-      <h1 class="case-study-title" data-i18n="iasCaseTitle">AI Story Generator — streaming RAG, agents &amp; evals</h1>
+      <h1 class="case-study-title" data-i18n="iasCaseTitle">AI Story Generator: streaming RAG, agents &amp; evals</h1>
       <p class="case-study-lede" data-i18n="iasCaseLede">
-        A production-minded AI feature, upgraded from an LLM-API wrapper into a streaming, RAG-grounded, agentic system on the Vercel AI SDK. It streams tokens to the browser, grounds generation in a retrieved corpus (RAG over pgvector on Neon), runs a bounded tool-calling agent, enforces Zod-typed outputs and prompt-injection guardrails, and ships with an eval harness and observability — while keeping the deterministic local fallback for when the provider fails.
+        A production-minded AI feature, upgraded from an LLM-API wrapper into a streaming, RAG-grounded, agentic system on the Vercel AI SDK. It streams tokens to the browser, grounds generation in a retrieved corpus (RAG over pgvector on Neon), runs a bounded tool-calling agent, enforces Zod-typed outputs and prompt-injection guardrails, and ships with an eval harness and observability: while keeping the deterministic local fallback for when the provider fails.
       </p>
 
       <div class="case-study-links case-study-links--top">
@@ -130,7 +130,7 @@
           Most portfolio AI demos are thin wrappers: one prompt, one JSON blob, no grounding, no tests. They look fine in a screenshot and fall apart when you ask how retrieval works, what happens on prompt injection, or whether a model change regressed quality.
         </p>
         <p data-i18n="iasCaseProblemP2">
-          The goal was an AI-engineering flagship: stream tokens to the browser, ground craft decisions in a retrieved corpus, defend against injection, measure quality with an eval harness that gates CI — and still degrade gracefully when the provider fails. v1 proved resilience (rate limits, error contracts, offline fallback); v2 proves the full AI stack on top of that foundation.
+          The goal was an AI-engineering flagship: stream tokens to the browser, ground craft decisions in a retrieved corpus, defend against injection, measure quality with an eval harness that gates CI: and still degrade gracefully when the provider fails. v1 proved resilience (rate limits, error contracts, offline fallback); v2 proves the full AI stack on top of that foundation.
         </p>
       </section>
 
@@ -161,17 +161,17 @@
 │ generateLocalStory() │  deterministic offline fallback (v1 layer)
 └──────────────────────┘</code></pre>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseArchBullet1">api/generate-stories.ts — serverless handler: rate limit → Zod validation → injection screen → stream via agent → classify pre-stream errors into HTTP contracts.</li>
-          <li data-i18n="iasCaseArchBullet2">lib/ai/agent.ts — streamText with a searchCorpus tool inside a step-bounded loop; output screened incrementally for prompt leaks.</li>
-          <li data-i18n="iasCaseArchBullet3">lib/rag/ — ingest, embed, retrieve: corpus/ chunked and stored in pgvector; top-k passages cited in generation.</li>
-          <li data-i18n="iasCaseArchBullet4">public/js/api.js — reads the text/plain stream with getReader(); app.js renders tokens live and falls back when the server returns JSON errors. UI styled with Tailwind CSS (PostCSS build, dark mode via class strategy).</li>
+          <li data-i18n="iasCaseArchBullet1">api/generate-stories.ts: serverless handler: rate limit → Zod validation → injection screen → stream via agent → classify pre-stream errors into HTTP contracts.</li>
+          <li data-i18n="iasCaseArchBullet2">lib/ai/agent.ts: streamText with a searchCorpus tool inside a step-bounded loop; output screened incrementally for prompt leaks.</li>
+          <li data-i18n="iasCaseArchBullet3">lib/rag/: ingest, embed, retrieve: corpus/ chunked and stored in pgvector; top-k passages cited in generation.</li>
+          <li data-i18n="iasCaseArchBullet4">public/js/api.js: reads the text/plain stream with getReader(); app.js renders tokens live and falls back when the server returns JSON errors. UI styled with Tailwind CSS (PostCSS build, dark mode via class strategy).</li>
         </ul>
       </section>
 
       <section class="case-study-section" id="streaming">
         <h2 data-i18n="iasCaseStreamTitle">3. AI SDK streaming</h2>
         <p data-i18n="iasCaseStreamIntro">
-          Generation moved from a single provider call returning a JSON blob to the Vercel AI SDK's streamText. The model runs on Groq (llama-3.3-70b-versatile) via an OpenAI-compatible provider abstraction — swappable through AI_BASE_URL and AI_API_KEY without touching handler code.
+          Generation moved from a single provider call returning a JSON blob to the Vercel AI SDK's streamText. The model runs on Groq (llama-3.3-70b-versatile) via an OpenAI-compatible provider abstraction: swappable through AI_BASE_URL and AI_API_KEY without touching handler code.
         </p>
         <pre class="case-study-code"><code>const result = streamText({
   model,
@@ -190,10 +190,10 @@ for await (const chunk of result.textStream) {
 }
 </code></pre>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseStreamB1">Live UX — the vanilla client reads the ReadableStream and appends escaped HTML on every chunk; users see tokens arrive, not a spinner followed by a wall of text.</li>
-          <li data-i18n="iasCaseStreamB2">Bounded agent loop — searchCorpus is a tool the model can call when craft guidance would help; stopWhen: stepCountIs(4) caps cost and latency.</li>
-          <li data-i18n="iasCaseStreamB3">Structured eval path — generateObject + storySchema powers the eval harness; streaming path optimizes UX while evals enforce typed, gradable outputs.</li>
-          <li data-i18n="iasCaseStreamB4">Observability on finish — logGeneration records model, tokens, latency, estimated cost, tool-call count, and retrieved-passage count; optional Langfuse forwarding.</li>
+          <li data-i18n="iasCaseStreamB1">Live UX: the vanilla client reads the ReadableStream and appends escaped HTML on every chunk; users see tokens arrive, not a spinner followed by a wall of text.</li>
+          <li data-i18n="iasCaseStreamB2">Bounded agent loop: searchCorpus is a tool the model can call when craft guidance would help; stopWhen: stepCountIs(4) caps cost and latency.</li>
+          <li data-i18n="iasCaseStreamB3">Structured eval path: generateObject + storySchema powers the eval harness; streaming path optimizes UX while evals enforce typed, gradable outputs.</li>
+          <li data-i18n="iasCaseStreamB4">Observability on finish: logGeneration records model, tokens, latency, estimated cost, tool-call count, and retrieved-passage count; optional Langfuse forwarding.</li>
         </ul>
       </section>
 
@@ -213,10 +213,10 @@ export async function retrieve(query: string, k = 4) {
 }
 </code></pre>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseRagB1">Corpus design — three focused craft guides instead of a dump of raw text; each chunk is small enough to fit in context without drowning the user's creative prompt.</li>
-          <li data-i18n="iasCaseRagB2">Embeddings — production uses a local bag-of-words embedder when FORCE_LOCAL_EMBEDDINGS=1 (Groq has no embedding API); the seam accepts a remote embedder when available.</li>
-          <li data-i18n="iasCaseRagB3">Agent-driven retrieval — the model decides when to call searchCorpus and what query to use, rather than blindly prepending top-k results to every prompt.</li>
-          <li data-i18n="iasCaseRagB4">Source citations — grounded stories list corpus filenames (e.g. narrative-structure.md) in groundedOn, verifiable in the live app output.</li>
+          <li data-i18n="iasCaseRagB1">Corpus design: three focused craft guides instead of a dump of raw text; each chunk is small enough to fit in context without drowning the user's creative prompt.</li>
+          <li data-i18n="iasCaseRagB2">Embeddings: production uses a local bag-of-words embedder when FORCE_LOCAL_EMBEDDINGS=1 (Groq has no embedding API); the seam accepts a remote embedder when available.</li>
+          <li data-i18n="iasCaseRagB3">Agent-driven retrieval: the model decides when to call searchCorpus and what query to use, rather than blindly prepending top-k results to every prompt.</li>
+          <li data-i18n="iasCaseRagB4">Source citations: grounded stories list corpus filenames (e.g. narrative-structure.md) in groundedOn, verifiable in the live app output.</li>
         </ul>
       </section>
 
@@ -238,10 +238,10 @@ export function prepareRetrievedContent(content: string) {
 // Output: screen accumulated stream for prompt/tool leaks → 422
 </code></pre>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseGuardB1">Input screening — regex patterns catch "ignore previous instructions," DAN/developer-mode overrides, and fake system tokens before they reach the model.</li>
-          <li data-i18n="iasCaseGuardB2">Retrieved-content fencing — sanitizeRetrievedContent drops injection-shaped lines; wrapUntrusted marks the rest as reference-only data the model must not obey.</li>
-          <li data-i18n="iasCaseGuardB3">Output screening — screenOutput runs on the accumulated stream; if a leak is detected before the first token ships, the handler returns 422 unsafe_output.</li>
-          <li data-i18n="iasCaseGuardB4">CSP headers — vercel.json sets a strict Content-Security-Policy so even a compromised stream can't execute injected script in the page.</li>
+          <li data-i18n="iasCaseGuardB1">Input screening: regex patterns catch "ignore previous instructions," DAN/developer-mode overrides, and fake system tokens before they reach the model.</li>
+          <li data-i18n="iasCaseGuardB2">Retrieved-content fencing: sanitizeRetrievedContent drops injection-shaped lines; wrapUntrusted marks the rest as reference-only data the model must not obey.</li>
+          <li data-i18n="iasCaseGuardB3">Output screening: screenOutput runs on the accumulated stream; if a leak is detected before the first token ships, the handler returns 422 unsafe_output.</li>
+          <li data-i18n="iasCaseGuardB4">CSP headers: vercel.json sets a strict Content-Security-Policy so even a compromised stream can't execute injected script in the page.</li>
         </ul>
       </section>
 
@@ -259,10 +259,10 @@ npm run eval:ci       // CI entrypoint; compares to evals/baseline.json
 // Latest local run: 96.7%
 </code></pre>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseEvalB1">Golden set — 3 schema cases, 5 grounded/relevance cases with expectSources, 3 injection-resistance cases that try to override system instructions.</li>
-          <li data-i18n="iasCaseEvalB2">Deterministic graders — gradeSchemaValid, gradeGroundedRelevance, and gradeNoPromptLeak run offline in Vitest; no API key required for unit tests.</li>
-          <li data-i18n="iasCaseEvalB3">LLM judge — evals/judge.ts scores relevance and fiction quality (pass at score ≥ 3); catches regressions deterministic checks miss.</li>
-          <li data-i18n="iasCaseEvalB4">CI regression gate — eval-regression job in GitHub Actions runs npm run eval:ci when secrets are set; per-case and overall scores must meet evals/baseline.json.</li>
+          <li data-i18n="iasCaseEvalB1">Golden set: 3 schema cases, 5 grounded/relevance cases with expectSources, 3 injection-resistance cases that try to override system instructions.</li>
+          <li data-i18n="iasCaseEvalB2">Deterministic graders: gradeSchemaValid, gradeGroundedRelevance, and gradeNoPromptLeak run offline in Vitest; no API key required for unit tests.</li>
+          <li data-i18n="iasCaseEvalB3">LLM judge: evals/judge.ts scores relevance and fiction quality (pass at score ≥ 3); catches regressions deterministic checks miss.</li>
+          <li data-i18n="iasCaseEvalB4">CI regression gate: eval-regression job in GitHub Actions runs npm run eval:ci when secrets are set; per-case and overall scores must meet evals/baseline.json.</li>
         </ul>
       </section>
 
@@ -272,11 +272,11 @@ npm run eval:ci       // CI entrypoint; compares to evals/baseline.json
           The v2 AI stack sits on v1's production-minded layers. These still matter: an LLM endpoint is a cost endpoint, and demos that white-screen when credits run out are liabilities.
         </p>
         <ul class="case-study-bullets">
-          <li data-i18n="iasCaseResilienceB1">Rate limiting — fixed-window limiter keyed by client IP runs before any LLM call; 429 + Retry-After + X-RateLimit-Remaining on every response.</li>
-          <li data-i18n="iasCaseResilienceB2">HTTP contracts — 400 invalid/unsafe request, 402 provider_no_credits, 422 unsafe_output, 429 rate_limit_exceeded. The client branches on these, not guesswork.</li>
-          <li data-i18n="iasCaseResilienceB3">Client retry — fetchWithResilience adds AbortController timeout and exponential backoff on 429/502/503 before giving up.</li>
-          <li data-i18n="iasCaseResilienceB4">Offline fallback — generateLocalStory() runs entirely in the browser when the AI path can't deliver; a one-time notice explains why.</li>
-          <li data-i18n="iasCaseResilienceB5">Multi-turn state — messages array (capped at 20 turns) is the conversation source of truth; history persists in localStorage with per-item delete and clear-all.</li>
+          <li data-i18n="iasCaseResilienceB1">Rate limiting: fixed-window limiter keyed by client IP runs before any LLM call; 429 + Retry-After + X-RateLimit-Remaining on every response.</li>
+          <li data-i18n="iasCaseResilienceB2">HTTP contracts: 400 invalid/unsafe request, 402 provider_no_credits, 422 unsafe_output, 429 rate_limit_exceeded. The client branches on these, not guesswork.</li>
+          <li data-i18n="iasCaseResilienceB3">Client retry: fetchWithResilience adds AbortController timeout and exponential backoff on 429/502/503 before giving up.</li>
+          <li data-i18n="iasCaseResilienceB4">Offline fallback: generateLocalStory() runs entirely in the browser when the AI path can't deliver; a one-time notice explains why.</li>
+          <li data-i18n="iasCaseResilienceB5">Multi-turn state: messages array (capped at 20 turns) is the conversation source of truth; history persists in localStorage with per-item delete and clear-all.</li>
         </ul>
         <p class="case-study-note">
           <span data-i18n="iasCaseResilienceNote">Honest scope on rate limiting: the store is in-memory (per serverless instance). The upgrade path is a shared store (Redis/Upstash) for a global limit.</span>
@@ -286,10 +286,10 @@ npm run eval:ci       // CI entrypoint; compares to evals/baseline.json
       <section class="case-study-section" id="outcomes">
         <h2 data-i18n="iasCaseOutcomesTitle">8. Outcomes</h2>
         <ul class="case-study-bullets case-study-outcomes">
-          <li data-i18n="iasCaseOutcome1">Live streaming with RAG citations — open the app, type a craft-heavy prompt, watch tokens stream in with corpus sources cited (e.g. narrative-structure.md).</li>
-          <li data-i18n="iasCaseOutcome2">81 Vitest tests + Playwright E2E — handler, agent, guardrails, RAG pipeline, graders, and regression logic covered; CI green on every push.</li>
-          <li data-i18n="iasCaseOutcome3">Eval harness gates quality — 96.7% on latest run vs 91.7% baseline; eval-regression job blocks merges that slip backward.</li>
-          <li data-i18n="iasCaseOutcome4">Graceful degradation — credits out, provider 5xx, or timeout: the user still gets a story plus an honest notice, not a white screen.</li>
+          <li data-i18n="iasCaseOutcome1">Live streaming with RAG citations: open the app, type a craft-heavy prompt, watch tokens stream in with corpus sources cited (e.g. narrative-structure.md).</li>
+          <li data-i18n="iasCaseOutcome2">81 Vitest tests + Playwright E2E: handler, agent, guardrails, RAG pipeline, graders, and regression logic covered; CI green on every push.</li>
+          <li data-i18n="iasCaseOutcome3">Eval harness gates quality: 96.7% on latest run vs 91.7% baseline; eval-regression job blocks merges that slip backward.</li>
+          <li data-i18n="iasCaseOutcome4">Graceful degradation: credits out, provider 5xx, or timeout: the user still gets a story plus an honest notice, not a white screen.</li>
           <li>
             <span data-i18n="iasCaseOutcome5">Deployed on Vercel serverless with Neon pgvector:</span>
             <a href="https://ai-stories-ashy.vercel.app/">ai-stories-ashy.vercel.app</a>
@@ -343,7 +343,7 @@ npm run eval:ci       // CI entrypoint; compares to evals/baseline.json
         </div>
         <p class="case-study-note">
           <span data-i18n="iasCaseCodeQuest">Explore the RAG pipeline and AI fallback decisions in</span>
-          <a href="https://alejosworkstuff.github.io/code-quest/games/pipeline-puzzle.html" rel="noopener noreferrer" target="_blank">Code Quest — Pipeline Puzzle</a>.
+          <a href="https://alejosworkstuff.github.io/code-quest/games/pipeline-puzzle.html" rel="noopener noreferrer" target="_blank">Code Quest: Pipeline Puzzle</a>.
         </p>
         <div class="tags case-study-tags">
           <span>Vercel AI SDK</span><span>RAG</span><span>pgvector</span><span>Agents</span><span>Streaming</span><span>Evals</span><span>TypeScript</span><span>Tailwind CSS</span><span>Zod</span><span>Neon</span>

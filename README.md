@@ -2,7 +2,7 @@
 
 [![Vercel](https://img.shields.io/badge/live-Vercel-000000?logo=vercel&logoColor=white)](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
 
-Personal site and project hub for an **AI-adjacent fullstack** engineer. Case studies, bilingual EN/ES UI, and motion built with Next.js + GSAP/Lenis.
+Personal site and project hub. Case studies, bilingual EN/ES UI, Next.js + GSAP.
 
 **Live:** [portfolio-sooty-nu-bjae97llpm.vercel.app](https://portfolio-sooty-nu-bjae97llpm.vercel.app/)
 
@@ -13,8 +13,8 @@ Personal site and project hub for an **AI-adjacent fullstack** engineer. Case st
 | Layer | Tech |
 |-------|------|
 | Framework | Next.js 15 (App Router), TypeScript, React 19 |
-| Motion | GSAP + ScrollTrigger, Lenis |
-| Theme | `next-themes` + View Transitions wipe + aesthetic packs |
+| Motion | GSAP + ScrollTrigger |
+| Theme | `next-themes` + aesthetic packs |
 | Fonts | Fraunces (display) + Outfit (sans) via `next/font` |
 | Hosting | Vercel |
 
@@ -23,8 +23,8 @@ Personal site and project hub for an **AI-adjacent fullstack** engineer. Case st
 - Bilingual EN/ES UI
 - Scroll reveals for sections and project cards
 - Case studies at `/projects/[slug]`
-- Aesthetic switcher: Cream Amber, Sky Cream, Space Violet
-- Day/night wipe (`prefers-reduced-motion` respected)
+- Theme / aesthetic switcher
+- Light / dark mode
 
 ## Run locally
 

@@ -6,6 +6,7 @@ import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { ScrollProgressBar } from "@/components/motion/ScrollProgressBar";
 import { CursorGridBackdrop } from "@/components/effects/CursorGridBackdrop";
+import { BackToTop } from "@/components/motion/BackToTop";
 import "./globals.css";
 
 const display = Fraunces({
@@ -29,13 +30,13 @@ const mono = Share_Tech_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-sooty-nu-bjae97llpm.vercel.app"),
-  title: "Alejo Castillo — Portfolio",
+  title: "Alejo Castillo: Portfolio",
   description:
-    "Full-stack developer portfolio. Next.js, TypeScript, AI engineering, and production-minded product work.",
+    "Alejo Castillo's portfolio. Next.js and TypeScript projects, with notes on how they're built.",
   openGraph: {
-    title: "Alejo Castillo — Portfolio",
+    title: "Alejo Castillo: Portfolio",
     description:
-      "Full-stack developer portfolio. Next.js, TypeScript, AI engineering, and production-minded product work.",
+      "Alejo Castillo's portfolio. Next.js and TypeScript projects, with notes on how they're built.",
     images: ["/assets/me.webp"],
   },
 };
@@ -63,8 +64,9 @@ export default function RootLayout({
                 <SiteHeader />
                 <main>{children}</main>
                 <footer className="site-footer">
-                  <p>Alejo Castillo · Portfolio 2.0</p>
+                  <p>Alejo Castillo</p>
                 </footer>
+                <BackToTop />
               </div>
             </SmoothScroll>
           </I18nProvider>

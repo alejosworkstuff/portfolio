@@ -84,7 +84,7 @@ export function EdgeReveal({
       }
 
       // During layout motion, never drop a mid-reveal below its current paint
-      // if progress collapses from geometry shifting — keep at least visible.
+      // if progress collapses from geometry shifting, keep at least visible.
       if (isLayoutMotionActive() && self.progress < 0.05) {
         const opacity = Number(gsap.getProperty(el, "opacity"));
         if (opacity > 0.2) {

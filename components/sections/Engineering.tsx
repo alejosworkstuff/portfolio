@@ -50,47 +50,7 @@ export function Engineering() {
           </EdgeReveal>
         ))}
       </div>
-
-      <EdgeReveal edge="bottom" className="eng-local eng-local--crt">
-        <div className="eng-local__bezel">
-          <div className="eng-local__screen">
-            <h3>{t("engLocalCiTitle")}</h3>
-            <p>{t("engLocalCiIntro")}</p>
-            <ol>
-              <li>
-                {t("engLocalCiStep1a")} <code>npm ci</code>.
-              </li>
-              <li>
-                {t("engLocalCiStep2a")} <code>npm run ci</code>{" "}
-                {t("engLocalCiStep2b")}
-              </li>
-              <li>
-                {t("engLocalCiStep3a")}{" "}
-                <code>npx playwright install chromium</code>{" "}
-                {t("engLocalCiStep3b")} <code>npm run ci:full</code>{" "}
-                {t("engLocalCiStep3c")} <code>npm run test:e2e</code>{" "}
-                {t("engLocalCiStep3d")} <code>npm run ci</code>.
-              </li>
-            </ol>
-            <ul>
-              <li>
-                <strong>mini-ecommerce</strong> — {t("engLocalCiEcom")}
-              </li>
-              <li>
-                <strong>mini-job-board</strong> — {t("engLocalCiJob")}
-              </li>
-              <li>
-                <strong>ia-stories</strong> — {t("engLocalCiAi")}
-              </li>
-            </ul>
-            <p className="note">
-              {t("engLocalCiNoteA")} <code>.github/workflows/ci.yml</code>{" "}
-              {t("engLocalCiNoteB")}
-              <span className="crt-cursor" aria-hidden="true" />
-            </p>
-          </div>
-        </div>
-      </EdgeReveal>
     </section>
   );
 }
+

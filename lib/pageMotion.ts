@@ -4,8 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
  * Shared motion bus for the portfolio page.
  *
  * Two drivers must agree on the same model:
- * 1) **Scroll** — EdgeReveal scrub (opacity + horizontal only).
- * 2) **Layout** — in-flow height changes (roadmap accordion, etc.).
+ * 1) **Scroll**: EdgeReveal scrub (opacity + horizontal only).
+ * 2) **Layout**: in-flow height changes (roadmap accordion, etc.).
  *
  * Vertical position is ALWAYS owned by document layout (no GSAP `y` on reveals).
  * During layout tweens we refresh ScrollTrigger every frame so scrub markers
@@ -44,7 +44,7 @@ export function tickLayoutMotion() {
   ScrollTrigger.refresh();
 }
 
-/** Layout tween finished — one final sync. */
+/** Layout tween finished: one final sync. */
 export function endLayoutMotion() {
   layoutMotionDepth = Math.max(0, layoutMotionDepth - 1);
   if (layoutMotionDepth === 0) {

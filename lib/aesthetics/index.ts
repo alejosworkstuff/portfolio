@@ -23,11 +23,11 @@ export type AestheticPack = {
   dark: ThemeTokens;
 };
 
-/** Harvest cream + terracotta — retro 60/70s default */
+/** Cream + terracotta solids: default pack */
 export const creamAmber: AestheticPack = {
   id: "cream-amber",
-  label: "Harvest Retro",
-  labelEs: "Cosecha Retro",
+  label: "Unoriginal name 1",
+  labelEs: "Nombre poco original 1",
   light: {
     bg: "#ECE6C2",
     bgDeep: "#E0D8B0",
@@ -60,8 +60,8 @@ export const creamAmber: AestheticPack = {
 
 export const skyBlue: AestheticPack = {
   id: "sky-blue",
-  label: "Sky Block",
-  labelEs: "Bloque Cielo",
+  label: "Unoriginal name 2",
+  labelEs: "Nombre poco original 2",
   light: {
     bg: "#E8E4D6",
     bgDeep: "#D8D4C4",
@@ -94,8 +94,8 @@ export const skyBlue: AestheticPack = {
 
 export const spaceViolet: AestheticPack = {
   id: "space-violet",
-  label: "Mod Violet",
-  labelEs: "Violeta Mod",
+  label: "Unoriginal name 3",
+  labelEs: "Nombre poco original 3",
   light: {
     bg: "#E8E2EC",
     bgDeep: "#D8D0E0",

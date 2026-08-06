@@ -68,7 +68,7 @@ function RoadmapPhase({
       height: open ? "auto" : 0,
       overflow: "hidden",
     });
-    // Initial paint only — open state after that is driven by the click handler.
+    // Initial paint only: open state after that is driven by the click handler.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

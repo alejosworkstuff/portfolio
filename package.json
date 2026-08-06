@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "Alejo Castillo portfolio — Next.js + GSAP/Lenis.",
+  "description": "Alejo Castillo portfolio: Next.js + GSAP.",
   "homepage": "https://portfolio-sooty-nu-bjae97llpm.vercel.app/",
   "scripts": {
     "dev": "next dev",

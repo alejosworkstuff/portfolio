@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Native window scroll + ScrollTrigger refresh on real layout changes.
- * Lenis was removed: its scrollerProxy desynced scrub on scroll-up.
  *
  * Roadmap (and other EdgeReveal blocks) used to stay at autoAlpha:0 until a
  * window resize (e.g. fullscreen) because ST metrics went stale when page

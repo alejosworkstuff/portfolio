@@ -253,7 +253,7 @@ a {
   line-height: 1.55;
 }
 
-/* Narrow narrative blocks — centered column below full-width grids */
+/* Narrow narrative blocks: centered column below full-width grids */
 .eng-local-ci,
 .roadmap > h2,
 .roadmap-intro,
@@ -1127,7 +1127,7 @@ a {
   color: var(--accent);
 }
 
-/* —— Case study pages (projects/*.html) —— */
+/* : :  Case study pages (projects/*.html) : :  */
 
 .logo-link {
   color: inherit;

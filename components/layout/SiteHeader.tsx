@@ -8,9 +8,9 @@ import { AestheticSwitcher } from "@/components/theme/AestheticSwitcher";
 
 const NAV = [
   { href: "/#projects", key: "navProjects" },
-  { href: "/#about", key: "navAbout" },
   { href: "/#skills", key: "navSkills" },
   { href: "/#engineering", key: "navEngineering" },
+  { href: "/#about", key: "navAbout" },
   { href: "/#contact", key: "navContact" },
 ] as const;
 
