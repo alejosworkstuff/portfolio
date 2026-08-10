@@ -99,7 +99,6 @@ export const skillCategories: SkillCategory[] = [
       {
         id: "ai-sdk",
         labelKey: "skillAiSdk",
-        icon: "vercel",
         href: "https://sdk.vercel.ai",
       },
     ],
