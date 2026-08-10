@@ -20,10 +20,6 @@ type EdgeRevealProps = {
   className?: string;
 };
 
-/**
- * Horizontal-only offsets. Vertical motion is owned by document layout so
- * accordion height tweens and scroll scrub share one vertical model.
- */
 const offsets: Record<Edge, number> = {
   left: -80,
   right: 80,
@@ -31,12 +27,6 @@ const offsets: Record<Edge, number> = {
   top: 0,
 };
 
-/**
- * Scroll-driven reveal: autoAlpha + x only.
- * - Scroll updates progress while the user scrolls.
- * - Layout motion (accordion) refreshes markers each frame; settled nodes
- *   stay fully visible so a height change cannot “unreveal” them.
- */
 export function EdgeReveal({
   children,
   edge = "bottom",
@@ -83,8 +73,6 @@ export function EdgeReveal({
         return;
       }
 
-      // During layout motion, never drop a mid-reveal below its current paint
-      // if progress collapses from geometry shifting, keep at least visible.
       if (isLayoutMotionActive() && self.progress < 0.05) {
         const opacity = Number(gsap.getProperty(el, "opacity"));
         if (opacity > 0.2) {

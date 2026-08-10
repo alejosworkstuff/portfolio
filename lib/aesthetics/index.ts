@@ -23,11 +23,10 @@ export type AestheticPack = {
   dark: ThemeTokens;
 };
 
-/** Cream + terracotta solids: default pack */
 export const creamAmber: AestheticPack = {
   id: "cream-amber",
-  label: "Unoriginal name 1",
-  labelEs: "Nombre poco original 1",
+  label: "better name pending 1",
+  labelEs: "mejor nombre pendiente 1",
   light: {
     bg: "#ECE6C2",
     bgDeep: "#E0D8B0",
@@ -60,8 +59,8 @@ export const creamAmber: AestheticPack = {
 
 export const skyBlue: AestheticPack = {
   id: "sky-blue",
-  label: "Unoriginal name 2",
-  labelEs: "Nombre poco original 2",
+  label: "better name pending 2",
+  labelEs: "mejor nombre pendiente 2",
   light: {
     bg: "#E8E4D6",
     bgDeep: "#D8D4C4",
@@ -94,8 +93,8 @@ export const skyBlue: AestheticPack = {
 
 export const spaceViolet: AestheticPack = {
   id: "space-violet",
-  label: "Unoriginal name 3",
-  labelEs: "Nombre poco original 3",
+  label: "better name pending 3",
+  labelEs: "mejor nombre pendiente 3",
   light: {
     bg: "#E8E2EC",
     bgDeep: "#D8D0E0",

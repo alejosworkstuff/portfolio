@@ -393,7 +393,6 @@ export const caseStudies: Record<string, CaseStudyContent> = {
           "srvCaseContent3",
           "srvCaseContent4",
         ],
-        noteKey: "srvCaseContentNote",
       },
       {
         titleKey: "srvCaseExportTitle",
@@ -418,12 +417,70 @@ export const caseStudies: Record<string, CaseStudyContent> = {
     links: [
       {
         labelKey: "srvCaseLinkLive",
-        href: "https://alejosworkstuff.github.io/sarava-radio-streaming/",
+        href: "https://sarava-radio-streaming.vercel.app",
         external: true,
       },
       {
         labelKey: "srvCaseLinkRepo",
         href: "https://github.com/alejosworkstuff/sarava-radio-streaming",
+        external: true,
+      },
+    ],
+  },
+  "export-ops": {
+    slug: "export-ops",
+    eyebrowKey: "eopCaseEyebrow",
+    titleKey: "eopCaseTitle",
+    ledeKey: "eopCaseLede",
+    backKey: "eopCaseBack",
+    gallery: [
+      {
+        src: "/assets/projects/export-ops-main.webp",
+        altKey: "exportOpsAlt",
+        capKey: "eopCapMain",
+      },
+    ],
+    sections: [
+      {
+        titleKey: "eopCaseProblemTitle",
+        paragraphs: ["eopCaseProblemP1", "eopCaseProblemP2"],
+      },
+      {
+        titleKey: "eopCaseArchTitle",
+        introKey: "eopCaseArchIntro",
+        bullets: [
+          "eopCaseArchBullet1",
+          "eopCaseArchBullet2",
+          "eopCaseArchBullet3",
+          "eopCaseArchBullet4",
+        ],
+      },
+      {
+        titleKey: "eopCaseRunwayTitle",
+        introKey: "eopCaseRunwayIntro",
+        bullets: [
+          "eopCaseRunway1",
+          "eopCaseRunway2",
+          "eopCaseRunway3",
+        ],
+      },
+    ],
+    outcomesTitleKey: "eopCaseOutcomesTitle",
+    outcomes: [
+      "eopCaseOutcome1",
+      "eopCaseOutcome2",
+      "eopCaseOutcome3",
+    ],
+    linksTitleKey: "eopCaseLinksTitle",
+    links: [
+      {
+        labelKey: "eopCaseLinkLive",
+        href: "https://export-ops-jade.vercel.app",
+        external: true,
+      },
+      {
+        labelKey: "eopCaseLinkRepo",
+        href: "https://github.com/alejosworkstuff/export-ops",
         external: true,
       },
     ],

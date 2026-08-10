@@ -83,6 +83,11 @@ export function ProjectCard({ project, index }: Props) {
               <strong>{t("labelPurpose")}</strong> {t(project.purposeKey)}
             </p>
           ) : null}
+          {project.outcomeKey ? (
+            <p>
+              <strong>{t("labelOutcome")}</strong> {t(project.outcomeKey)}
+            </p>
+          ) : null}
           <p>
             <strong>{t("labelStack")}</strong> {t(project.stackKey)}
           </p>

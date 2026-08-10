@@ -30,13 +30,13 @@ const mono = Share_Tech_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-sooty-nu-bjae97llpm.vercel.app"),
-  title: "Alejo Castillo: Portfolio",
+  title: "Alejo Castillo: Frontend-focused Fullstack",
   description:
-    "Alejo Castillo's portfolio. Next.js and TypeScript projects, with notes on how they're built.",
+    "Frontend-focused fullstack developer (Next.js, TypeScript, Vercel). AI Story Generator, Saravá client CMS, ExportOps, and mini-ecommerce with CI.",
   openGraph: {
-    title: "Alejo Castillo: Portfolio",
+    title: "Alejo Castillo: Frontend-focused Fullstack",
     description:
-      "Alejo Castillo's portfolio. Next.js and TypeScript projects, with notes on how they're built.",
+      "Next.js / TypeScript frontend-focused fullstack work: AI Stories, Saravá CMS, ExportOps. Remote-friendly from La Plata, Argentina.",
     images: ["/assets/me.webp"],
   },
 };

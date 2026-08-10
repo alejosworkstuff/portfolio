@@ -16,6 +16,7 @@ export type ProjectMeta = {
   titleKey: string;
   problemKey?: string;
   purposeKey?: string;
+  outcomeKey?: string;
   stackKey: string;
   altKey: string;
   eyebrowKey?: string;
@@ -32,6 +33,7 @@ export const projects: ProjectMeta[] = [
     hasCaseStudy: true,
     titleKey: "aiStoryTitle",
     problemKey: "aiStoryProblem",
+    outcomeKey: "aiStoryOutcome",
     stackKey: "aiStoryStack",
     altKey: "aiStoryAlt",
     ctaPrimaryKey: "projectLive",
@@ -45,6 +47,7 @@ export const projects: ProjectMeta[] = [
     hasCaseStudy: true,
     titleKey: "miniEcomTitle",
     problemKey: "miniEcomProblem",
+    outcomeKey: "miniEcomOutcome",
     stackKey: "miniEcomStack",
     altKey: "miniEcommerceAlt",
     ctaPrimaryKey: "projectLive",
@@ -58,6 +61,7 @@ export const projects: ProjectMeta[] = [
     hasCaseStudy: true,
     titleKey: "miniJobTitle",
     problemKey: "miniJobProblem",
+    outcomeKey: "miniJobOutcome",
     stackKey: "miniJobStack",
     altKey: "miniJobBoardAlt",
     ctaPrimaryKey: "projectLive",
@@ -71,6 +75,7 @@ export const projects: ProjectMeta[] = [
     hasCaseStudy: true,
     titleKey: "saravaTitle",
     problemKey: "saravaProblem",
+    outcomeKey: "saravaOutcome",
     stackKey: "saravaStack",
     altKey: "saravaAlt",
     ctaPrimaryKey: "projectLive",
@@ -81,9 +86,10 @@ export const projects: ProjectMeta[] = [
     poster: "/assets/projects/export-ops-main.webp",
     liveUrl: "https://export-ops-jade.vercel.app",
     repoUrl: "https://github.com/alejosworkstuff/export-ops",
-    hasCaseStudy: false,
+    hasCaseStudy: true,
     titleKey: "exportOpsTitle",
     problemKey: "exportOpsProblem",
+    outcomeKey: "exportOpsOutcome",
     stackKey: "exportOpsStack",
     altKey: "exportOpsAlt",
     ctaPrimaryKey: "projectLive",

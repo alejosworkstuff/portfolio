@@ -29,44 +29,58 @@ export function AestheticSwitcher() {
     const root = rootRef.current;
     if (!root) return;
 
-    const probeTrigger = document.createElement("button");
-    probeTrigger.type = "button";
-    probeTrigger.className = "aesthetic-switcher__trigger";
-    probeTrigger.setAttribute("aria-hidden", "true");
-    probeTrigger.tabIndex = -1;
-    probeTrigger.innerHTML =
-      `<span class="aesthetic-switcher__label"></span>` +
-      `<span class="aesthetic-switcher__chevron" aria-hidden="true">▾</span>`;
-    const probeLabel = probeTrigger.querySelector(".aesthetic-switcher__label");
-    if (probeLabel) probeLabel.textContent = t("themesLabel");
+    let cancelled = false;
 
-    const probeMenu = document.createElement("ul");
-    probeMenu.className = "aesthetic-switcher__menu";
-    probeMenu.setAttribute("aria-hidden", "true");
-    for (const id of ids) {
-      const li = document.createElement("li");
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "aesthetic-switcher__option";
-      btn.textContent =
-        lang === "es" ? aesthetics[id].labelEs : aesthetics[id].label;
-      li.appendChild(btn);
-      probeMenu.appendChild(li);
-    }
+    const measure = () => {
+      if (cancelled || !rootRef.current) return;
+      const el = rootRef.current;
 
-    const stage = document.createElement("div");
-    stage.className = "aesthetic-switcher__probe";
-    stage.append(probeTrigger, probeMenu);
-    root.appendChild(stage);
+      const probeTrigger = document.createElement("button");
+      probeTrigger.type = "button";
+      probeTrigger.className = "aesthetic-switcher__trigger";
+      probeTrigger.setAttribute("aria-hidden", "true");
+      probeTrigger.tabIndex = -1;
+      probeTrigger.innerHTML =
+        `<span class="aesthetic-switcher__label"></span>` +
+        `<span class="aesthetic-switcher__chevron" aria-hidden="true">▾</span>`;
+      const probeLabel = probeTrigger.querySelector(".aesthetic-switcher__label");
+      if (probeLabel) probeLabel.textContent = t("themesLabel");
 
-    const closed = Math.ceil(probeTrigger.getBoundingClientRect().width);
-    const openWidth = Math.ceil(
-      Math.max(closed, probeMenu.getBoundingClientRect().width),
-    );
+      const probeMenu = document.createElement("ul");
+      probeMenu.className = "aesthetic-switcher__menu";
+      probeMenu.setAttribute("aria-hidden", "true");
+      for (const id of ids) {
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "aesthetic-switcher__option";
+        btn.textContent =
+          lang === "es" ? aesthetics[id].labelEs : aesthetics[id].label;
+        li.appendChild(btn);
+        probeMenu.appendChild(li);
+      }
 
-    root.style.setProperty("--as-w-closed", `${closed}px`);
-    root.style.setProperty("--as-w-open", `${openWidth}px`);
-    stage.remove();
+      const stage = document.createElement("div");
+      stage.className = "aesthetic-switcher__probe";
+      stage.append(probeTrigger, probeMenu);
+      el.appendChild(stage);
+
+      const closed = Math.ceil(probeTrigger.getBoundingClientRect().width) + 2;
+      const openWidth = Math.ceil(
+        Math.max(closed, probeMenu.getBoundingClientRect().width),
+      );
+
+      el.style.setProperty("--as-w-closed", `${closed}px`);
+      el.style.setProperty("--as-w-open", `${openWidth}px`);
+      stage.remove();
+    };
+
+    measure();
+    void document.fonts?.ready.then(measure);
+
+    return () => {
+      cancelled = true;
+    };
   }, [lang, t]);
 
   useEffect(() => {

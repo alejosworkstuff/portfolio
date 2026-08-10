@@ -46,7 +46,6 @@ export function ThemeToggle() {
     drop.setAttribute("aria-hidden", "true");
     document.body.appendChild(drop);
 
-    // Force style so the fall animation always starts cleanly.
     void drop.offsetWidth;
     drop.classList.add("is-falling");
 

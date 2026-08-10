@@ -84,8 +84,6 @@ body {
   min-height: 100vh;
 }
 
-/* Flat cream field + side color rails (no soft glow) */
-
 .bg-atmosphere {
   pointer-events: none;
   position: fixed;
@@ -196,8 +194,6 @@ a:hover {
   border: 0;
 }
 
-/* Scroll progress: bright opaque pastel blocks, revealed L→R */
-
 .scroll-progress {
   position: fixed;
   inset: 0 0 auto;
@@ -225,8 +221,6 @@ a:hover {
   flex: 1 0 0;
   min-width: 0;
 }
-
-/* Header: solid cream bar, thick rule */
 
 .site-header {
   position: fixed;
@@ -315,8 +309,9 @@ a:hover {
   position: relative;
   display: inline-block;
   width: var(--as-w-closed, max-content);
+  min-width: var(--as-w-closed, max-content);
   vertical-align: middle;
-  transition: width 320ms cubic-bezier(0.34, 1.45, 0.64, 1);
+  transition: width 280ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .aesthetic-switcher.is-open {
@@ -369,8 +364,7 @@ a:hover {
 }
 
 .aesthetic-switcher__label {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex-shrink: 0;
   white-space: nowrap;
 }
 
@@ -378,7 +372,7 @@ a:hover {
   flex-shrink: 0;
   font-size: 0.7rem;
   line-height: 1;
-  transition: transform 220ms cubic-bezier(0.34, 1.4, 0.64, 1);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .aesthetic-switcher.is-open .aesthetic-switcher__chevron {
@@ -532,8 +526,6 @@ a:hover {
   padding: 2rem 0 4rem;
 }
 
-/* Hard geometric blocks behind hero: 60s color field */
-
 .hero-atmosphere {
   position: absolute;
   inset: auto 0 12% auto;
@@ -615,132 +607,32 @@ a:hover {
   box-shadow: 4px 4px 0 var(--stroke);
 }
 
-/* Skills: per-category logo marquees */
-
-.skills-logo-loop-wrap {
-  position: relative;
-  overflow: hidden;
-  margin: 0.35rem 0 0;
-  min-height: 4.5rem;
-}
-
-.skills-logo-loop {
-  /* Match page bg for all aesthetics (harvest / sky / violet) */
-  --logoloop-fadeColor: var(--bg);
-  --logoloop-fadeColorAuto: var(--bg);
-  color: var(--text);
-}
-
-.skills-loop-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  height: var(--logoloop-logoHeight);
-}
-
-.skills-loop-asset {
-  display: block;
-  height: calc(var(--logoloop-logoHeight) * 0.72);
-  width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
-}
-
-html.dark .skills-loop-asset {
-  filter: invert(1) brightness(0.95);
-}
-
-.skills-loop-label {
-  display: inline-flex;
-  align-items: center;
-  height: var(--logoloop-logoHeight);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  line-height: 1;
-  white-space: nowrap;
-  color: var(--text);
-  opacity: 0.88;
-}
-
-.skills-logo-loop.logoloop--scale-hover .logoloop__item:hover .skills-loop-label {
-  opacity: 1;
-}
+/* Skills: static chip cards */
 
 .skills-stack {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
   margin-top: 0.85rem;
 }
 
 .skills-category {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.skills-banner {
-  display: inline-flex;
-  width: fit-content;
-  max-width: 100%;
-  align-items: stretch;
-  gap: 0.65rem;
+.skills-category .case-banner {
+  display: flex;
   margin: 0 0 0.85rem;
-  padding: 0.4rem 0.8rem 0.4rem 0.4rem;
-  background: var(--panel);
-  border: 3px solid var(--stroke);
-  border-left: 6px solid var(--accent);
-  box-shadow: 4px 4px 0 var(--stroke);
-}
-
-.skills-banner h3 {
-  margin: 0;
-  align-self: center;
-  width: max-content;
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  line-height: 1.15;
-  white-space: nowrap;
-}
-
-.skills-banner-mark {
-  flex: 0 0 2.4rem;
-  width: 2.4rem;
-  min-height: 2.4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 3px;
-  padding: 3px;
-  border: 2px solid var(--stroke);
-  background: var(--bg-deep);
-}
-
-.skills-banner-square {
-  display: block;
-  min-height: 0;
-}
-
-.skills-banner-square--amber {
-  background: var(--glow-amber);
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.skills-banner-square--teal {
-  background: var(--accent-alt);
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-
-.skills-banner-square--warm {
-  background: var(--glow-warm);
-  grid-column: 1;
-  grid-row: 2;
 }
 
 .skill-chips {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  width: 100%;
   gap: 0.55rem;
   margin: 0;
   padding: 0;
@@ -751,13 +643,15 @@ html.dark .skills-loop-asset {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.45rem 0.7rem;
+  padding: 0.5rem 0.75rem;
   border: 2px solid var(--stroke);
+  border-radius: var(--radius);
   background: var(--panel);
   color: var(--text);
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.2;
+  text-decoration: none;
   box-shadow: 2px 2px 0 transparent;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
@@ -766,21 +660,19 @@ html.dark .skills-loop-asset {
   transform: translate(-2px, -2px);
   box-shadow: 3px 3px 0 var(--stroke);
   background: var(--bg);
+  color: var(--text);
 }
 
-.skill-chip-icon {
-  display: inline-block;
-  flex-shrink: 0;
+.skill-chip-img {
+  display: block;
   width: 1.15rem;
   height: 1.15rem;
-  background: currentColor;
-  color: var(--text);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+html.dark .skill-chip-img {
+  filter: invert(1) brightness(0.95);
 }
 
 .project-media {
@@ -862,13 +754,65 @@ html.dark .skills-loop-asset {
   margin-bottom: 0.45rem;
 }
 
+.about-pro {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.about-projects-label {
+  margin: 1.15rem 0 0.25rem;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
 .about-highlight {
-  margin-top: 1.25rem;
-  padding: 1rem 1.1rem;
+  margin-top: 1rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.about-link {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  color: var(--text);
+  border: 2px solid var(--stroke);
   border-radius: var(--radius);
   background: var(--panel);
-  border: 3px solid var(--stroke);
-  border-left: 6px solid var(--accent-soft);
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.about-link:hover {
+  background: var(--accent-soft);
+  border-color: var(--stroke);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.about-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.about-link--resume {
+  width: auto;
+  min-height: 2.6rem;
+  padding: 0.35rem 0.85rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* CRT terminal: Verify CI locally */
@@ -1082,6 +1026,47 @@ html.dark .skills-loop-asset {
   border-radius: var(--radius);
   border: 3px solid var(--stroke);
   background: var(--panel);
+}
+
+.now-list {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+.now-list li {
+  margin-bottom: 0.65rem;
+  color: var(--text);
+}
+
+.milestone-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 44rem;
+}
+
+.milestone-card {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.95rem 1.1rem;
+  border: 2px solid var(--stroke);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.milestone-card__title {
+  color: var(--text);
+  font-size: 1.02rem;
+}
+
+.milestone-card__body {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 .roadmap-phase summary {
@@ -1505,7 +1490,8 @@ html.dark .skills-loop-asset {
   text-align: right;
 }
 
-.case-banner h2 {
+.case-banner h2,
+.case-banner h3 {
   margin: 0;
   align-self: center;
   width: max-content;
@@ -1550,8 +1536,6 @@ html.dark .skills-loop-asset {
   grid-column: 1;
   grid-row: 2;
 }
-
-/* Theme toggle: falling drop, then slow circular water ripple */
 
 .theme-water-drop {
   position: fixed;
@@ -1606,14 +1590,12 @@ html.dark .skills-loop-asset {
     border-radius: 55% 45% 50% 50% / 60% 60% 40% 40%;
   }
 
-  /* Impact squash */
   82% {
     transform: translate3d(0, calc(50vh - 0.2rem), 0) scale(1.55, 0.42);
     opacity: 1;
     border-radius: 50%;
   }
 
-  /* Sink into the ripple */
   100% {
     transform: translate3d(0, calc(50vh - 0.35rem), 0) scale(0.15);
     opacity: 0;
@@ -1639,7 +1621,6 @@ html[data-theme-transition="to-dark"]::view-transition-old(root) {
 }
 
 @keyframes theme-ripple-in {
-  /* Tiny blot where the drop hit */
   0% {
     clip-path: circle(0% at 50% 50%);
   }
@@ -1648,12 +1629,10 @@ html[data-theme-transition="to-dark"]::view-transition-old(root) {
     clip-path: circle(2.2% at 50% 50%);
   }
 
-  /* Soft retract, like water pulling back */
   11% {
     clip-path: circle(1.5% at 50% 50%);
   }
 
-  /* Ripple spreads, easing out as it reaches the edges */
   100% {
     clip-path: circle(150% at 50% 50%);
   }
@@ -1711,10 +1690,6 @@ html[data-theme-transition="to-dark"]::view-transition-old(root) {
     height: min(36%, 11rem);
   }
 
-  .skills-banner h3 {
-    white-space: normal;
-  }
-
   .bg-atmosphere {
     background:
       linear-gradient(90deg, var(--glow-warm) 0 8px, transparent 8px),
@@ -1743,7 +1718,8 @@ html[data-theme-transition="to-dark"]::view-transition-old(root) {
     max-width: 100%;
   }
 
-  .case-banner h2 {
+  .case-banner h2,
+  .case-banner h3 {
     white-space: normal;
   }
 

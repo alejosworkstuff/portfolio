@@ -7,10 +7,11 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { AestheticSwitcher } from "@/components/theme/AestheticSwitcher";
 
 const NAV = [
-  { href: "/#projects", key: "navProjects" },
-  { href: "/#skills", key: "navSkills" },
-  { href: "/#engineering", key: "navEngineering" },
   { href: "/#about", key: "navAbout" },
+  { href: "/#skills", key: "navSkills" },
+  { href: "/#projects", key: "navProjects" },
+  { href: "/#recent-work", key: "navRoadmap" },
+  { href: "/#engineering", key: "navEngineering" },
   { href: "/#contact", key: "navContact" },
 ] as const;
 

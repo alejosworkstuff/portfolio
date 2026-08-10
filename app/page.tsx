@@ -12,12 +12,12 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Projects />
-      <Skills />
-      <Engineering />
-      <Roadmap />
-      <OpenSource />
       <About />
+      <Skills />
+      <Projects />
+      <Roadmap />
+      <Engineering />
+      <OpenSource />
       <AiDev />
       <Contact />
     </>

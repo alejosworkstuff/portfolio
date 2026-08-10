@@ -27,8 +27,6 @@ export type SkillItem = {
 export type SkillCategory = {
   id: string;
   titleKey: string;
-  /** left = clockwise / a reloj; right = counter-clockwise / a contrarreloj */
-  direction: "left" | "right";
   items: SkillItem[];
 };
 
@@ -36,7 +34,6 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "frontend",
     titleKey: "skillsFrontendTitle",
-    direction: "left",
     items: [
       { id: "react", labelKey: "skillReact", icon: "react", href: "https://react.dev" },
       {
@@ -68,7 +65,6 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "backend",
     titleKey: "skillsBackendTitle",
-    direction: "right",
     items: [
       {
         id: "nodejs",
@@ -111,7 +107,6 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "reliability",
     titleKey: "skillsDataTitle",
-    direction: "left",
     items: [
       {
         id: "sentry",
@@ -127,7 +122,6 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "delivery",
     titleKey: "skillsDeliveryTitle",
-    direction: "right",
     items: [
       {
         id: "vitest",
