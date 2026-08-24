@@ -7,6 +7,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import {
@@ -24,6 +25,7 @@ type I18nContextValue = {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 const STORAGE_KEY = "portfolio-language";
+const subscribeToNothing = () => () => {};
 
 function resolveInitialLang(): Lang {
   if (typeof window === "undefined") return "en";
@@ -33,13 +35,18 @@ function resolveInitialLang(): Lang {
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setLangState(resolveInitialLang());
-    setReady(true);
-  }, []);
+  const storedLang = useSyncExternalStore(
+    subscribeToNothing,
+    resolveInitialLang,
+    () => "en" as Lang,
+  );
+  const ready = useSyncExternalStore(
+    subscribeToNothing,
+    () => true,
+    () => false,
+  );
+  const [selectedLang, setLangState] = useState<Lang | null>(null);
+  const lang = selectedLang ?? storedLang;
 
   useEffect(() => {
     if (!ready) return;
@@ -49,8 +56,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const setLang = useCallback((next: Lang) => setLangState(next), []);
   const toggleLang = useCallback(
-    () => setLangState((prev) => (prev === "en" ? "es" : "en")),
-    [],
+    () => setLangState(lang === "en" ? "es" : "en"),
+    [lang],
   );
 
   const t = useCallback(

@@ -38,7 +38,23 @@ const CursorGrid = ({
   const propsRef = useRef({});
   const wakeRef = useRef(null);
 
-  propsRef.current = {
+  useEffect(() => {
+    propsRef.current = {
+      cellSize,
+      color,
+      radius,
+      falloff,
+      holdTime,
+      fadeDuration,
+      lineWidth,
+      maxOpacity,
+      fillOpacity,
+      gridOpacity,
+      cellRadius,
+      clickPulse,
+      pulseSpeed,
+    };
+  }, [
     cellSize,
     color,
     radius,
@@ -52,7 +68,7 @@ const CursorGrid = ({
     cellRadius,
     clickPulse,
     pulseSpeed,
-  };
+  ]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -284,7 +300,6 @@ const CursorGrid = ({
       target.removeEventListener("pointermove", onPointerMove);
       target.removeEventListener("pointerdown", onPointerDown);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cellSize, windowEvents]);
 
   useEffect(() => {

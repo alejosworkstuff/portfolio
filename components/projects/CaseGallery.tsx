@@ -15,11 +15,6 @@ export function CaseGallery({ slides }: Props) {
   const titleId = useId();
   const [index, setIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const go = useCallback(
     (delta: number) => {
@@ -62,7 +57,7 @@ export function CaseGallery({ slides }: Props) {
   const slide = slides[index];
 
   const lightbox =
-    lightboxOpen && mounted
+    lightboxOpen
       ? createPortal(
           <div
             className="case-lightbox"

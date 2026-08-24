@@ -338,6 +338,8 @@ export const LogoLoop = memo(
             {item.node}
           </span>
         ) : (
+          // LogoLoop accepts arbitrary remote sources and responsive srcSet values.
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={item.src}
             srcSet={item.srcSet}

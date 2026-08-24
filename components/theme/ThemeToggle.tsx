@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 
 function prefersReducedMotion() {
@@ -22,10 +22,12 @@ function waitForAnimation(el: HTMLElement, fallbackMs: number) {
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const busyRef = useRef(false);
-
-  useEffect(() => setMounted(true), []);
 
   const toggle = useCallback(async () => {
     if (busyRef.current) return;

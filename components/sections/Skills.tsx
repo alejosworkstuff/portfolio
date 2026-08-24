@@ -16,6 +16,8 @@ function SkillMark() {
 
 function SkillIcon({ icon, title }: { icon: SkillIconId; title: string }) {
   return (
+    // SVG marks are tiny decorative assets; Next image optimization adds no value.
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       className="skill-chip-img"
       src={`/assets/icons/skills/${icon}.svg`}

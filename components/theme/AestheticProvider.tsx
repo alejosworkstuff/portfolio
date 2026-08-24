@@ -7,6 +7,7 @@ import {
   useEffect,
   useMemo,
   useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { useTheme } from "next-themes";
@@ -24,6 +25,14 @@ type AestheticContextValue = {
 };
 
 const AestheticContext = createContext<AestheticContextValue | null>(null);
+const subscribeToNothing = () => () => {};
+
+function getStoredAesthetic(): AestheticId {
+  const stored = window.localStorage.getItem(AESTHETIC_STORAGE_KEY);
+  return stored === "cream-amber" || stored === "sky-blue" || stored === "space-violet"
+    ? stored
+    : DEFAULT_AESTHETIC;
+}
 
 function applyTokens(id: AestheticId, resolvedTheme: string | undefined) {
   const pack = aesthetics[id];
@@ -38,15 +47,13 @@ function applyTokens(id: AestheticId, resolvedTheme: string | undefined) {
 
 export function AestheticProvider({ children }: { children: ReactNode }) {
   const { resolvedTheme } = useTheme();
-  const [aesthetic, setAestheticState] =
-    useState<AestheticId>(DEFAULT_AESTHETIC);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(AESTHETIC_STORAGE_KEY);
-    if (stored === "cream-amber" || stored === "sky-blue" || stored === "space-violet") {
-      setAestheticState(stored);
-    }
-  }, []);
+  const storedAesthetic = useSyncExternalStore(
+    subscribeToNothing,
+    getStoredAesthetic,
+    () => DEFAULT_AESTHETIC,
+  );
+  const [selectedAesthetic, setAestheticState] = useState<AestheticId | null>(null);
+  const aesthetic = selectedAesthetic ?? storedAesthetic;
 
   useEffect(() => {
     applyTokens(aesthetic, resolvedTheme);
