@@ -8,7 +8,7 @@ export function AiDev() {
 
   return (
     <section id="ai-dev" className="section">
-      <EdgeReveal edge="right">
+      <EdgeReveal edge="left">
         <h2>{t("aiDevTitle")}</h2>
         <div className="panel-card">
           <p>{t("aiDevIntro")}</p>

@@ -3,6 +3,7 @@
 import { useI18n } from "@/lib/i18n";
 import type { TranslationKey } from "@/lib/translations";
 import { skillCategories, type SkillIconId } from "@/lib/skills";
+import { EdgeReveal } from "@/components/motion/EdgeReveal";
 
 function SkillMark() {
   return (
@@ -16,8 +17,7 @@ function SkillMark() {
 
 function SkillIcon({ icon, title }: { icon: SkillIconId; title: string }) {
   return (
-    // SVG marks are tiny decorative assets; Next image optimization adds no value.
-    // eslint-disable-next-line @next/next/no-img-element
+    
     <img
       className="skill-chip-img"
       src={`/assets/icons/skills/${icon}.svg`}
@@ -37,14 +37,17 @@ export function Skills() {
 
   return (
     <section id="skills" className="section skills">
-      <h2>{t("skillsTitle")}</h2>
+      <EdgeReveal edge="left">
+      <h2>{t("skillsTitle")}</h2> 
+      </EdgeReveal>
 
       <div className="skills-stack">
         {skillCategories.map((category) => (
           <div key={category.id} className="skills-category">
-            <header className="case-banner case-banner--left">
-              <SkillMark />
-              <h3>{t(category.titleKey as TranslationKey)}</h3>
+            <EdgeReveal edge="left">
+            <header className="case-banner case-banner--left"> 
+                <SkillMark />
+             <h3>{t(category.titleKey as TranslationKey)}</h3>
             </header>
             <ul className="skill-chips">
               {category.items.map((item) => {
@@ -76,9 +79,12 @@ export function Skills() {
                 );
               })}
             </ul>
+            </EdgeReveal>
           </div>
+         
         ))}
-      </div>
+      </div> 
+      
     </section>
   );
 }

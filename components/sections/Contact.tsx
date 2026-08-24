@@ -25,18 +25,21 @@ export function Contact() {
 
   return (
     <section id="contact" className="section contact">
-      <EdgeReveal edge="bottom">
+      <EdgeReveal edge="right">
         <h2>{t("contactTitle")}</h2>
         <p className="section-lede">{t("contactBody")}</p>
         <p className="contact-email">{t("contactEmail")}</p>
+
         <div className="contact-links">
           <button type="button" className="btn btn-small" onClick={copyEmail}>
             {copied ? (lang === "es" ? "Copiado" : "Copied") : t("contactCopyEmail")}
           </button>
+
           <a className="btn btn-ghost btn-small" href={`mailto:${EMAIL}`}>
             {t("contactUseEmailApp")}
           </a>
         </div>
+
         <div className="contact-social">
           <a
             href="https://github.com/alejosworkstuff"
