@@ -12,7 +12,7 @@ Personal site and project hub. Case studies, bilingual EN/ES UI, Next.js + GSAP.
 
 | Layer | Tech |
 |-------|------|
-| Framework | Next.js 15 (App Router), TypeScript, React 19 |
+| Framework | Next.js 16.2 (App Router), TypeScript, React 19 |
 | Motion | GSAP + ScrollTrigger |
 | Theme | `next-themes` + aesthetic packs |
 | Fonts | Fraunces (display) + Outfit (sans) via `next/font` |
